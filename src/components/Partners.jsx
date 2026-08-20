@@ -15,6 +15,10 @@ export const partners = [
       src: "/logo-sansil.svg",
       bg: "white",
     },
+    {
+      src: "/logo-stone.svg",
+      bg: "white",
+    },
   ],
   Mm = [
     {
@@ -25,6 +29,9 @@ export const partners = [
     },
     {
       name: "Sansil Led | Iluminação Led",
+    },
+    {
+      name: "Stone | Pagamentos e Gestão",
     },
   ];
 export function Partners() {

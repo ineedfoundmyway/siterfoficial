@@ -6,6 +6,7 @@ import { useTheme } from "@/lib/theme";
 export function Navbar({
   onNavigateOffshore,
   onNavigateTech,
+  onOpenServices,
   currentPage,
 }) {
   const { lang, setLang, t } = useLang();
@@ -20,13 +21,14 @@ export function Navbar({
       const y = window.scrollY;
       setScrolled(y > 60);
       if (Math.abs(y - lastY.current) > 8) setOpen(false);
-      if (y > 120 && y > lastY.current) setHidden(true);
-      else if (y < lastY.current || y <= 120) setHidden(false);
+      // esconde ao rolar em qualquer direção; só aparece no topo da página
+      setHidden(y > 80);
       lastY.current = y;
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
 
 
   const aliases = {
@@ -50,6 +52,11 @@ export function Navbar({
 
   const go = (href) => {
     setOpen(false);
+    if (href === "#servicos" && onOpenServices) {
+      onOpenServices();
+      return;
+    }
+
     const map = aliases[currentPage];
     if (map) {
       const target = map[href];
