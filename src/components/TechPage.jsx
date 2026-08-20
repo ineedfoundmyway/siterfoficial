@@ -620,7 +620,6 @@ export function TechPage({ onNavigateContact }) {
           </div>
 
           <div
-            id="tech-contato"
             className="mt-10 flex flex-col items-start gap-4 border-t pt-6 sm:flex-row sm:items-center sm:justify-between"
             style={{ borderColor: "var(--divider)" }}
           >
@@ -628,10 +627,10 @@ export function TechPage({ onNavigateContact }) {
               {tech.marketFooter}
             </p>
             <a
-              href="#contato"
+              href="#tech-contato"
               onClick={(e) => {
                 e.preventDefault();
-                onNavigateContact?.();
+                scrollTo("#tech-contato");
               }}
               className="shrink-0 rounded-full px-6 py-3 text-sm font-semibold transition-transform hover:scale-105"
               style={{ background: "#f0c040", color: "#050d1a" }}
@@ -639,6 +638,7 @@ export function TechPage({ onNavigateContact }) {
               {tech.cta}
             </a>
           </div>
+
         </div>
       </section>
     </div>
