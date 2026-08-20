@@ -2,11 +2,13 @@ import React from "react";
 import {
   BadgeCheck,
   BarChart3,
+  Box,
   Camera,
   ChevronDown,
   Clock,
   Cpu,
   CreditCard,
+  Info,
   Package,
   QrCode,
   ShieldCheck,
@@ -14,8 +16,12 @@ import {
   Store,
   TrendingUp,
   Wrench,
+  X,
+  ZoomIn,
 } from "lucide-react";
+import { ContactSection } from "@/components/ContactSection";
 import { useLang } from "@/lib/i18n";
+
 import techLogo from "@/assets/logo-rf-tech.png.asset.json";
 
 const shots = [
