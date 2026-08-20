@@ -23,21 +23,21 @@ import { ContactSection } from "@/components/ContactSection";
 import { useLang } from "@/lib/i18n";
 import { ZoomableImage } from "@/components/ZoomableImage";
 
-import techLogo from "@/assets/logo-rf-tech.png.asset.json";
+const techLogo = { url: "/tech/logo-rf-tech.png" };
 
 const shots = [
-  "/__l5e/assets-v1/ddefc332-f631-4fa6-9724-8b4afb9a12c2/dashboard1.jpg",
-  "/__l5e/assets-v1/6a36dfd2-9ae3-42fb-ae81-0d667ae7c69d/produtos.jpg",
-  "/__l5e/assets-v1/4e0889d3-cc09-45ed-a284-618c783135fc/estoque.jpg",
-  "/__l5e/assets-v1/e81786f2-c9ea-43bc-a1e4-bb55bc51f179/clientes.jpg",
-  "/__l5e/assets-v1/a1ed3d83-5cdb-4ee2-a2c1-f54e1fdc689e/camera.jpg",
+  "/tech/dashboard1.jpg",
+  "/tech/produtos.jpg",
+  "/tech/estoque.jpg",
+  "/tech/clientes.jpg",
+  "/tech/camera.jpg",
 ];
 
 const BG = [
-  "/__l5e/assets-v1/f9924dbd-7445-4fcd-8776-3d1b02a438e7/tech-bg.jpg",
-  "/__l5e/assets-v1/b35d270f-5769-4e72-b6eb-f65ebb34883a/tech-bg-2.jpg",
-  "/__l5e/assets-v1/d68adff8-d614-47d0-af07-ee5c86992178/tech-bg-3.jpg",
-  "/__l5e/assets-v1/f3c3cfc7-76f8-4238-9f1f-c1a4edab711c/tech-bg-4.jpg",
+  "/tech/tech-bg.jpg",
+  "/tech/tech-bg-2.jpg",
+  "/tech/tech-bg-3.jpg",
+  "/tech/tech-bg-4.jpg",
 ];
 
 const sectionBg = (url) => ({
@@ -95,7 +95,7 @@ export function TechPage({ onNavigateContact }) {
         className="relative overflow-hidden bg-fixed bg-cover bg-center pt-28 sm:pt-36 pb-16 px-4 sm:px-6"
         style={{
           backgroundImage:
-            "url('/__l5e/assets-v1/f9924dbd-7445-4fcd-8776-3d1b02a438e7/tech-bg.jpg')",
+            "url('/tech/tech-bg.jpg')",
         }}
       >
         <div
