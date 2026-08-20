@@ -98,7 +98,7 @@ export function SectionNav({ sections: t }) {
         {t.map(({ id: d, label: Cmp_h }) => {
           const f = e === d;
           return (
-            <div className="relative flex items-center gap-2 group" key={d}>
+            <div className="relative flex items-center gap-2 group p-1.5 sm:p-0" key={d}>
               <span
                 className="text-xs font-semibold px-2.5 py-1 rounded-md pointer-events-none select-none whitespace-nowrap transition-all duration-200"
                 style={{

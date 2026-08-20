@@ -1,6 +1,7 @@
 import { Mail, MapPin } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/lib/useReveal";
+import { navigateToSection } from "@/lib/sectionAliases";
 
 export const footerLinks =
   "https://maps.google.com/?q=Rua+Doutor+Pio+Borges+2055+Pita+Sao+Goncalo+RJ+CEP+24410-000";
