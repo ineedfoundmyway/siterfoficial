@@ -4,454 +4,236 @@ import { useLang } from "@/lib/i18n";
 import { useTheme } from "@/lib/theme";
 
 export function Navbar({
-  onNavigatePredial: t,
-  onNavigateOffshore: e,
-  onNavigateDaily: Cmp_r,
-  currentPage: n,
+  onNavigateOffshore,
+  onNavigateTech,
+  currentPage,
 }) {
-  const { lang: s, setLang: i, t: o } = useLang(),
-    { isDark: a, toggleTheme: Cmp_l } = useTheme(),
-    [u, d] = React.useState(!1),
-    [h, f] = React.useState(!1),
-    [v, y] = React.useState(!1),
-    x = React.useRef(0);
+  const { lang, setLang, t } = useLang();
+  const { isDark, toggleTheme } = useTheme();
+  const [scrolled, setScrolled] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+  const [hidden, setHidden] = React.useState(false);
+  const lastY = React.useRef(0);
+
   React.useEffect(() => {
-    const w = () => {
-      const k = window.scrollY;
-      (d(k > 60),
-        Math.abs(k - x.current) > 8 && f(!1),
-        window.innerWidth < 768
-          ? k > window.innerHeight * 0.8 && k > x.current
-            ? y(!0)
-            : k < x.current && y(!1)
-          : y(!1),
-        (x.current = k));
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 60);
+      if (Math.abs(y - lastY.current) > 8) setOpen(false);
+      if (window.innerWidth < 768) {
+        if (y > window.innerHeight * 0.8 && y > lastY.current) setHidden(true);
+        else if (y < lastY.current) setHidden(false);
+      } else setHidden(false);
+      lastY.current = y;
     };
-    return (
-      window.addEventListener("scroll", w, {
-        passive: !0,
-      }),
-      () => window.removeEventListener("scroll", w)
-    );
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  const j = {
+
+  const aliases = {
+    predial: {
       "#inicio": "#predial-inicio",
       "#sobre": "#predial-sobre",
       "#servicos": "#predial-servicos",
       "#contato": "#predial-contato",
     },
-    g = (w) => {
-      if ((f(!1), n === "predial")) {
-        const k = j[w];
-        if (k) {
-          const b = document.querySelector(k);
-          b &&
-            b.scrollIntoView({
-              behavior: "smooth",
-            });
-          return;
-        }
-        (e(),
-          setTimeout(() => {
-            const b = document.querySelector(w);
-            b &&
-              b.scrollIntoView({
-                behavior: "smooth",
-              });
-          }, 150));
-      } else if (n === "daily") {
-        const b = {
-          "#inicio": "#diario-inicio",
-          "#servicos": "#diario-servicos",
-          "#materiais": "#diario-materiais",
-          "#contato": "#diario-contato",
-        }[w];
-        if (b) {
-          const S = document.querySelector(b);
-          S &&
-            S.scrollIntoView({
-              behavior: "smooth",
-            });
-          return;
-        }
-        (e(),
-          setTimeout(() => {
-            const S = document.querySelector(w);
-            S &&
-              S.scrollIntoView({
-                behavior: "smooth",
-              });
-          }, 150));
-      } else {
-        const k = document.querySelector(w);
-        k &&
-          k.scrollIntoView({
-            behavior: "smooth",
-          });
-      }
+    daily: {
+      "#inicio": "#diario-inicio",
+      "#servicos": "#diario-servicos",
+      "#contato": "#diario-contato",
     },
-    p = [
-      {
-        label: o.nav.home,
-        href: "#inicio",
-      },
-      {
-        label: o.nav.about,
-        href: "#sobre",
-      },
-      {
-        label: o.nav.services,
-        href: "#servicos",
-      },
-      {
-        label: o.nav.partners,
-        href: "#parceiros",
-      },
-      {
-        label: o.nav.contact,
-        href: "#contato",
-      },
-    ],
-    m = u ? "backdrop-blur-sm shadow-lg shadow-black/30" : "bg-transparent";
+    tech: {
+      "#inicio": "#tech-inicio",
+      "#servicos": "#tech-sistema",
+      "#contato": "#tech-contato",
+    },
+  };
+
+  const go = (href) => {
+    setOpen(false);
+    const map = aliases[currentPage];
+    if (map) {
+      const target = map[href];
+      if (target) {
+        document.querySelector(target)?.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+      onNavigateOffshore();
+      setTimeout(() => {
+        document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+      }, 150);
+      return;
+    }
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const links = [
+    { label: t.nav.home, href: "#inicio" },
+    { label: t.nav.about, href: "#sobre" },
+    { label: t.nav.services, href: "#servicos" },
+    { label: t.nav.partners, href: "#parceiros" },
+    { label: t.nav.contact, href: "#contato" },
+  ];
+
+  const LangSwitch = ({ compact }) => (
+    <div
+      className="flex shrink-0 items-center gap-1 rounded-full px-2 py-1"
+      style={{
+        background: "rgba(212,170,48,0.1)",
+        border: "1px solid rgba(212,170,48,0.3)",
+      }}
+    >
+      {!compact && <Globe size={12} style={{ color: "#f0c040" }} />}
+      {["pt", "en"].map((l) => (
+        <button
+          key={l}
+          onClick={() => setLang(l)}
+          className="text-xs font-semibold px-1.5 py-0.5 rounded-full transition-all"
+          style={
+            lang === l
+              ? { background: "#f0c040", color: "#050d1a" }
+              : { color: "var(--nav-item-color)" }
+          }
+        >
+          {l.toUpperCase()}
+        </button>
+      ))}
+    </div>
+  );
+
+  const ThemeBtn = () => (
+    <button
+      onClick={toggleTheme}
+      title={isDark ? "Modo Claro" : "Modo Escuro"}
+      aria-label={isDark ? "Modo Claro" : "Modo Escuro"}
+      className="flex shrink-0 items-center justify-center w-8 h-8 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
+      style={{
+        background: isDark ? "rgba(240,192,64,0.15)" : "rgba(30,58,110,0.12)",
+        border: `1px solid ${isDark ? "rgba(240,192,64,0.4)" : "rgba(30,58,110,0.3)"}`,
+      }}
+    >
+      {isDark ? (
+        <Sun size={15} style={{ color: "#f0c040" }} />
+      ) : (
+        <Moon size={15} style={{ color: "#1e3a6e" }} />
+      )}
+    </button>
+  );
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${m} ${v ? "-translate-y-full" : "translate-y-0"}`}
-      style={
-        u
-          ? {
-              background: "var(--nav-bg-scrolled)",
-            }
-          : void 0
-      }
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "backdrop-blur-sm shadow-lg shadow-black/30" : "bg-transparent"
+      } ${hidden ? "-translate-y-full" : "translate-y-0"}`}
+      style={scrolled ? { background: "var(--nav-bg-scrolled)" } : undefined}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 h-16 sm:h-20">
           <button
             onClick={() => {
-              (e(),
-                window.scrollTo({
-                  top: 0,
-                  behavior: "smooth",
-                }));
+              onNavigateOffshore();
+              window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="flex items-center gap-3"
+            className="flex min-w-0 items-center gap-2 sm:gap-3 text-left"
           >
             <img
               src="/logo-rf.svg"
               alt="RF Soluções"
-              className="h-16 w-16 object-contain drop-shadow-lg"
+              className="h-10 w-10 sm:h-14 sm:w-14 shrink-0 object-contain drop-shadow-lg"
             />
             <span
-              className="font-bold text-xl"
+              className="truncate font-bold text-base sm:text-xl"
               style={{
                 fontFamily: "Montserrat, sans-serif",
                 color: "var(--text-primary)",
               }}
             >
               {"RF "}
-              <span
-                style={{
-                  color: "var(--gold-400)",
-                }}
-              >
-                {"Soluções"}
-              </span>
+              <span style={{ color: "var(--gold-400)" }}>{"Soluções"}</span>
             </span>
           </button>
-          <ul className="hidden md:flex items-center gap-5">
-            {p.map((w) => (
-              <li key={w.href}>
+
+          <div className="hidden lg:flex items-center gap-5">
+            <ul className="flex items-center gap-5">
+              {links.map((l) => (
+                <li key={l.href}>
+                  <button
+                    onClick={() => go(l.href)}
+                    className="whitespace-nowrap transition-colors duration-200 text-sm font-medium tracking-wide hover:text-[#f0c040]"
+                    style={{ color: "var(--nav-item-color)" }}
+                  >
+                    {l.label}
+                  </button>
+                </li>
+              ))}
+              <li>
                 <button
-                  onClick={() => g(w.href)}
-                  className="transition-colors duration-200 text-sm font-medium tracking-wide hover:text-[#f0c040]"
+                  onClick={() => {
+                    setOpen(false);
+                    onNavigateTech();
+                  }}
+                  className="whitespace-nowrap rounded-full border px-4 py-1.5 text-sm font-semibold tracking-wide transition-all hover:bg-[#f0c040] hover:text-[#050d1a]"
                   style={{
-                    color: "var(--nav-item-color)",
+                    borderColor: "#f0c040",
+                    color: currentPage === "tech" ? "#f0c040" : "var(--nav-item-color)",
                   }}
                 >
-                  {w.label}
+                  {t.nav.tech}
                 </button>
               </li>
-            ))}
-            <li>
-              <button
-                onClick={() => {
-                  (f(!1),
-                    e(),
-                    window.scrollTo({
-                      top: 0,
-                      behavior: "smooth",
-                    }));
-                }}
-                className="transition-colors duration-200 text-sm font-medium tracking-wide hover:text-[#f0c040]"
-                style={{
-                  color: n === "offshore" ? "#a8d0ff" : "var(--nav-item-color)",
-                }}
-              >
-                {o.nav.offshore}
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => {
-                  (f(!1),
-                    t(),
-                    window.scrollTo({
-                      top: 0,
-                      behavior: "smooth",
-                    }));
-                }}
-                className="transition-colors duration-200 text-sm font-medium tracking-wide hover:text-[#f0c040]"
-                style={{
-                  color: n === "predial" ? "#a8d0ff" : "var(--nav-item-color)",
-                }}
-              >
-                {o.nav.terrestrial}
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => {
-                  (f(!1), Cmp_r());
-                }}
-                className="transition-colors duration-200 text-sm font-medium tracking-wide hover:text-[#f0c040]"
-                style={{
-                  color: n === "daily" ? "#a8d0ff" : "var(--nav-item-color)",
-                }}
-              >
-                {o.nav.daily}
-              </button>
-            </li>
-            <li>
-              <div
-                className="flex items-center gap-1 rounded-full px-2 py-1"
-                style={{
-                  background: "rgba(212,170,48,0.1)",
-                  border: "1px solid rgba(212,170,48,0.3)",
-                }}
-              >
-                <Globe
-                  size={12}
-                  style={{
-                    color: "#f0c040",
-                  }}
-                />
-                <button
-                  onClick={() => i("pt")}
-                  className={`text-xs font-semibold px-1.5 py-0.5 rounded-full transition-all ${s === "pt" ? "text-[#050d1a]" : "hover:text-[#f0c040]"}`}
-                  style={
-                    s === "pt"
-                      ? {
-                          background: "#f0c040",
-                          color: "#050d1a",
-                        }
-                      : {
-                          color: "var(--nav-item-color)",
-                        }
-                  }
-                >
-                  {"PT"}
-                </button>
-                <button
-                  onClick={() => i("en")}
-                  className={`text-xs font-semibold px-1.5 py-0.5 rounded-full transition-all ${s === "en" ? "text-[#050d1a]" : "hover:text-[#f0c040]"}`}
-                  style={
-                    s === "en"
-                      ? {
-                          background: "#f0c040",
-                          color: "#050d1a",
-                        }
-                      : {
-                          color: "var(--nav-item-color)",
-                        }
-                  }
-                >
-                  {"EN"}
-                </button>
-              </div>
-            </li>
-            <li>
-              <button
-                onClick={Cmp_l}
-                title={a ? "Modo Claro" : "Modo Escuro"}
-                className="flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
-                style={{
-                  background: a
-                    ? "rgba(240,192,64,0.15)"
-                    : "rgba(30,58,110,0.12)",
-                  border: `1px solid ${a ? "rgba(240,192,64,0.4)" : "rgba(30,58,110,0.3)"}`,
-                }}
-              >
-                {a ? (
-                  <Sun
-                    size={15}
-                    style={{
-                      color: "#f0c040",
-                    }}
-                  />
-                ) : (
-                  <Moon
-                    size={15}
-                    style={{
-                      color: "#1e3a6e",
-                    }}
-                  />
-                )}
-              </button>
-            </li>
-          </ul>
-          <div className="md:hidden flex items-center gap-2">
-            <div
-              className="flex items-center gap-0.5 rounded-full px-2 py-1"
-              style={{
-                background: "rgba(212,170,48,0.1)",
-                border: "1px solid rgba(212,170,48,0.3)",
-              }}
-            >
-              <button
-                onClick={() => i("pt")}
-                className="text-xs font-bold px-1 py-0.5 rounded-full transition-all"
-                style={
-                  s === "pt"
-                    ? {
-                        background: "#f0c040",
-                        color: "#050d1a",
-                      }
-                    : {
-                        color: "var(--nav-item-color)",
-                      }
-                }
-              >
-                {"PT"}
-              </button>
-              <button
-                onClick={() => i("en")}
-                className="text-xs font-bold px-1 py-0.5 rounded-full transition-all"
-                style={
-                  s === "en"
-                    ? {
-                        background: "#f0c040",
-                        color: "#050d1a",
-                      }
-                    : {
-                        color: "var(--nav-item-color)",
-                      }
-                }
-              >
-                {"EN"}
-              </button>
-            </div>
+            </ul>
+            <LangSwitch />
+            <ThemeBtn />
+          </div>
+
+          <div className="flex lg:hidden items-center gap-2">
+            <LangSwitch compact />
+            <ThemeBtn />
             <button
-              onClick={Cmp_l}
-              className="flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300"
-              style={{
-                background: a
-                  ? "rgba(240,192,64,0.15)"
-                  : "rgba(30,58,110,0.12)",
-                border: `1px solid ${a ? "rgba(240,192,64,0.4)" : "rgba(30,58,110,0.3)"}`,
-              }}
-            >
-              {a ? (
-                <Sun
-                  size={14}
-                  style={{
-                    color: "#f0c040",
-                  }}
-                />
-              ) : (
-                <Moon
-                  size={14}
-                  style={{
-                    color: "#1e3a6e",
-                  }}
-                />
-              )}
-            </button>
-            <button
-              style={{
-                color: "var(--text-primary)",
-              }}
-              className="p-2"
-              onClick={() => f(!h)}
+              style={{ color: "var(--text-primary)" }}
+              className="p-2 shrink-0"
+              onClick={() => setOpen(!open)}
               aria-label="Menu"
             >
-              {h ? <X size={24} /> : <Menu size={24} />}
+              {open ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
       </div>
-      {h && (
+
+      {open && (
         <div
-          className="md:hidden border-t"
+          className="lg:hidden border-t"
           style={{
             background: "var(--nav-bg-mobile)",
             borderColor: "var(--nav-border)",
           }}
         >
-          <ul className="px-4 py-4 flex flex-col gap-3">
-            {p.map((w) => (
-              <li key={w.href}>
+          <ul className="px-4 py-3 flex flex-col">
+            {links.map((l) => (
+              <li key={l.href}>
                 <button
-                  onClick={() => g(w.href)}
-                  className="hover:text-[#f0c040] transition-colors text-base font-medium w-full text-left py-2 border-b"
+                  onClick={() => go(l.href)}
+                  className="hover:text-[#f0c040] transition-colors text-base font-medium w-full text-left py-3 border-b"
                   style={{
                     color: "var(--nav-item-color)",
                     borderColor: "var(--divider)",
                   }}
                 >
-                  {w.label}
+                  {l.label}
                 </button>
               </li>
             ))}
             <li>
               <button
                 onClick={() => {
-                  (f(!1),
-                    e(),
-                    window.scrollTo({
-                      top: 0,
-                      behavior: "smooth",
-                    }));
+                  setOpen(false);
+                  onNavigateTech();
                 }}
-                className="hover:text-white transition-colors text-base font-medium w-full text-left py-2 border-b"
-                style={{
-                  color: n === "offshore" ? "#a8d0ff" : "var(--gold-400)",
-                  borderColor: "var(--divider)",
-                }}
+                className="transition-colors text-base font-semibold w-full text-left py-3"
+                style={{ color: "var(--gold-400)" }}
               >
-                {o.nav.offshore}
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => {
-                  (f(!1),
-                    t(),
-                    window.scrollTo({
-                      top: 0,
-                      behavior: "smooth",
-                    }));
-                }}
-                className="hover:text-white transition-colors text-base font-medium w-full text-left py-2 border-b"
-                style={{
-                  color: n === "predial" ? "#a8d0ff" : "var(--gold-400)",
-                  borderColor: "var(--divider)",
-                }}
-              >
-                {o.nav.terrestrial}
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => {
-                  (f(!1), Cmp_r());
-                }}
-                className="hover:text-white transition-colors text-base font-medium w-full text-left py-2 border-b"
-                style={{
-                  color: n === "daily" ? "#a8d0ff" : "var(--gold-400)",
-                  borderColor: "var(--divider)",
-                }}
-              >
-                {o.nav.daily}
+                {t.nav.tech}
               </button>
             </li>
           </ul>
