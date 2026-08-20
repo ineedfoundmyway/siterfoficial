@@ -313,21 +313,6 @@ ${n.message.trim()}`);
             </div>
           </form>
         </div>
-        <a
-          href={`mailto:${CONTACT_EMAIL}`}
-          className="mt-6 flex items-center justify-center gap-2 text-sm font-semibold transition-colors hover:text-[#f0c040]"
-          style={{
-            color: "var(--text-secondary)",
-          }}
-        >
-          <Mail
-            size={16}
-            style={{
-              color: "#f0c040",
-            }}
-          />
-          {CONTACT_EMAIL}
-        </a>
       </div>
     </section>
   );
