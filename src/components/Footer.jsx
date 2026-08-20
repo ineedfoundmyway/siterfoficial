@@ -73,7 +73,7 @@ export function Footer({
                 <img
                   src={techLogo.url}
                   alt="RF Solutions"
-                  className="h-16 w-16 shrink-0 rounded-xl object-contain"
+                  className="h-24 w-24 sm:h-28 sm:w-28 shrink-0 rounded-2xl object-contain"
                   loading="lazy"
                   decoding="async"
                 />
