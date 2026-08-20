@@ -39,7 +39,7 @@ function Tag({ children }) {
   );
 }
 
-export function TechPage() {
+export function TechPage({ onNavigateContact }) {
   const { t } = useLang();
   const tech = t.tech;
 
@@ -84,7 +84,7 @@ export function TechPage() {
               {tech.marketBadge}
             </button>
             <button
-              onClick={() => scrollTo("#tech-contato")}
+              onClick={() => onNavigateContact?.()}
               className="rounded-full border px-6 py-3 text-sm font-semibold transition-colors hover:bg-[#f0c040] hover:text-[#050d1a]"
               style={{ borderColor: "#f0c040", color: "#f0c040" }}
             >

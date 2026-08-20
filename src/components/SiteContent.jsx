@@ -85,7 +85,16 @@ export function SiteContent() {
       ) : page === "daily" ? (
         <DailyPage />
       ) : (
-        <TechPage />
+        <TechPage
+          onNavigateContact={() => {
+            toOffshore();
+            setTimeout(() => {
+              document
+                .querySelector("#contato")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }, 200);
+          }}
+        />
       )}
       <Footer
         onNavigatePredial={toPredial}
