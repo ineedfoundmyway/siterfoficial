@@ -641,6 +641,45 @@ export function TechPage({ onNavigateContact }) {
 
         </div>
       </section>
+
+      <ContactSection sectionId="tech-contato" />
+
+      {lightbox !== null && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
+          style={{ background: "rgba(5,13,26,0.94)", backdropFilter: "blur(6px)" }}
+          onClick={() => setLightbox(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            type="button"
+            onClick={() => setLightbox(null)}
+            aria-label="Fechar"
+            className="absolute right-4 top-4 rounded-full p-2 transition-colors"
+            style={{ background: "rgba(212,170,48,0.15)", color: "#f0c040" }}
+          >
+            <X size={22} />
+          </button>
+          <figure
+            className="max-h-full w-full max-w-6xl overflow-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={shots[lightbox]}
+              alt={tech.gallery[lightbox]?.caption ?? "RF Solutions"}
+              className="mx-auto max-h-[80vh] w-auto max-w-full rounded-xl object-contain"
+            />
+            <figcaption
+              className="mt-3 text-center text-sm"
+              style={{ color: "rgba(226,232,240,0.85)" }}
+            >
+              {tech.gallery[lightbox]?.caption}
+            </figcaption>
+          </figure>
+        </div>
+      )}
     </div>
+
   );
 }
