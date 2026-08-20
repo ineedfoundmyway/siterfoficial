@@ -64,7 +64,7 @@ export const pt = {
       title2: "Serviços",
       subtitle:
         "Oferecemos soluções técnicas completas para o setor offshore, com equipes especializadas e equipamentos de última geração.",
-      cta: "Conheça nossos Serviços Prediais",
+      cta: "Conheça nossos Serviços",
       list: [
         {
           title: "Manutenção e Instalação de Retificadores ABB e Siemens",
@@ -404,7 +404,7 @@ export const pt = {
       title2: "Services",
       subtitle:
         "We offer comprehensive technical solutions for the offshore sector, with specialised teams and state-of-the-art equipment.",
-      cta: "Explore Predial Services",
+      cta: "Explore Our Services",
       list: [
         {
           title: "Maintenance & Installation of ABB and Siemens Rectifiers",
