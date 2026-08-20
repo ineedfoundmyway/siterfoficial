@@ -8,8 +8,10 @@ export function Footer({
   onNavigatePredial: t,
   onNavigateOffshore: e,
   onNavigateDaily: r,
+  onNavigateTech: c,
   currentPage: n,
 }) {
+
   const { t: s } = useLang(),
     i = s.footer,
     o = useReveal(0.05),
