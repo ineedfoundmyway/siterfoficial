@@ -147,8 +147,10 @@ export function ZoomableImage({ src, alt }) {
         />
       </div>
       <div
-        className="mt-3 flex items-center justify-center gap-2"
+        className="relative z-10 mt-3 flex items-center justify-center gap-2"
+        style={{ touchAction: "manipulation" }}
         onClick={(e) => e.stopPropagation()}
+        onPointerDown={(e) => e.stopPropagation()}
       >
         {[
           { icon: Minus, fn: () => step(-1), label: "Diminuir zoom" },
@@ -158,18 +160,32 @@ export function ZoomableImage({ src, alt }) {
           <button
             key={label}
             type="button"
-            onClick={fn}
+            onPointerUp={(e) => {
+              e.stopPropagation();
+              firedRef.current = true;
+              fn();
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (firedRef.current) {
+                firedRef.current = false;
+                return;
+              }
+              fn();
+            }}
             aria-label={label}
-            className="rounded-full p-2 transition-transform active:scale-95"
+            className="rounded-full p-3 transition-transform active:scale-95"
             style={{
               background: "rgba(212,170,48,0.15)",
               border: "1px solid rgba(212,170,48,0.4)",
               color: "#f0c040",
+              touchAction: "manipulation",
             }}
           >
-            <Icon size={16} />
+            <Icon size={18} />
           </button>
         ))}
+
         <span
           className="ml-1 text-xs font-semibold tabular-nums"
           style={{ color: "rgba(226,232,240,0.8)" }}
