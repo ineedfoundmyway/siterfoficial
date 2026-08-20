@@ -61,19 +61,20 @@ export function Footer({
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-4 mb-4">
-              <img
-                src="/logo-rf.svg"
-                alt="RF Soluções"
-                className="h-16 w-auto shrink-0"
-                loading="lazy"
-                decoding="async"
-              />
-              {n === "tech" && (
+            <div className="flex items-center mb-4">
+              {n === "tech" ? (
                 <img
                   src={techLogo.url}
                   alt="RF Solutions"
                   className="h-24 w-24 sm:h-28 sm:w-28 shrink-0 rounded-2xl object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : (
+                <img
+                  src="/logo-rf.svg"
+                  alt="RF Soluções"
+                  className="h-16 w-auto shrink-0"
                   loading="lazy"
                   decoding="async"
                 />
