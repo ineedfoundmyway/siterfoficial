@@ -134,7 +134,7 @@ export function TechPage({ onNavigateContact }) {
               className="mt-4 text-2xl sm:text-4xl font-bold"
               style={{
                 fontFamily: "Montserrat, sans-serif",
-                color: "var(--text-primary)",
+                color: "#f5f7fa",
               }}
             >
               {tech.featuresTitle}
@@ -193,7 +193,7 @@ export function TechPage({ onNavigateContact }) {
               className="mt-4 text-2xl sm:text-4xl font-bold"
               style={{
                 fontFamily: "Montserrat, sans-serif",
-                color: "var(--text-primary)",
+                color: "#f5f7fa",
               }}
             >
               {tech.galleryTitle}
@@ -237,14 +237,14 @@ export function TechPage({ onNavigateContact }) {
               className="mt-4 text-2xl sm:text-4xl font-bold"
               style={{
                 fontFamily: "Montserrat, sans-serif",
-                color: "var(--text-primary)",
+                color: "#f5f7fa",
               }}
             >
               {tech.complementTitle}
             </h2>
             <p
               className="mt-4 mx-auto max-w-3xl text-sm sm:text-base leading-relaxed"
-              style={{ color: "var(--text-muted)" }}
+              style={{ color: "rgba(226,232,240,0.85)" }}
             >
               {tech.complementSubtitle}
             </p>
