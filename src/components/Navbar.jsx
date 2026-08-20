@@ -223,18 +223,6 @@ export function Navbar({
                 </button>
               </li>
             ))}
-            <li>
-              <button
-                onClick={() => {
-                  setOpen(false);
-                  onNavigateTech();
-                }}
-                className="transition-colors text-base font-semibold w-full text-left py-3"
-                style={{ color: "var(--gold-400)" }}
-              >
-                {t.nav.tech}
-              </button>
-            </li>
           </ul>
         </div>
       )}
