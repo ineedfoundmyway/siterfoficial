@@ -69,9 +69,22 @@ function Tag({ children }) {
 export function TechPage({ onNavigateContact }) {
   const { t } = useLang();
   const tech = t.tech;
+  const [lightbox, setLightbox] = React.useState(null);
+
+  React.useEffect(() => {
+    if (lightbox === null) return;
+    const onKey = (e) => e.key === "Escape" && setLightbox(null);
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightbox]);
 
   const scrollTo = (sel) =>
     document.querySelector(sel)?.scrollIntoView({ behavior: "smooth" });
+
 
   return (
     <div style={{ background: "var(--bg-base)" }}>
