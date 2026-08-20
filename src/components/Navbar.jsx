@@ -2,6 +2,7 @@ import React from "react";
 import { Globe, Menu, Moon, Sun, X } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { useTheme } from "@/lib/theme";
+import { navigateToSection } from "@/lib/sectionAliases";
 
 export function Navbar({
   onNavigateOffshore,
@@ -130,9 +131,9 @@ export function Navbar({
           <div className="hidden lg:flex items-center gap-5">
             <ul className="flex items-center gap-5">
               {links.map((l) => (
-                <li key={l.href}>
+                <li key={l.label}>
                   <button
-                    onClick={() => go(l.href)}
+                    onClick={() => (l.action ? l.action() : go(l.href))}
                     className="whitespace-nowrap transition-colors duration-200 text-sm font-medium tracking-wide hover:text-[#f0c040]"
                     style={{ color: "var(--nav-item-color)" }}
                   >
@@ -170,9 +171,9 @@ export function Navbar({
         >
           <ul className="px-4 py-3 flex flex-col">
             {links.map((l) => (
-              <li key={l.href}>
+              <li key={l.label}>
                 <button
-                  onClick={() => go(l.href)}
+                  onClick={() => (l.action ? l.action() : go(l.href))}
                   className="hover:text-[#f0c040] transition-colors text-base font-medium w-full text-left py-3 border-b"
                   style={{
                     color: "var(--nav-item-color)",
