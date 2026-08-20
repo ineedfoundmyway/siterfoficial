@@ -146,3 +146,5 @@ export function SiteContent() {
         </Fragment>
       )}
     </div>
+  );
+}
