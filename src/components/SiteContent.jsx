@@ -44,12 +44,14 @@ export function SiteContent() {
     ],
     daily: [
       { id: "diario-inicio", label: t.nav.home },
+      { id: "diario-sobre", label: t.nav.about },
       { id: "diario-servicos", label: t.nav.services },
       { id: "diario-materiais", label: t.nav.daily },
       { id: "diario-contato", label: t.nav.contact },
     ],
     tech: [
       { id: "tech-inicio", label: t.nav.home },
+      { id: "tech-sobre", label: t.nav.about },
       { id: "tech-sistema", label: t.nav.services },
       { id: "tech-mercado", label: t.tech.marketBadge },
       { id: "tech-contato", label: t.nav.contact },
