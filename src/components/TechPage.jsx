@@ -143,6 +143,27 @@ export function TechPage({ onNavigateContact }) {
         </div>
       </section>
 
+      {/* SOBRE */}
+      <section id="tech-sobre" className="py-16 px-4 sm:px-6" style={sectionBg(BG[3])}>
+        <div className="max-w-4xl mx-auto text-center">
+          <Tag>{tech.aboutTag}</Tag>
+          <h2
+            className="mt-4 text-2xl sm:text-4xl font-bold"
+            style={{ fontFamily: "Montserrat, sans-serif", color: "#f5f7fa" }}
+          >
+            {tech.aboutTitle1}{" "}
+            <span style={{ color: "#f0c040" }}>{tech.aboutTitle2}</span>
+          </h2>
+          <div className="gold-divider mx-auto mt-4" />
+          <p className="mt-6 text-sm sm:text-base leading-relaxed" style={{ color: "rgba(226,232,240,0.85)" }}>
+            {tech.aboutP1}
+          </p>
+          <p className="mt-4 text-sm sm:text-base leading-relaxed" style={{ color: "rgba(226,232,240,0.7)" }}>
+            {tech.aboutP2}
+          </p>
+        </div>
+      </section>
+
 
       {/* FEATURES */}
       <section id="tech-sistema" className="py-16 px-4 sm:px-6" style={sectionBg(BG[1])}>
