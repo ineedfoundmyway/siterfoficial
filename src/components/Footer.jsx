@@ -60,40 +60,23 @@ export function Footer({
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-4 mb-4">
               <img
                 src="/logo-rf.svg"
                 alt="RF Soluções"
-                className="h-16 w-auto"
+                className="h-16 w-auto shrink-0"
                 loading="lazy"
                 decoding="async"
               />
-              <div>
-                <div
-                  className="font-bold text-base"
-                  style={{
-                    fontFamily: "Montserrat, sans-serif",
-                    color: "var(--text-primary)",
-                  }}
-                >
-                  {"RF "}
-                  <span
-                    style={{
-                      color: "#f0c040",
-                    }}
-                  >
-                    {"Soluções"}
-                  </span>
-                </div>
-                <div
-                  className="text-xs"
-                  style={{
-                    color: "var(--text-muted)",
-                  }}
-                >
-                  {"Offshore"}
-                </div>
-              </div>
+              {n === "tech" && (
+                <img
+                  src={techLogo.url}
+                  alt="RF Solutions"
+                  className="h-16 w-16 shrink-0 rounded-xl object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
             </div>
             <p
               className="text-xs leading-relaxed mb-3"
