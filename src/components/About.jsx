@@ -57,7 +57,7 @@ export function About() {
       id="sobre"
       className="relative py-24 section-bg-overlay parallax-bg"
       style={{
-        backgroundImage: "url('/sobrenosoffshore.jpeg')",
+        backgroundImage: "url('/sobrenosoffshore.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center 50%",
       }}

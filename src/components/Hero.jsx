@@ -15,7 +15,7 @@ export function Hero() {
       id="inicio"
       className="relative min-h-[100svh] flex flex-col text-center overflow-hidden parallax-bg"
       style={{
-        backgroundImage: "url('/hero-bg.jpg')",
+        backgroundImage: "url('/hero-bg.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

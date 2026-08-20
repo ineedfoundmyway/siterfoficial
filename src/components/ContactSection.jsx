@@ -65,7 +65,7 @@ ${n.message.trim()}`);
       id={t}
       className="relative py-24 section-bg-overlay parallax-bg"
       style={{
-        backgroundImage: "url('/bg-contact.jpeg')",
+        backgroundImage: "url('/bg-contact.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

@@ -5,13 +5,13 @@ import { useReveal } from "@/lib/useReveal";
 
 export const predialIcons = [Home, Factory, Wind, Cpu, Shield, FileCheck, Network],
   a0 = [
-    "/svc-predial-1.jpg",
-    "/svc-predial-2.jpg",
-    "/svc-predial-3.jpg",
-    "/svc-predial-4.jpg",
-    "/svc-predial-5.jpg",
-    "/svc-predial-6.jpg",
-    "/svc-predial-7.jpg",
+    "/svc-predial-1.webp",
+    "/svc-predial-2.webp",
+    "/svc-predial-3.webp",
+    "/svc-predial-4.webp",
+    "/svc-predial-5.webp",
+    "/svc-predial-6.webp",
+    "/svc-predial-7.webp",
   ];
 export function PredialPage({ onNavigateOffshore: t }) {
   const { t: e } = useLang(),
@@ -33,7 +33,7 @@ export function PredialPage({ onNavigateOffshore: t }) {
         id="predial-inicio"
         className="relative min-h-[100svh] flex flex-col text-center overflow-hidden parallax-bg"
         style={{
-          backgroundImage: "url('/bg-predial-hero.jpeg')",
+          backgroundImage: "url('/bg-predial-hero.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -151,7 +151,7 @@ export function PredialPage({ onNavigateOffshore: t }) {
         id="predial-sobre"
         className="relative py-24 section-bg-overlay parallax-bg"
         style={{
-          backgroundImage: "url('/bg-predial-about.jpeg')",
+          backgroundImage: "url('/bg-predial-about.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -277,7 +277,7 @@ export function PredialPage({ onNavigateOffshore: t }) {
         id="predial-servicos"
         className="relative py-24 section-bg-overlay parallax-bg"
         style={{
-          backgroundImage: "url('/bg-daily-svc.jpeg')",
+          backgroundImage: "url('/bg-daily-svc.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

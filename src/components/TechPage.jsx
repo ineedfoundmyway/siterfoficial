@@ -23,21 +23,21 @@ import { ContactSection } from "@/components/ContactSection";
 import { useLang } from "@/lib/i18n";
 import { ZoomableImage } from "@/components/ZoomableImage";
 
-const techLogo = { url: "/tech/logo-rf-tech.png" };
+const techLogo = { url: "/tech/logo-rf-tech.webp" };
 
 const shots = [
-  "/tech/dashboard1.jpg",
-  "/tech/produtos.jpg",
-  "/tech/estoque.jpg",
-  "/tech/clientes.jpg",
-  "/tech/camera.jpg",
+  "/tech/dashboard1.webp",
+  "/tech/produtos.webp",
+  "/tech/estoque.webp",
+  "/tech/clientes.webp",
+  "/tech/camera.webp",
 ];
 
 const BG = [
-  "/tech/tech-bg.jpg",
-  "/tech/tech-bg-2.jpg",
-  "/tech/tech-bg-3.jpg",
-  "/tech/tech-bg-4.jpg",
+  "/tech/tech-bg.webp",
+  "/tech/tech-bg-2.webp",
+  "/tech/tech-bg-3.webp",
+  "/tech/tech-bg-4.webp",
 ];
 
 const sectionBg = (url) => ({
@@ -95,7 +95,7 @@ export function TechPage({ onNavigateContact }) {
         className="relative overflow-hidden bg-fixed bg-cover bg-center pt-28 sm:pt-36 pb-16 px-4 sm:px-6"
         style={{
           backgroundImage:
-            "url('/tech/tech-bg.jpg')",
+            "url('/tech/tech-bg.webp')",
         }}
       >
         <div

@@ -4,13 +4,13 @@ import { useReveal } from "@/lib/useReveal";
 
 export const serviceIcons = [Zap, Settings, Eye, Activity, Layers, ShieldCheck, Waves],
   zm = [
-    "/svc-offshore-1.jpeg",
-    "/svc-offshore-2.jpeg",
-    "/svc-offshore-3.jpeg",
-    "/svc-offshore-4.jpeg",
-    "/svc-offshore-5.jpeg",
-    "/svc-offshore-6.jpg",
-    "/svc-offshore-7.jpeg",
+    "/svc-offshore-1.webp",
+    "/svc-offshore-2.webp",
+    "/svc-offshore-3.webp",
+    "/svc-offshore-4.webp",
+    "/svc-offshore-5.webp",
+    "/svc-offshore-6.webp",
+    "/svc-offshore-7.webp",
   ];
 export function ServicesOffshore({ onOpenServices: t }) {
   const { t: e } = useLang(),
@@ -22,7 +22,7 @@ export function ServicesOffshore({ onOpenServices: t }) {
       id="servicos"
       className="relative py-24 section-bg-overlay parallax-bg"
       style={{
-        backgroundImage: "url('/bg-services-offshore.jpeg')",
+        backgroundImage: "url('/bg-services-offshore.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
