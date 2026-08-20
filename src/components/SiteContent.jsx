@@ -62,6 +62,7 @@ export function SiteContent() {
       <Navbar
         onNavigateOffshore={toOffshore}
         onNavigateTech={toTech}
+        onOpenServices={() => setServicesOpen(true)}
         currentPage={page}
       />
       <ServicesDialog
