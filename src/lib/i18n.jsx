@@ -687,6 +687,118 @@ export const pt = {
     en: en,
   },
   LangContext = React.createContext(null);
+
+pt.nav.tech = "Serviços Tecnológicos";
+en.nav.tech = "Technology Services";
+
+pt.servicesBox = {
+  tag: "Nossas Frentes",
+  title: "Escolha a área de serviço",
+  offshore: "Manutenção e instalação elétrica de alta confiabilidade para o setor marítimo e offshore.",
+  predial: "Instalações, manutenção e automação elétrica para prédios residenciais, comerciais e industriais.",
+  daily: "Serviços rápidos do dia a dia e materiais elétricos com atendimento ágil.",
+  tech: "Sistema de gestão de vendas RF Solutions e implantação de mercado autônomo 24h.",
+};
+en.servicesBox = {
+  tag: "Our Areas",
+  title: "Choose a service area",
+  offshore: "High-reliability electrical maintenance and installation for the maritime and offshore sector.",
+  predial: "Electrical installation, maintenance and automation for residential, commercial and industrial buildings.",
+  daily: "Fast day-to-day services and electrical materials with agile support.",
+  tech: "RF Solutions sales management system and 24h autonomous market deployment.",
+};
+
+pt.tech = {
+  badge: "RF Solutions · Tecnologia",
+  title1: "Sistema de gestão de vendas",
+  title2: "RF Solutions",
+  subtitle:
+    "Uma plataforma completa de PDV e gestão: caixa, produtos, estoque, clientes, vendas, relatórios e monitoramento em tempo real. Roda no computador e no celular.",
+  featuresTag: "Plataforma",
+  featuresTitle: "O que o sistema entrega",
+  features: [
+    { title: "Faturamento vivo", desc: "Vendas do dia, semana e mês sem precisar fechar planilha." },
+    { title: "Ticket médio", desc: "Entenda o que o seu cliente realmente consome." },
+    { title: "Ruptura zero", desc: "Alerta de estoque baixo antes do produto acabar." },
+    { title: "ROI visível", desc: "Acompanhe o retorno do investimento mês a mês." },
+    { title: "Integração Stone", desc: "Somos parceiros: cada venda cai conciliada no painel, sem digitação manual." },
+    { title: "Câmera IP e leitor", desc: "Monitore o caixa ao vivo, com leitor de código de barras e impressora de comprovante." },
+  ],
+  galleryTag: "Painel",
+  galleryTitle: "Painel administrativo em tempo real",
+  gallery: [
+    { caption: "Dashboard: visão geral da operação" },
+    { caption: "Produtos: cadastro e gestão" },
+    { caption: "Estoque: inventário e movimentações" },
+    { caption: "Clientes: cadastro e histórico" },
+    { caption: "Configurações: câmera IP no caixa" },
+  ],
+  priceTag: "Investimento no sistema",
+  priceTitle: "Módulo opcional de gestão",
+  priceSubtitle: "Pagamento único, sem mensalidade.",
+  price1Label: "Licença do sistema",
+  price1Value: "R$ 399,99",
+  price1Desc: "Pagamento único. Sem mensalidade, sem taxa por venda, sem contrato de fidelidade.",
+  price2Label: "Manutenção",
+  price2Value: "R$ 150,00",
+  price2Desc: "Cobrada apenas quando houver manutenção ou reabastecimento. Você paga só pelo que usar.",
+  priceNote: "Sem o sistema o mercado opera. Com ele, o mercado se paga com dado na mão.",
+  marketBadge: "Mercado Autônomo 24h",
+  marketTitle: "Implantação de mercado autônomo 24h (Wallmarket)",
+  marketSubtitle:
+    "A cantina do condomínio vira um mercado que nunca fecha: autoatendimento total, sem funcionários, sem fila e sem horário de funcionamento.",
+  marketSteps: [
+    { title: "Escolhe", desc: "O morador pega o que quiser na prateleira ou nos boxes refrigerados." },
+    { title: "Registra", desc: "Leitor de código de barras ou QR Code no celular ou no terminal." },
+    { title: "Paga", desc: "Pix, débito ou crédito. Recibo na hora e venda registrada automaticamente." },
+  ],
+  marketStructureTitle: "A estrutura instalada",
+  marketStructure: [
+    "Box cervejeira — cerveja e bebidas geladas o ano inteiro.",
+    "Box expositora — refrigerantes, águas, energéticos e sucos.",
+    "Box de frios — queijos, embutidos, laticínios e café da manhã.",
+    "Prateleiras secas — doces, snacks, higiene e limpeza.",
+  ],
+  marketBenefitsTitle: "O que o condomínio ganha",
+  marketBenefits: [
+    "Disponibilidade real: aberto 24h, 365 dias por ano.",
+    "Custo fixo enxuto: sem salário, encargos ou rotatividade.",
+    "Preço mais justo com margem saudável.",
+    "Valorização do imóvel e da locação de temporada.",
+    "Menos saída do condomínio: mais segurança e comodidade.",
+    "Receita nova: o espaço ocioso passa a gerar resultado.",
+  ],
+  marketControlTitle: "Bebida alcoólica com controle real",
+  marketControl: [
+    "Liberação por QR Code com verificação de maioridade antes da venda.",
+    "Nenhuma bebida alcoólica sai sem validação registrada.",
+    "Cada liberação gravada com data, hora e responsável.",
+    "Condomínio e síndico protegidos juridicamente.",
+  ],
+  marketFooter: "Aberto 24h · 365 dias por ano · zero folha de pagamento · Parceiro Stone",
+  cta: "Quero implantar no meu condomínio",
+};
+
+en.tech = {
+  ...pt.tech,
+  badge: "RF Solutions · Technology",
+  title1: "Sales management system",
+  title2: "RF Solutions",
+  subtitle:
+    "A complete POS and management platform: checkout, products, inventory, customers, sales, reports and real-time monitoring. Runs on desktop and mobile.",
+  featuresTag: "Platform",
+  featuresTitle: "What the system delivers",
+  galleryTag: "Dashboard",
+  galleryTitle: "Real-time admin dashboard",
+  priceTag: "System investment",
+  priceTitle: "Optional management module",
+  priceSubtitle: "One-time payment, no monthly fee.",
+  price1Label: "System license",
+  price2Label: "Maintenance",
+  marketBadge: "24h Autonomous Market",
+  marketTitle: "24h autonomous market deployment (Wallmarket)",
+  cta: "I want it in my building",
+};
 export function LanguageProvider({ children: t }) {
   const [e, r] = React.useState("pt");
   return (
