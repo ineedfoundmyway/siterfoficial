@@ -16,6 +16,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { useLang } from "@/lib/i18n";
+import techLogo from "@/assets/logo-rf-tech.png.asset.json";
 
 const shots = [
   "/__l5e/assets-v1/ddefc332-f631-4fa6-9724-8b4afb9a12c2/dashboard1.jpg",
