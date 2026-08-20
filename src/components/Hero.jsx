@@ -3,8 +3,8 @@ import { useLang } from "@/lib/i18n";
 
 export function Hero() {
   const { t } = useLang(),
-    e = (r) => {
-      const n = document.querySelector(r);
+    e = (Cmp_r) => {
+      const n = document.querySelector(Cmp_r);
       n &&
         n.scrollIntoView({
           behavior: "smooth",
@@ -107,7 +107,7 @@ export function Hero() {
                 icon: Target,
                 label: t.hero.badge3,
               },
-            ].map(({ icon: r, label: n }) => (
+            ].map(({ icon: Cmp_r, label: n }) => (
               <div
                 className="flex items-center gap-2 text-sm sm:text-base"
                 style={{
@@ -115,7 +115,7 @@ export function Hero() {
                 }}
                 key={n}
               >
-                <r
+                <Cmp_r
                   size={18}
                   style={{
                     color: "#f0c040",

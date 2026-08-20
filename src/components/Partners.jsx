@@ -30,7 +30,7 @@ export const partners = [
 export function Partners() {
   const { t } = useLang(),
     e = t.partners,
-    r = useReveal(),
+    Cmp_r = useReveal(),
     n = useReveal(0.08),
     s = useReveal(0.1),
     i = () => {
@@ -59,8 +59,8 @@ export function Partners() {
       />
       <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          ref={r.ref}
-          className={`text-center mb-14 reveal ${r.isVisible ? "in-view" : ""}`}
+          ref={Cmp_r.ref}
+          className={`text-center mb-14 reveal ${Cmp_r.isVisible ? "in-view" : ""}`}
         >
           <p
             className="text-sm font-semibold tracking-widest uppercase mb-2"

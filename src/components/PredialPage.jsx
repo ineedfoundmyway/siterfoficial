@@ -20,8 +20,8 @@ export function PredialPage({ onNavigateOffshore: t }) {
     s = useReveal(0.08),
     i = useReveal(),
     o = useReveal(0.05),
-    a = (l) => {
-      const u = document.querySelector(l);
+    a = (Cmp_l) => {
+      const u = document.querySelector(Cmp_l);
       u &&
         u.scrollIntoView({
           behavior: "smooth",
@@ -112,7 +112,7 @@ export function PredialPage({ onNavigateOffshore: t }) {
               {r.heroSubtitle}
             </p>
             <div className="flex flex-wrap justify-center gap-6 mb-10">
-              {[Shield, Award, Phone].map((l, u) => (
+              {[Shield, Award, Phone].map((Cmp_l, u) => (
                 <div
                   className="flex items-center gap-2 text-sm sm:text-base"
                   style={{
@@ -120,7 +120,7 @@ export function PredialPage({ onNavigateOffshore: t }) {
                   }}
                   key={u}
                 >
-                  <l
+                  <Cmp_l
                     size={18}
                     style={{
                       color: "#f0c040",
@@ -235,7 +235,7 @@ export function PredialPage({ onNavigateOffshore: t }) {
                   icon: Wind,
                   label: "Refrigeração",
                 },
-              ].map(({ icon: l, label: u }) => (
+              ].map(({ icon: Cmp_l, label: u }) => (
                 <div
                   className="p-5 rounded-xl border card-hover text-center"
                   style={{
@@ -251,7 +251,7 @@ export function PredialPage({ onNavigateOffshore: t }) {
                         background: "rgba(212,170,48,0.1)",
                       }}
                     >
-                      <l
+                      <Cmp_l
                         size={24}
                         style={{
                           color: "#f0c040",
@@ -332,8 +332,8 @@ export function PredialPage({ onNavigateOffshore: t }) {
             ref={o.ref}
             className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children ${o.isVisible ? "in-view" : ""}`}
           >
-            {r.serviceList.map(({ title: l, desc: u }, d) => {
-              const h = predialIcons[d];
+            {r.serviceList.map(({ title: Cmp_l, desc: u }, d) => {
+              const Cmp_h = predialIcons[d];
               return (
                 <div
                   className="rounded-xl overflow-hidden border card-hover group"
@@ -346,7 +346,7 @@ export function PredialPage({ onNavigateOffshore: t }) {
                   <div className="relative h-44 overflow-hidden">
                     <img
                       src={a0[d]}
-                      alt={l}
+                      alt={Cmp_l}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
                       decoding="async"
@@ -359,7 +359,7 @@ export function PredialPage({ onNavigateOffshore: t }) {
                         border: "1px solid rgba(212,170,48,0.4)",
                       }}
                     >
-                      <h
+                      <Cmp_h
                         size={20}
                         style={{
                           color: "#f0c040",
@@ -375,7 +375,7 @@ export function PredialPage({ onNavigateOffshore: t }) {
                         color: "var(--text-primary)",
                       }}
                     >
-                      {l}
+                      {Cmp_l}
                     </h3>
                     <p
                       className="text-xs leading-relaxed"

@@ -14,7 +14,7 @@ export const serviceIcons = [Zap, Settings, Eye, Activity, Layers, ShieldCheck, 
   ];
 export function ServicesOffshore({ onNavigatePredial: t }) {
   const { t: e } = useLang(),
-    r = e.services,
+    Cmp_r = e.services,
     n = useReveal(),
     s = useReveal(0.05);
   return (
@@ -45,7 +45,7 @@ export function ServicesOffshore({ onNavigatePredial: t }) {
               color: "#d4aa30",
             }}
           >
-            {r.tag}
+            {Cmp_r.tag}
           </p>
           <h2
             className="text-3xl sm:text-4xl font-bold"
@@ -54,13 +54,13 @@ export function ServicesOffshore({ onNavigatePredial: t }) {
               color: "var(--text-primary)",
             }}
           >
-            {r.title1}{" "}
+            {Cmp_r.title1}{" "}
             <span
               style={{
                 color: "#f0c040",
               }}
             >
-              {r.title2}
+              {Cmp_r.title2}
             </span>
           </h2>
           <div className="gold-divider mx-auto mt-4" />
@@ -70,15 +70,15 @@ export function ServicesOffshore({ onNavigatePredial: t }) {
               color: "var(--text-muted)",
             }}
           >
-            {r.subtitle}
+            {Cmp_r.subtitle}
           </p>
         </div>
         <div
           ref={s.ref}
           className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children ${s.isVisible ? "in-view" : ""}`}
         >
-          {r.list.map(({ title: i, desc: o }, a) => {
-            const l = serviceIcons[a];
+          {Cmp_r.list.map(({ title: i, desc: o }, a) => {
+            const Cmp_l = serviceIcons[a];
             return (
               <div
                 className="rounded-xl overflow-hidden border card-hover group"
@@ -104,7 +104,7 @@ export function ServicesOffshore({ onNavigatePredial: t }) {
                       border: "1px solid rgba(212,170,48,0.4)",
                     }}
                   >
-                    <l
+                    <Cmp_l
                       size={20}
                       style={{
                         color: "#f0c040",
@@ -156,7 +156,7 @@ export function ServicesOffshore({ onNavigatePredial: t }) {
               fontFamily: "Montserrat, sans-serif",
             }}
           >
-            {r.cta}
+            {Cmp_r.cta}
           </button>
         </div>
       </div>

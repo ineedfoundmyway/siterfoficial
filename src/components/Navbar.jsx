@@ -6,11 +6,11 @@ import { useTheme } from "@/lib/theme";
 export function Navbar({
   onNavigatePredial: t,
   onNavigateOffshore: e,
-  onNavigateDaily: r,
+  onNavigateDaily: Cmp_r,
   currentPage: n,
 }) {
   const { lang: s, setLang: i, t: o } = useLang(),
-    { isDark: a, toggleTheme: l } = useTheme(),
+    { isDark: a, toggleTheme: Cmp_l } = useTheme(),
     [u, d] = React.useState(!1),
     [h, f] = React.useState(!1),
     [v, y] = React.useState(!1),
@@ -211,7 +211,7 @@ export function Navbar({
             <li>
               <button
                 onClick={() => {
-                  (f(!1), r());
+                  (f(!1), Cmp_r());
                 }}
                 className="transition-colors duration-200 text-sm font-medium tracking-wide hover:text-[#f0c040]"
                 style={{
@@ -271,7 +271,7 @@ export function Navbar({
             </li>
             <li>
               <button
-                onClick={l}
+                onClick={Cmp_l}
                 title={a ? "Modo Claro" : "Modo Escuro"}
                 className="flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
                 style={{
@@ -341,7 +341,7 @@ export function Navbar({
               </button>
             </div>
             <button
-              onClick={l}
+              onClick={Cmp_l}
               className="flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300"
               style={{
                 background: a
@@ -443,7 +443,7 @@ export function Navbar({
             <li>
               <button
                 onClick={() => {
-                  (f(!1), r());
+                  (f(!1), Cmp_r());
                 }}
                 className="hover:text-white transition-colors text-base font-medium w-full text-left py-2 border-b"
                 style={{

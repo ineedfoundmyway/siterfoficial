@@ -2,7 +2,7 @@ import React from "react";
 
 export function useReveal(t = 0.12) {
   const e = React.useRef(null),
-    [r, n] = React.useState(!1);
+    [Cmp_r, n] = React.useState(!1);
   return (
     React.useEffect(() => {
       const s = e.current;
@@ -15,7 +15,7 @@ export function useReveal(t = 0.12) {
     }, [t]),
     {
       ref: e,
-      isVisible: r,
+      isVisible: Cmp_r,
     }
   );
 }

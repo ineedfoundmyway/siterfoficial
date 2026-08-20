@@ -5,7 +5,7 @@ import { useReveal } from "@/lib/useReveal";
 export function About() {
   const { t } = useLang(),
     e = t.about,
-    r = useReveal(),
+    Cmp_r = useReveal(),
     n = useReveal(0.1),
     s = useReveal(0.1),
     i = useReveal(0.08),
@@ -71,8 +71,8 @@ export function About() {
       />
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          ref={r.ref}
-          className={`text-center mb-14 reveal ${r.isVisible ? "in-view" : ""}`}
+          ref={Cmp_r.ref}
+          className={`text-center mb-14 reveal ${Cmp_r.isVisible ? "in-view" : ""}`}
         >
           <p
             className="text-sm font-semibold tracking-widest uppercase mb-2"
@@ -144,7 +144,7 @@ export function About() {
                   title: e.visionTitle,
                   text: e.visionText,
                 },
-              ].map(({ Icon: l, title: u, text: d }) => (
+              ].map(({ Icon: Cmp_l, title: u, text: d }) => (
                 <div
                   className="p-5 rounded-lg border"
                   style={{
@@ -154,7 +154,7 @@ export function About() {
                   key={u}
                 >
                   <div className="flex items-center gap-2 mb-2">
-                    <l
+                    <Cmp_l
                       size={18}
                       style={{
                         color: "#f0c040",
@@ -186,7 +186,7 @@ export function About() {
             ref={s.ref}
             className={`grid grid-cols-2 gap-4 stagger-children ${s.isVisible ? "in-view" : ""}`}
           >
-            {o.map(({ icon: l, value: u, label: d, sub: h }) => (
+            {o.map(({ icon: Cmp_l, value: u, label: d, sub: h }) => (
               <div
                 className="p-6 rounded-xl border card-hover text-center"
                 style={{
@@ -202,7 +202,7 @@ export function About() {
                       background: "rgba(212,170,48,0.1)",
                     }}
                   >
-                    <l
+                    <Cmp_l
                       size={24}
                       style={{
                         color: "#f0c040",
@@ -243,7 +243,7 @@ export function About() {
           ref={i.ref}
           className={`grid sm:grid-cols-3 gap-6 stagger-children ${i.isVisible ? "in-view" : ""}`}
         >
-          {a.map(({ icon: l, title: u, desc: d }) => (
+          {a.map(({ icon: Cmp_l, title: u, desc: d }) => (
             <div
               className="p-6 rounded-xl border card-hover text-center"
               style={{
@@ -259,7 +259,7 @@ export function About() {
                     background: "rgba(212,170,48,0.1)",
                   }}
                 >
-                  <l
+                  <Cmp_l
                     size={28}
                     style={{
                       color: "#f0c040",

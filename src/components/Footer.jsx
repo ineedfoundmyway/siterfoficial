@@ -14,13 +14,13 @@ export function Footer({
     i = s.footer,
     o = useReveal(0.05),
     a = (d) => {
-      const h = document.querySelector(d);
-      h &&
-        h.scrollIntoView({
+      const Cmp_h = document.querySelector(d);
+      Cmp_h &&
+        Cmp_h.scrollIntoView({
           behavior: "smooth",
         });
     },
-    l = (d) => {
+    Cmp_l = (d) => {
       n === "daily" ? (e(), setTimeout(() => a(d), 150)) : a(d);
     },
     u = [
@@ -119,10 +119,10 @@ export function Footer({
               {i.nav}
             </h4>
             <ul className="space-y-3">
-              {u.map(({ label: d, href: h }) => (
-                <li key={h}>
+              {u.map(({ label: d, href: Cmp_h }) => (
+                <li key={Cmp_h}>
                   <button
-                    onClick={() => l(h)}
+                    onClick={() => Cmp_l(Cmp_h)}
                     className="text-sm transition-colors duration-200 text-left hover:text-[#f0c040]"
                     style={{
                       color: "var(--text-muted)",

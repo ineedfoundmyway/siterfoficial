@@ -11,8 +11,8 @@ export function DailyPage() {
     s = useReveal(0.1),
     i = useReveal(),
     o = useReveal(0.05),
-    a = (l) => {
-      const u = document.querySelector(l);
+    a = (Cmp_l) => {
+      const u = document.querySelector(Cmp_l);
       u &&
         u.scrollIntoView({
           behavior: "smooth",
@@ -174,7 +174,7 @@ export function DailyPage() {
             ref={n.ref}
             className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 stagger-children ${n.isVisible ? "in-view" : ""}`}
           >
-            {e.list.map(({ title: l, desc: u }, d) => (
+            {e.list.map(({ title: Cmp_l, desc: u }, d) => (
               <div
                 className="p-6 rounded-xl border card-hover"
                 style={{
@@ -205,7 +205,7 @@ export function DailyPage() {
                     color: "var(--text-primary)",
                   }}
                 >
-                  {l}
+                  {Cmp_l}
                 </h3>
                 <p
                   className="text-xs leading-relaxed text-center"
@@ -308,7 +308,7 @@ export function DailyPage() {
             ref={o.ref}
             className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 stagger-children ${o.isVisible ? "in-view" : ""}`}
           >
-            {e.materials.map(({ title: l, desc: u }, d) => (
+            {e.materials.map(({ title: Cmp_l, desc: u }, d) => (
               <div
                 className="p-6 rounded-xl border card-hover"
                 style={{
@@ -339,7 +339,7 @@ export function DailyPage() {
                     color: "var(--text-primary)",
                   }}
                 >
-                  {l}
+                  {Cmp_l}
                 </h3>
                 <p
                   className="text-xs leading-relaxed text-center"

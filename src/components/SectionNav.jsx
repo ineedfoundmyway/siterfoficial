@@ -11,9 +11,9 @@ export function SectionNav({ sections: t }) {
     const d = () => {
       (a.current && cancelAnimationFrame(a.current),
         (a.current = requestAnimationFrame(() => {
-          const h = document.documentElement,
-            f = h.scrollTop,
-            v = h.scrollHeight - h.clientHeight;
+          const Cmp_h = document.documentElement,
+            f = Cmp_h.scrollTop,
+            v = Cmp_h.scrollHeight - Cmp_h.clientHeight;
           s(v > 0 ? (f / v) * 100 : 0);
         })));
     };
@@ -29,7 +29,7 @@ export function SectionNav({ sections: t }) {
   }, []),
     React.useEffect(() => {
       const d = new Map(),
-        h = () => {
+        Cmp_h = () => {
           if (d.size === 0) return;
           let v = "",
             y = 0;
@@ -49,7 +49,7 @@ export function SectionNav({ sections: t }) {
                 : (d.delete(y.target.id),
                   y.target.classList.remove("section-bg-entered"));
             }),
-              h());
+              Cmp_h());
           },
           {
             threshold: [0, 0.1, 0.3, 0.5, 0.75],
@@ -71,10 +71,10 @@ export function SectionNav({ sections: t }) {
         }
       );
     }, [t]));
-  const l = (d) => {
-    const h = document.getElementById(d);
-    h &&
-      h.scrollIntoView({
+  const Cmp_l = (d) => {
+    const Cmp_h = document.getElementById(d);
+    Cmp_h &&
+      Cmp_h.scrollIntoView({
         behavior: "smooth",
       });
   };
@@ -95,7 +95,7 @@ export function SectionNav({ sections: t }) {
         className="fixed right-5 top-1/2 -translate-y-1/2 z-[150] hidden lg:flex flex-col gap-4 items-end"
         aria-label="Navegação por seções"
       >
-        {t.map(({ id: d, label: h }) => {
+        {t.map(({ id: d, label: Cmp_h }) => {
           const f = e === d;
           return (
             <div className="relative flex items-center gap-2 group" key={d}>
@@ -110,13 +110,13 @@ export function SectionNav({ sections: t }) {
                   backdropFilter: "blur(8px)",
                 }}
               >
-                {h}
+                {Cmp_h}
               </span>
               <button
-                onClick={() => l(d)}
+                onClick={() => Cmp_l(d)}
                 onMouseEnter={() => o(d)}
                 onMouseLeave={() => o(null)}
-                aria-label={h}
+                aria-label={Cmp_h}
                 className="rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f0c040]"
                 style={{
                   width: f ? "12px" : "8px",

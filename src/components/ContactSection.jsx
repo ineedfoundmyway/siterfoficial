@@ -18,9 +18,9 @@ export function ContactSection({ sectionId: t = "contato" }) {
     r = e.contact,
     [n, s] = React.useState(EMPTY_FORM),
     [i, o] = React.useState(!1),
-    [a, l] = React.useState(!1),
+    [a, Cmp_l] = React.useState(!1),
     [u, d] = React.useState(""),
-    h = useReveal(),
+    Cmp_h = useReveal(),
     f = useReveal(0.05),
     v = (x, j) => {
       (s((g) => ({
@@ -57,7 +57,7 @@ Mensagem:
 ${n.message.trim()}`);
       ((window.location.href = `mailto:${CONTACT_EMAIL}?subject=${g}&body=${p}`),
         s(EMPTY_FORM),
-        l(!0),
+        Cmp_l(!0),
         o(!1));
     };
   return (
@@ -79,8 +79,8 @@ ${n.message.trim()}`);
       />
       <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          ref={h.ref}
-          className={`text-center mb-12 reveal ${h.isVisible ? "in-view" : ""}`}
+          ref={Cmp_h.ref}
+          className={`text-center mb-12 reveal ${Cmp_h.isVisible ? "in-view" : ""}`}
         >
           <p
             className="text-sm font-semibold tracking-widest uppercase mb-2"

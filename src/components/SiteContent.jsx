@@ -76,7 +76,7 @@ export function SiteContent() {
         label: r.nav.contact,
       },
     ],
-    l = [
+    Cmp_l = [
       {
         id: "diario-inicio",
         label: r.nav.home,
@@ -101,7 +101,9 @@ export function SiteContent() {
         background: "var(--bg-base)",
       }}
     >
-      <SectionNav sections={t === "offshore" ? o : t === "predial" ? a : l} />
+      <SectionNav
+        sections={t === "offshore" ? o : t === "predial" ? a : Cmp_l}
+      />
       <Navbar
         onNavigatePredial={s}
         onNavigateOffshore={n}
@@ -144,5 +146,3 @@ export function SiteContent() {
         </Fragment>
       )}
     </div>
-  );
-}
