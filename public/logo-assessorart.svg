@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 100" width="340" height="100">
+  <rect width="340" height="100" fill="#22aa44" rx="8"/>
+  <!-- A circle -->
+  <circle cx="54" cy="50" r="32" fill="white"/>
+  <text x="54" y="64" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-weight="bold" fill="#4a2a1a" font-style="italic">A</text>
+  <!-- Strikethrough on A -->
+  <line x1="34" y1="58" x2="74" y2="42" stroke="#4a2a1a" stroke-width="3"/>
+  <!-- assessorart text -->
+  <text x="190" y="46" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="normal" fill="white" letter-spacing="1">assessorart</text>
+  <text x="190" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="normal" fill="rgba(255,255,255,0.85)" letter-spacing="3">artworkers</text>
+</svg>

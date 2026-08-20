@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bolt" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f0c040"/>
+      <stop offset="100%" stop-color="#e07820"/>
+    </linearGradient>
+    <clipPath id="diamond-clip">
+      <polygon points="100,4 196,100 100,196 4,100"/>
+    </clipPath>
+  </defs>
+  <!-- Gold border diamond -->
+  <polygon points="100,2 198,100 100,198 2,100" fill="#c9a227"/>
+  <!-- Black fill diamond -->
+  <polygon points="100,8 192,100 100,192 8,100" fill="#0a0a0a"/>
+  <!-- Globe circle (blue) -->
+  <g clip-path="url(#diamond-clip)">
+    <circle cx="86" cy="74" r="28" fill="none" stroke="#4aabdb" stroke-width="2.5"/>
+    <!-- Globe vertical lines -->
+    <ellipse cx="86" cy="74" rx="14" ry="28" fill="none" stroke="#4aabdb" stroke-width="2"/>
+    <!-- Globe horizontal lines -->
+    <line x1="58" y1="74" x2="114" y2="74" stroke="#4aabdb" stroke-width="2"/>
+    <line x1="62" y1="62" x2="110" y2="62" stroke="#4aabdb" stroke-width="2"/>
+    <line x1="62" y1="86" x2="110" y2="86" stroke="#4aabdb" stroke-width="2"/>
+    <!-- Red half circle -->
+    <path d="M100,58 A22,22 0 0 1 100,90 Z" fill="#cc2222"/>
+    <!-- Lightning bolt -->
+    <polygon points="98,48 89,76 97,76 92,100 108,68 99,68 106,48" fill="url(#bolt)"/>
+  </g>
+  <!-- RF text -->
+  <text x="100" y="136" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="26" font-weight="900" fill="#ffffff" letter-spacing="2">RF</text>
+  <!-- Soluções text -->
+  <text x="100" y="156" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#d4aa30">Soluções</text>
+</svg>
