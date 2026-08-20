@@ -296,17 +296,8 @@ ${n.message.trim()}`);
                 <span>{r.formSuccess}</span>
               </div>
             )}
-            <div className="mt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <p
-                className="text-xs"
-                style={{
-                  color: "var(--text-faint)",
-                }}
-              >
-                {r.formRecipient}
-                {": "}
-                {CONTACT_EMAIL}
-              </p>
+            <div className="mt-7 flex flex-col sm:flex-row items-center justify-end gap-4">
+
               <button
                 type="submit"
                 disabled={i}
