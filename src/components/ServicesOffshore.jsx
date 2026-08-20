@@ -12,7 +12,7 @@ export const serviceIcons = [Zap, Settings, Eye, Activity, Layers, ShieldCheck, 
     "/svc-offshore-6.jpg",
     "/svc-offshore-7.jpeg",
   ];
-export function ServicesOffshore({ onNavigatePredial: t }) {
+export function ServicesOffshore({ onOpenServices: t }) {
   const { t: e } = useLang(),
     Cmp_r = e.services,
     n = useReveal(),
@@ -142,13 +142,7 @@ export function ServicesOffshore({ onNavigatePredial: t }) {
           }}
         >
           <button
-            onClick={() => {
-              (t(),
-                window.scrollTo({
-                  top: 0,
-                  behavior: "smooth",
-                }));
-            }}
+            onClick={() => t()}
             className="px-10 py-3 font-semibold rounded border-2 transition-all duration-200 hover:bg-[#f0c040] hover:text-[#050d1a] active:scale-95"
             style={{
               borderColor: "#f0c040",
