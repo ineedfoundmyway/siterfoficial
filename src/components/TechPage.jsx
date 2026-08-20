@@ -51,13 +51,28 @@ export function TechPage({ onNavigateContact }) {
       {/* HERO */}
       <section
         id="tech-inicio"
-        className="relative pt-28 sm:pt-36 pb-16 px-4 sm:px-6"
+        className="relative overflow-hidden bg-fixed bg-cover bg-center pt-28 sm:pt-36 pb-16 px-4 sm:px-6"
         style={{
-          background:
-            "linear-gradient(160deg, var(--bg-section), var(--bg-base))",
+          backgroundImage:
+            "url('/__l5e/assets-v1/f9924dbd-7445-4fcd-8776-3d1b02a438e7/tech-bg.jpg')",
         }}
       >
-        <div className="max-w-5xl mx-auto text-center">
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(160deg, rgba(5,13,26,0.92), rgba(5,13,26,0.72) 55%, rgba(5,13,26,0.94))",
+          }}
+        />
+        <div
+          className="absolute bottom-0 left-0 right-0 h-px"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, #d4aa30, transparent)",
+          }}
+        />
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
+
           <Tag>{tech.badge}</Tag>
           <h1
             className="mt-5 text-3xl sm:text-5xl font-bold leading-tight"
