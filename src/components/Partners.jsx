@@ -54,7 +54,7 @@ export function Partners() {
       id="parceiros"
       className="relative py-24 section-bg-overlay parallax-bg"
       style={{
-        backgroundImage: "url('/bg-partners.jpeg')",
+        backgroundImage: "url('/bg-partners.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

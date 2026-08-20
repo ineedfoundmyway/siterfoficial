@@ -24,7 +24,7 @@ export function DailyPage() {
         id="diario-inicio"
         className="relative min-h-[100svh] flex flex-col text-center overflow-hidden parallax-bg"
         style={{
-          backgroundImage: "url('/bg-daily-hero.jpeg')",
+          backgroundImage: "url('/bg-daily-hero.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -119,7 +119,7 @@ export function DailyPage() {
         id="diario-sobre"
         className="relative py-16 sm:py-20 section-bg-overlay parallax-bg"
         style={{
-          backgroundImage: "url('/sobrenos.jpeg')",
+          backgroundImage: "url('/sobrenos.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -167,7 +167,7 @@ export function DailyPage() {
         id="diario-servicos"
         className="relative py-16 sm:py-24 section-bg-overlay parallax-bg"
         style={{
-          backgroundImage: "url('/bg-daily-svc.jpeg')",
+          backgroundImage: "url('/bg-daily-svc.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -302,7 +302,7 @@ export function DailyPage() {
         id="diario-materiais"
         className="relative py-16 sm:py-24 section-bg-overlay parallax-bg"
         style={{
-          backgroundImage: "url('/bg-contact.jpeg')",
+          backgroundImage: "url('/bg-contact.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
