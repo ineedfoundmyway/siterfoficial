@@ -101,6 +101,7 @@ export function SiteContent() {
         onNavigatePredial={toPredial}
         onNavigateOffshore={toOffshore}
         onNavigateDaily={toDaily}
+        onNavigateTech={toTech}
         currentPage={page}
       />
     </div>
