@@ -92,6 +92,24 @@ export function TechPage({ onNavigateContact }) {
           }}
         />
         <div className="relative z-10 max-w-5xl mx-auto text-center">
+          <div className="mb-8 flex justify-center">
+            <div
+              className="inline-block p-3 rounded-2xl"
+              style={{
+                background: "rgba(212,170,48,0.08)",
+                border: "2px solid rgba(212,170,48,0.3)",
+                backdropFilter: "blur(8px)",
+              }}
+            >
+              <img
+                src={techLogo.url}
+                alt="RF Solutions"
+                className="h-32 sm:h-40 md:h-48 w-auto mx-auto drop-shadow-2xl rounded-xl"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+          </div>
 
           <Tag>{tech.badge}</Tag>
           <h1
