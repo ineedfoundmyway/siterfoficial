@@ -165,21 +165,6 @@ export function Navbar({
                   </button>
                 </li>
               ))}
-              <li>
-                <button
-                  onClick={() => {
-                    setOpen(false);
-                    onNavigateTech();
-                  }}
-                  className="whitespace-nowrap rounded-full border px-4 py-1.5 text-sm font-semibold tracking-wide transition-all hover:bg-[#f0c040] hover:text-[#050d1a]"
-                  style={{
-                    borderColor: "#f0c040",
-                    color: currentPage === "tech" ? "#f0c040" : "var(--nav-item-color)",
-                  }}
-                >
-                  {t.nav.tech}
-                </button>
-              </li>
             </ul>
             <LangSwitch />
             <ThemeBtn />
