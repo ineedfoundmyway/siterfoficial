@@ -20,15 +20,14 @@ export function Navbar({
       const y = window.scrollY;
       setScrolled(y > 60);
       if (Math.abs(y - lastY.current) > 8) setOpen(false);
-      if (window.innerWidth < 768) {
-        if (y > window.innerHeight * 0.8 && y > lastY.current) setHidden(true);
-        else if (y < lastY.current) setHidden(false);
-      } else setHidden(false);
+      if (y > 120 && y > lastY.current) setHidden(true);
+      else if (y < lastY.current || y <= 120) setHidden(false);
       lastY.current = y;
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
 
   const aliases = {
     predial: {
@@ -166,21 +165,6 @@ export function Navbar({
                   </button>
                 </li>
               ))}
-              <li>
-                <button
-                  onClick={() => {
-                    setOpen(false);
-                    onNavigateTech();
-                  }}
-                  className="whitespace-nowrap rounded-full border px-4 py-1.5 text-sm font-semibold tracking-wide transition-all hover:bg-[#f0c040] hover:text-[#050d1a]"
-                  style={{
-                    borderColor: "#f0c040",
-                    color: currentPage === "tech" ? "#f0c040" : "var(--nav-item-color)",
-                  }}
-                >
-                  {t.nav.tech}
-                </button>
-              </li>
             </ul>
             <LangSwitch />
             <ThemeBtn />
@@ -224,18 +208,6 @@ export function Navbar({
                 </button>
               </li>
             ))}
-            <li>
-              <button
-                onClick={() => {
-                  setOpen(false);
-                  onNavigateTech();
-                }}
-                className="transition-colors text-base font-semibold w-full text-left py-3"
-                style={{ color: "var(--gold-400)" }}
-              >
-                {t.nav.tech}
-              </button>
-            </li>
           </ul>
         </div>
       )}
