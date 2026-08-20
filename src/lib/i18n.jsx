@@ -877,3 +877,36 @@ en.tech.aboutP1 =
   "RF Soluções' technology arm builds and deploys the RF Solutions sales management system: POS, inventory, customers, reports and real-time monitoring, on desktop and mobile.";
 en.tech.aboutP2 =
   "We also deliver complementary services such as 24h autonomous market deployment, IP cameras, barcode scanners and payment integration with Stone, our partner.";
+
+// ===== Mercado autônomo: escopo da estrutura + Box 24h =====
+pt.tech.marketScopeTitle = "O que está incluso no serviço";
+pt.tech.marketScopeNote =
+  "Importante: a estrutura física (boxes refrigerados, cervejeira, expositora, prateleiras, terminal e periféricos) NÃO está inclusa no serviço — os equipamentos são adquiridos pelo cliente ou cotados à parte. O que fazemos é a montagem completa: instalação elétrica, posicionamento e montagem dos boxes, configuração do terminal, integração da maquininha Stone, câmeras e leitores, e a instalação e parametrização do sistema de gestão RF Solutions. Nosso foco principal é o sistema PDV; o mercado autônomo e o box 24h são serviços complementares que executamos.";
+en.tech.marketScopeTitle = "What the service includes";
+en.tech.marketScopeNote =
+  "Important: the physical structure (refrigerated boxes, coolers, display units, shelving, terminal and peripherals) is NOT included — equipment is bought by the client or quoted separately. We handle the full assembly: electrical installation, positioning and mounting, terminal setup, Stone payment integration, cameras and scanners, plus installation and configuration of the RF Solutions management system. Our main focus is the POS system; the autonomous market and the 24h box are complementary services we deliver.";
+
+pt.tech.boxBadge = "Box 24h";
+pt.tech.boxTitle = "Box 24h — mini loja autônoma";
+pt.tech.boxSubtitle =
+  "Versão compacta do mercado autônomo: um único box inteligente para espaços pequenos — portarias, academias, hotéis, postos, empresas e condomínios. Ocupa poucos metros, funciona 24h e também é controlado pelo sistema RF Solutions.";
+pt.tech.boxItemsTitle = "Como funciona";
+pt.tech.boxItems = [
+  "Um box refrigerado ou seco com liberação por QR Code, cartão ou aplicativo.",
+  "Pagamento antes da retirada, via Pix, débito ou crédito com a Stone.",
+  "Estoque e vendas do box aparecem no mesmo painel do sistema RF Solutions.",
+  "Ideal para quem quer começar pequeno e crescer depois para o mercado completo.",
+  "Estrutura do box não inclusa: fazemos a instalação, integração e configuração.",
+];
+en.tech.boxBadge = "24h Box";
+en.tech.boxTitle = "24h Box — compact autonomous store";
+en.tech.boxSubtitle =
+  "A compact version of the autonomous market: a single smart box for small spaces — lobbies, gyms, hotels, gas stations, offices and condos. Takes up little room, runs 24/7 and is also managed by the RF Solutions system.";
+en.tech.boxItemsTitle = "How it works";
+en.tech.boxItems = [
+  "A refrigerated or dry box unlocked by QR code, card or app.",
+  "Payment before pickup via Pix, debit or credit with Stone.",
+  "Box stock and sales appear in the same RF Solutions dashboard.",
+  "Ideal for starting small and scaling to a full market later.",
+  "Box structure not included: we handle installation, integration and setup.",
+];

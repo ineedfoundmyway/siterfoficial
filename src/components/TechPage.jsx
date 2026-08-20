@@ -2,11 +2,13 @@ import React from "react";
 import {
   BadgeCheck,
   BarChart3,
+  Box,
   Camera,
   ChevronDown,
   Clock,
   Cpu,
   CreditCard,
+  Info,
   Package,
   QrCode,
   ShieldCheck,
@@ -14,8 +16,12 @@ import {
   Store,
   TrendingUp,
   Wrench,
+  X,
+  ZoomIn,
 } from "lucide-react";
+import { ContactSection } from "@/components/ContactSection";
 import { useLang } from "@/lib/i18n";
+
 import techLogo from "@/assets/logo-rf-tech.png.asset.json";
 
 const shots = [
@@ -63,9 +69,22 @@ function Tag({ children }) {
 export function TechPage({ onNavigateContact }) {
   const { t } = useLang();
   const tech = t.tech;
+  const [lightbox, setLightbox] = React.useState(null);
+
+  React.useEffect(() => {
+    if (lightbox === null) return;
+    const onKey = (e) => e.key === "Escape" && setLightbox(null);
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightbox]);
 
   const scrollTo = (sel) =>
     document.querySelector(sel)?.scrollIntoView({ behavior: "smooth" });
+
 
   return (
     <div style={{ background: "var(--bg-base)" }}>
@@ -243,19 +262,32 @@ export function TechPage({ onNavigateContact }) {
             {shots.map((src, i) => (
               <figure
                 key={src}
-                className={`overflow-hidden rounded-2xl border ${i === 0 ? "md:col-span-2" : ""}`}
+                className={`group overflow-hidden rounded-2xl border ${i === 0 ? "md:col-span-2" : ""}`}
                 style={{
                   background: "var(--bg-card)",
                   borderColor: "var(--card-border)",
                 }}
               >
-                <img
-                  src={src}
-                  alt={tech.gallery[i]?.caption ?? "RF Solutions"}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-auto object-cover"
-                />
+                <button
+                  type="button"
+                  onClick={() => setLightbox(i)}
+                  className="relative block w-full cursor-zoom-in"
+                  aria-label={tech.gallery[i]?.caption ?? "RF Solutions"}
+                >
+                  <img
+                    src={src}
+                    alt={tech.gallery[i]?.caption ?? "RF Solutions"}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  <span
+                    className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-[11px] font-semibold opacity-0 transition-opacity group-hover:opacity-100"
+                    style={{ background: "rgba(5,13,26,0.75)", color: "#f0c040" }}
+                  >
+                    <ZoomIn size={14} /> HD
+                  </span>
+                </button>
                 <figcaption
                   className="px-4 py-3 text-xs sm:text-sm"
                   style={{ color: "var(--text-muted)" }}
@@ -264,6 +296,7 @@ export function TechPage({ onNavigateContact }) {
                 </figcaption>
               </figure>
             ))}
+
           </div>
         </div>
       </section>
@@ -445,6 +478,87 @@ export function TechPage({ onNavigateContact }) {
             ))}
           </div>
 
+          {/* ESCOPO: estrutura não inclusa */}
+          <div
+            className="mt-6 flex gap-3 rounded-2xl border p-5"
+            style={{
+              background: "rgba(212,170,48,0.07)",
+              borderColor: "rgba(212,170,48,0.4)",
+            }}
+          >
+            <Info size={20} className="mt-0.5 shrink-0" style={{ color: "#f0c040" }} />
+            <div className="min-w-0">
+              <h3
+                className="font-bold text-sm"
+                style={{
+                  fontFamily: "Montserrat, sans-serif",
+                  color: "var(--text-primary)",
+                }}
+              >
+                {tech.marketScopeTitle}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                {tech.marketScopeNote}
+              </p>
+            </div>
+          </div>
+
+          {/* BOX 24H */}
+          <div
+            className="mt-6 rounded-2xl border p-5 sm:p-6"
+            style={{
+              background: "var(--bg-card)",
+              borderColor: "var(--card-border)",
+            }}
+          >
+            <div className="flex items-center gap-3">
+              <span
+                className="inline-flex shrink-0 rounded-xl p-2.5"
+                style={{
+                  background: "rgba(212,170,48,0.12)",
+                  border: "1px solid rgba(212,170,48,0.35)",
+                }}
+              >
+                <Box size={20} style={{ color: "#f0c040" }} />
+              </span>
+              <div className="min-w-0">
+                <Tag>{tech.boxBadge}</Tag>
+                <h3
+                  className="mt-2 text-lg sm:text-xl font-bold"
+                  style={{
+                    fontFamily: "Montserrat, sans-serif",
+                    color: "var(--text-primary)",
+                  }}
+                >
+                  {tech.boxTitle}
+                </h3>
+              </div>
+            </div>
+            <p className="mt-3 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+              {tech.boxSubtitle}
+            </p>
+            <h4
+              className="mt-5 font-bold text-sm"
+              style={{ fontFamily: "Montserrat, sans-serif", color: "var(--text-primary)" }}
+            >
+              {tech.boxItemsTitle}
+            </h4>
+            <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+              {(tech.boxItems ?? []).map((it) => (
+                <li
+                  key={it}
+                  className="flex gap-2 text-sm leading-relaxed"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  <span style={{ color: "#f0c040" }}>•</span>
+                  <span className="min-w-0">{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+
+
           {/* PREÇOS */}
           <div className="mt-10">
             <Tag>{tech.priceTag}</Tag>
@@ -506,7 +620,6 @@ export function TechPage({ onNavigateContact }) {
           </div>
 
           <div
-            id="tech-contato"
             className="mt-10 flex flex-col items-start gap-4 border-t pt-6 sm:flex-row sm:items-center sm:justify-between"
             style={{ borderColor: "var(--divider)" }}
           >
@@ -514,10 +627,10 @@ export function TechPage({ onNavigateContact }) {
               {tech.marketFooter}
             </p>
             <a
-              href="#contato"
+              href="#tech-contato"
               onClick={(e) => {
                 e.preventDefault();
-                onNavigateContact?.();
+                scrollTo("#tech-contato");
               }}
               className="shrink-0 rounded-full px-6 py-3 text-sm font-semibold transition-transform hover:scale-105"
               style={{ background: "#f0c040", color: "#050d1a" }}
@@ -525,8 +638,48 @@ export function TechPage({ onNavigateContact }) {
               {tech.cta}
             </a>
           </div>
+
         </div>
       </section>
+
+      <ContactSection sectionId="tech-contato" />
+
+      {lightbox !== null && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
+          style={{ background: "rgba(5,13,26,0.94)", backdropFilter: "blur(6px)" }}
+          onClick={() => setLightbox(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            type="button"
+            onClick={() => setLightbox(null)}
+            aria-label="Fechar"
+            className="absolute right-4 top-4 rounded-full p-2 transition-colors"
+            style={{ background: "rgba(212,170,48,0.15)", color: "#f0c040" }}
+          >
+            <X size={22} />
+          </button>
+          <figure
+            className="max-h-full w-full max-w-6xl overflow-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={shots[lightbox]}
+              alt={tech.gallery[lightbox]?.caption ?? "RF Solutions"}
+              className="mx-auto max-h-[80vh] w-auto max-w-full rounded-xl object-contain"
+            />
+            <figcaption
+              className="mt-3 text-center text-sm"
+              style={{ color: "rgba(226,232,240,0.85)" }}
+            >
+              {tech.gallery[lightbox]?.caption}
+            </figcaption>
+          </figure>
+        </div>
+      )}
     </div>
+
   );
 }
