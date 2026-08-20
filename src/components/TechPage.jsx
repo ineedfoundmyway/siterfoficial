@@ -3,13 +3,17 @@ import {
   BadgeCheck,
   BarChart3,
   Camera,
+  ChevronDown,
   Clock,
+  Cpu,
   CreditCard,
   Package,
   QrCode,
   ShieldCheck,
   ShoppingCart,
+  Store,
   TrendingUp,
+  Wrench,
 } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 
@@ -21,8 +25,24 @@ const shots = [
   "/__l5e/assets-v1/a1ed3d83-5cdb-4ee2-a2c1-f54e1fdc689e/camera.jpg",
 ];
 
+const BG = [
+  "/__l5e/assets-v1/f9924dbd-7445-4fcd-8776-3d1b02a438e7/tech-bg.jpg",
+  "/__l5e/assets-v1/b35d270f-5769-4e72-b6eb-f65ebb34883a/tech-bg-2.jpg",
+  "/__l5e/assets-v1/d68adff8-d614-47d0-af07-ee5c86992178/tech-bg-3.jpg",
+  "/__l5e/assets-v1/f3c3cfc7-76f8-4238-9f1f-c1a4edab711c/tech-bg-4.jpg",
+];
+
+const sectionBg = (url) => ({
+  backgroundImage: `url('${url}')`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  boxShadow: "inset 0 0 0 100vmax rgba(5,13,26,0.88)",
+});
+
 const featureIcons = [BarChart3, TrendingUp, Package, BadgeCheck, CreditCard, Camera];
+const complementIcons = [Store, Cpu, Camera, Wrench];
 const stepIcons = [ShoppingCart, QrCode, CreditCard];
+
 
 function Tag({ children }) {
   return (
@@ -91,27 +111,22 @@ export function TechPage({ onNavigateContact }) {
             {tech.subtitle}
           </p>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <button
-              onClick={() => scrollTo("#tech-mercado")}
-              className="rounded-full px-6 py-3 text-sm font-semibold transition-transform hover:scale-105"
-              style={{ background: "#f0c040", color: "#050d1a" }}
-            >
-              {tech.marketBadge}
-            </button>
-            <button
-              onClick={() => onNavigateContact?.()}
-              className="rounded-full border px-6 py-3 text-sm font-semibold transition-colors hover:bg-[#f0c040] hover:text-[#050d1a]"
-              style={{ borderColor: "#f0c040", color: "#f0c040" }}
-            >
-              {tech.cta}
-            </button>
-          </div>
+        </div>
+        <div className="relative z-10 mt-12 flex justify-center">
+          <button
+            onClick={() => scrollTo("#tech-sistema")}
+            className="hover:text-[#f0c040] transition-colors animate-bounce"
+            style={{ color: "rgba(255,255,255,0.6)" }}
+            aria-label="Scroll down"
+          >
+            <ChevronDown size={32} />
+          </button>
         </div>
       </section>
 
+
       {/* FEATURES */}
-      <section id="tech-sistema" className="py-16 px-4 sm:px-6">
+      <section id="tech-sistema" className="py-16 px-4 sm:px-6" style={sectionBg(BG[1])}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
             <Tag>{tech.featuresTag}</Tag>
@@ -119,7 +134,7 @@ export function TechPage({ onNavigateContact }) {
               className="mt-4 text-2xl sm:text-4xl font-bold"
               style={{
                 fontFamily: "Montserrat, sans-serif",
-                color: "var(--text-primary)",
+                color: "#f5f7fa",
               }}
             >
               {tech.featuresTitle}
@@ -169,10 +184,8 @@ export function TechPage({ onNavigateContact }) {
       </section>
 
       {/* GALLERY */}
-      <section
-        className="py-16 px-4 sm:px-6"
-        style={{ background: "var(--bg-section)" }}
-      >
+      <section className="py-16 px-4 sm:px-6" style={sectionBg(BG[2])}>
+
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
             <Tag>{tech.galleryTag}</Tag>
@@ -180,7 +193,7 @@ export function TechPage({ onNavigateContact }) {
               className="mt-4 text-2xl sm:text-4xl font-bold"
               style={{
                 fontFamily: "Montserrat, sans-serif",
-                color: "var(--text-primary)",
+                color: "#f5f7fa",
               }}
             >
               {tech.galleryTitle}
@@ -215,8 +228,75 @@ export function TechPage({ onNavigateContact }) {
         </div>
       </section>
 
+      {/* SERVIÇOS COMPLEMENTARES */}
+      <section className="py-16 px-4 sm:px-6" style={sectionBg(BG[3])}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center">
+            <Tag>{tech.complementTag}</Tag>
+            <h2
+              className="mt-4 text-2xl sm:text-4xl font-bold"
+              style={{
+                fontFamily: "Montserrat, sans-serif",
+                color: "#f5f7fa",
+              }}
+            >
+              {tech.complementTitle}
+            </h2>
+            <p
+              className="mt-4 mx-auto max-w-3xl text-sm sm:text-base leading-relaxed"
+              style={{ color: "rgba(226,232,240,0.85)" }}
+            >
+              {tech.complementSubtitle}
+            </p>
+          </div>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+            {(tech.complements ?? []).map((c, i) => {
+              const Icon = complementIcons[i % complementIcons.length];
+              return (
+                <div
+                  key={c.title}
+                  className="rounded-2xl border p-6"
+                  style={{
+                    background: "var(--bg-card)",
+                    borderColor: "var(--card-border)",
+                  }}
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="inline-flex shrink-0 rounded-xl p-2.5"
+                      style={{
+                        background: "rgba(212,170,48,0.12)",
+                        border: "1px solid rgba(212,170,48,0.35)",
+                      }}
+                    >
+                      <Icon size={20} style={{ color: "#f0c040" }} />
+                    </span>
+                    <h3
+                      className="font-bold text-base min-w-0"
+                      style={{
+                        fontFamily: "Montserrat, sans-serif",
+                        color: "var(--text-primary)",
+                      }}
+                    >
+                      {c.title}
+                    </h3>
+                  </div>
+                  <p
+                    className="mt-3 text-sm leading-relaxed"
+                    style={{ color: "var(--text-muted)" }}
+                  >
+                    {c.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* MERCADO AUTONOMO — BOX ÚNICO */}
-      <section id="tech-mercado" className="py-16 px-4 sm:px-6">
+      <section id="tech-mercado" className="py-16 px-4 sm:px-6" style={sectionBg(BG[0])}>
+
         <div
           className="max-w-6xl mx-auto rounded-3xl border p-6 sm:p-10"
           style={{

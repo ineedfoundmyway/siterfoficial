@@ -17,8 +17,10 @@ export const partners = [
     },
     {
       src: "/logo-stone.svg",
-      bg: "white",
+      bg: "#00A868",
+      cover: true,
     },
+
   ],
   Mm = [
     {
@@ -121,19 +123,22 @@ export function Partners() {
                 style={{
                   background: partners[a].bg,
                   border: "1px solid rgba(212,170,48,0.2)",
-                  padding: "8px",
+                  padding: partners[a].cover ? "0" : "8px",
                 }}
               >
                 <img
                   src={partners[a].src}
                   alt={o}
-                  className="max-h-full max-w-full object-contain"
-                  style={{
-                    maxHeight: "72px",
-                  }}
+                  className={
+                    partners[a].cover
+                      ? "w-full h-full object-cover"
+                      : "max-h-full max-w-full object-contain"
+                  }
+                  style={partners[a].cover ? undefined : { maxHeight: "72px" }}
                   loading="lazy"
                 />
               </div>
+
               <h3
                 className="font-semibold text-sm mb-2"
                 style={{
