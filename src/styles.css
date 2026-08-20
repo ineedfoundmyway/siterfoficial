@@ -206,3 +206,15 @@ to{opacity:1}
 to{transform:scaleX(1);opacity:1}
 }
 .section-bg-overlay.section-bg-entered .section-divider-line{animation:divider-grow .9s cubic-bezier(.22,1,.36,1) .2s both}
+
+/* --- performance & responsiveness --- */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overflow-x:hidden;overscroll-behavior-y:none}
+img,svg,video{max-width:100%;height:auto}
+@media (max-width: 767px){
+  .parallax-bg{background-attachment:scroll;background-position:center}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveal,.reveal-left,.reveal-scale,.stagger-children>*{opacity:1!important;transform:none!important}
+}
