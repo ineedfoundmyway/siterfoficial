@@ -33,15 +33,20 @@ export function Footer({
         label: s.nav.services,
         href: "#servicos",
       },
-      {
-        label: s.nav.partners,
-        href: "#parceiros",
-      },
+      ...(n === "offshore"
+        ? [
+            {
+              label: s.nav.partners,
+              href: "#parceiros",
+            },
+          ]
+        : []),
       {
         label: s.nav.contact,
         href: "#contato",
       },
     ];
+
   return (
     <footer
       style={{

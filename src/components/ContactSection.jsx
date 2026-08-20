@@ -296,17 +296,8 @@ ${n.message.trim()}`);
                 <span>{r.formSuccess}</span>
               </div>
             )}
-            <div className="mt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <p
-                className="text-xs"
-                style={{
-                  color: "var(--text-faint)",
-                }}
-              >
-                {r.formRecipient}
-                {": "}
-                {CONTACT_EMAIL}
-              </p>
+            <div className="mt-7 flex flex-col sm:flex-row items-center justify-end gap-4">
+
               <button
                 type="submit"
                 disabled={i}
@@ -322,21 +313,6 @@ ${n.message.trim()}`);
             </div>
           </form>
         </div>
-        <a
-          href={`mailto:${CONTACT_EMAIL}`}
-          className="mt-6 flex items-center justify-center gap-2 text-sm font-semibold transition-colors hover:text-[#f0c040]"
-          style={{
-            color: "var(--text-secondary)",
-          }}
-        >
-          <Mail
-            size={16}
-            style={{
-              color: "#f0c040",
-            }}
-          />
-          {CONTACT_EMAIL}
-        </a>
       </div>
     </section>
   );
