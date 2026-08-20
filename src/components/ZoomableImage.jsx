@@ -15,6 +15,8 @@ export function ZoomableImage({ src, alt }) {
   const pointers = React.useRef(new Map());
   const pinch = React.useRef(null);
   const drag = React.useRef(null);
+  const firedRef = React.useRef(false);
+
 
   const zoomAt = React.useCallback((next, px, py) => {
     const { zoom: z, offset: off } = stateRef.current;
