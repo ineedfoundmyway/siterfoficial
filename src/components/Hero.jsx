@@ -13,9 +13,9 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex flex-col text-center overflow-hidden parallax-bg"
+      className="relative min-h-[100svh] flex flex-col text-center overflow-hidden parallax-bg"
       style={{
-        backgroundImage: "url('/image.png')",
+        backgroundImage: "url('/hero-bg.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
