@@ -115,6 +115,7 @@ export function Navbar({
               src="/logo-rf.svg"
               alt="RF Soluções"
               className="h-10 w-10 sm:h-14 sm:w-14 shrink-0 object-contain drop-shadow-lg"
+              decoding="async"
             />
             <span
               className="truncate font-bold text-base sm:text-xl"

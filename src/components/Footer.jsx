@@ -65,6 +65,8 @@ export function Footer({
                 src="/logo-rf.svg"
                 alt="RF Soluções"
                 className="h-16 w-auto"
+                loading="lazy"
+                decoding="async"
               />
               <div>
                 <div

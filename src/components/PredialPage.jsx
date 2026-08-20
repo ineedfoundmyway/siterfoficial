@@ -31,7 +31,7 @@ export function PredialPage({ onNavigateOffshore: t }) {
     <div>
       <section
         id="predial-inicio"
-        className="relative min-h-screen flex flex-col text-center overflow-hidden parallax-bg"
+        className="relative min-h-[100svh] flex flex-col text-center overflow-hidden parallax-bg"
         style={{
           backgroundImage: "url('/bg-predial-hero.jpeg')",
           backgroundSize: "cover",
