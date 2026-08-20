@@ -823,7 +823,9 @@ en.tech = {
   price2Label: "Maintenance",
   marketBadge: "24h Autonomous Market",
   marketTitle: "24h autonomous market deployment (Wallmarket)",
-  cta: "I want it in my building",
+  complementTag: "Complementary service",
+  complementTitle: "Services that complete the system",
+  cta: "I want it in my business",
 };
 export function LanguageProvider({ children: t }) {
   const [e, r] = React.useState("pt");
