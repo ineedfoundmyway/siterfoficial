@@ -91,24 +91,19 @@ export function TechPage({ onNavigateContact }) {
             {tech.subtitle}
           </p>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <button
-              onClick={() => scrollTo("#tech-mercado")}
-              className="rounded-full px-6 py-3 text-sm font-semibold transition-transform hover:scale-105"
-              style={{ background: "#f0c040", color: "#050d1a" }}
-            >
-              {tech.marketBadge}
-            </button>
-            <button
-              onClick={() => onNavigateContact?.()}
-              className="rounded-full border px-6 py-3 text-sm font-semibold transition-colors hover:bg-[#f0c040] hover:text-[#050d1a]"
-              style={{ borderColor: "#f0c040", color: "#f0c040" }}
-            >
-              {tech.cta}
-            </button>
-          </div>
+        </div>
+        <div className="relative z-10 mt-12 flex justify-center">
+          <button
+            onClick={() => scrollTo("#tech-sistema")}
+            className="hover:text-[#f0c040] transition-colors animate-bounce"
+            style={{ color: "rgba(255,255,255,0.6)" }}
+            aria-label="Scroll down"
+          >
+            <ChevronDown size={32} />
+          </button>
         </div>
       </section>
+
 
       {/* FEATURES */}
       <section id="tech-sistema" className="py-16 px-4 sm:px-6">
