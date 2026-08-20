@@ -106,7 +106,7 @@ export function TechPage({ onNavigateContact }) {
 
 
       {/* FEATURES */}
-      <section id="tech-sistema" className="py-16 px-4 sm:px-6">
+      <section id="tech-sistema" className="py-16 px-4 sm:px-6" style={sectionBg(BG[1])}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
             <Tag>{tech.featuresTag}</Tag>
@@ -164,10 +164,8 @@ export function TechPage({ onNavigateContact }) {
       </section>
 
       {/* GALLERY */}
-      <section
-        className="py-16 px-4 sm:px-6"
-        style={{ background: "var(--bg-section)" }}
-      >
+      <section className="py-16 px-4 sm:px-6" style={sectionBg(BG[2])}>
+
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
             <Tag>{tech.galleryTag}</Tag>
@@ -210,8 +208,75 @@ export function TechPage({ onNavigateContact }) {
         </div>
       </section>
 
+      {/* SERVIÇOS COMPLEMENTARES */}
+      <section className="py-16 px-4 sm:px-6" style={sectionBg(BG[3])}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center">
+            <Tag>{tech.complementTag}</Tag>
+            <h2
+              className="mt-4 text-2xl sm:text-4xl font-bold"
+              style={{
+                fontFamily: "Montserrat, sans-serif",
+                color: "var(--text-primary)",
+              }}
+            >
+              {tech.complementTitle}
+            </h2>
+            <p
+              className="mt-4 mx-auto max-w-3xl text-sm sm:text-base leading-relaxed"
+              style={{ color: "var(--text-muted)" }}
+            >
+              {tech.complementSubtitle}
+            </p>
+          </div>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+            {(tech.complements ?? []).map((c, i) => {
+              const Icon = complementIcons[i % complementIcons.length];
+              return (
+                <div
+                  key={c.title}
+                  className="rounded-2xl border p-6"
+                  style={{
+                    background: "var(--bg-card)",
+                    borderColor: "var(--card-border)",
+                  }}
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="inline-flex shrink-0 rounded-xl p-2.5"
+                      style={{
+                        background: "rgba(212,170,48,0.12)",
+                        border: "1px solid rgba(212,170,48,0.35)",
+                      }}
+                    >
+                      <Icon size={20} style={{ color: "#f0c040" }} />
+                    </span>
+                    <h3
+                      className="font-bold text-base min-w-0"
+                      style={{
+                        fontFamily: "Montserrat, sans-serif",
+                        color: "var(--text-primary)",
+                      }}
+                    >
+                      {c.title}
+                    </h3>
+                  </div>
+                  <p
+                    className="mt-3 text-sm leading-relaxed"
+                    style={{ color: "var(--text-muted)" }}
+                  >
+                    {c.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* MERCADO AUTONOMO — BOX ÚNICO */}
-      <section id="tech-mercado" className="py-16 px-4 sm:px-6">
+      <section id="tech-mercado" className="py-16 px-4 sm:px-6" style={sectionBg(BG[0])}>
+
         <div
           className="max-w-6xl mx-auto rounded-3xl border p-6 sm:p-10"
           style={{
