@@ -15,16 +15,10 @@ export function Footer({
   const { t: s } = useLang(),
     i = s.footer,
     o = useReveal(0.05),
-    a = (d) => {
-      const Cmp_h = document.querySelector(d);
-      Cmp_h &&
-        Cmp_h.scrollIntoView({
-          behavior: "smooth",
-        });
-    },
     Cmp_l = (d) => {
-      n === "daily" ? (e(), setTimeout(() => a(d), 150)) : a(d);
+      navigateToSection({ page: n, href: d, goOffshore: e });
     },
+
     u = [
       {
         label: s.nav.home,
