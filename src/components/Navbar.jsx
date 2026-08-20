@@ -52,6 +52,11 @@ export function Navbar({
 
   const go = (href) => {
     setOpen(false);
+    if (href === "#servicos" && onOpenServices) {
+      onOpenServices();
+      return;
+    }
+
     const map = aliases[currentPage];
     if (map) {
       const target = map[href];
