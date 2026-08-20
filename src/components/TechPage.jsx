@@ -249,19 +249,32 @@ export function TechPage({ onNavigateContact }) {
             {shots.map((src, i) => (
               <figure
                 key={src}
-                className={`overflow-hidden rounded-2xl border ${i === 0 ? "md:col-span-2" : ""}`}
+                className={`group overflow-hidden rounded-2xl border ${i === 0 ? "md:col-span-2" : ""}`}
                 style={{
                   background: "var(--bg-card)",
                   borderColor: "var(--card-border)",
                 }}
               >
-                <img
-                  src={src}
-                  alt={tech.gallery[i]?.caption ?? "RF Solutions"}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-auto object-cover"
-                />
+                <button
+                  type="button"
+                  onClick={() => setLightbox(i)}
+                  className="relative block w-full cursor-zoom-in"
+                  aria-label={tech.gallery[i]?.caption ?? "RF Solutions"}
+                >
+                  <img
+                    src={src}
+                    alt={tech.gallery[i]?.caption ?? "RF Solutions"}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  <span
+                    className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-[11px] font-semibold opacity-0 transition-opacity group-hover:opacity-100"
+                    style={{ background: "rgba(5,13,26,0.75)", color: "#f0c040" }}
+                  >
+                    <ZoomIn size={14} /> HD
+                  </span>
+                </button>
                 <figcaption
                   className="px-4 py-3 text-xs sm:text-sm"
                   style={{ color: "var(--text-muted)" }}
@@ -270,6 +283,7 @@ export function TechPage({ onNavigateContact }) {
                 </figcaption>
               </figure>
             ))}
+
           </div>
         </div>
       </section>
