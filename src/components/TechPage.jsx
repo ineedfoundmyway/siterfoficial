@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { ContactSection } from "@/components/ContactSection";
 import { useLang } from "@/lib/i18n";
+import { ZoomableImage } from "@/components/ZoomableImage";
 
 import techLogo from "@/assets/logo-rf-tech.png.asset.json";
 
@@ -662,13 +663,12 @@ export function TechPage({ onNavigateContact }) {
             <X size={22} />
           </button>
           <figure
-            className="max-h-full w-full max-w-6xl overflow-auto"
+            className="max-h-full w-full max-w-6xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <img
+            <ZoomableImage
               src={shots[lightbox]}
               alt={tech.gallery[lightbox]?.caption ?? "RF Solutions"}
-              className="mx-auto max-h-[80vh] w-auto max-w-full rounded-xl object-contain"
             />
             <figcaption
               className="mt-3 text-center text-sm"

@@ -1,6 +1,7 @@
 import { Mail, MapPin } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/lib/useReveal";
+import { navigateToSection } from "@/lib/sectionAliases";
 
 export const footerLinks =
   "https://maps.google.com/?q=Rua+Doutor+Pio+Borges+2055+Pita+Sao+Goncalo+RJ+CEP+24410-000";
@@ -15,16 +16,10 @@ export function Footer({
   const { t: s } = useLang(),
     i = s.footer,
     o = useReveal(0.05),
-    a = (d) => {
-      const Cmp_h = document.querySelector(d);
-      Cmp_h &&
-        Cmp_h.scrollIntoView({
-          behavior: "smooth",
-        });
-    },
     Cmp_l = (d) => {
-      n === "daily" ? (e(), setTimeout(() => a(d), 150)) : a(d);
+      navigateToSection({ page: n, href: d, goOffshore: e });
     },
+
     u = [
       {
         label: s.nav.home,

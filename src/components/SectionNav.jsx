@@ -92,13 +92,13 @@ export function SectionNav({ sections: t }) {
         }}
       />
       <nav
-        className="fixed right-5 top-1/2 -translate-y-1/2 z-[150] hidden lg:flex flex-col gap-4 items-end"
+        className="fixed right-2 sm:right-5 top-1/2 -translate-y-1/2 z-[150] flex flex-col gap-3 sm:gap-4 items-end"
         aria-label="Navegação por seções"
       >
         {t.map(({ id: d, label: Cmp_h }) => {
           const f = e === d;
           return (
-            <div className="relative flex items-center gap-2 group" key={d}>
+            <div className="relative flex items-center gap-2 group p-1.5 sm:p-0" key={d}>
               <span
                 className="text-xs font-semibold px-2.5 py-1 rounded-md pointer-events-none select-none whitespace-nowrap transition-all duration-200"
                 style={{

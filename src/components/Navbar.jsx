@@ -2,6 +2,7 @@ import React from "react";
 import { Globe, Menu, Moon, Sun, X } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { useTheme } from "@/lib/theme";
+import { navigateToSection } from "@/lib/sectionAliases";
 
 export function Navbar({
   onNavigateOffshore,
@@ -29,59 +30,25 @@ export function Navbar({
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-
-
-  const aliases = {
-    predial: {
-      "#inicio": "#predial-inicio",
-      "#sobre": "#predial-sobre",
-      "#servicos": "#predial-servicos",
-      "#contato": "#predial-contato",
-    },
-    daily: {
-      "#inicio": "#diario-inicio",
-      "#sobre": "#diario-sobre",
-      "#servicos": "#diario-servicos",
-      "#contato": "#diario-contato",
-    },
-    tech: {
-      "#inicio": "#tech-inicio",
-      "#sobre": "#tech-sobre",
-      "#servicos": "#tech-sistema",
-      "#contato": "#tech-contato",
-    },
-  };
-
   const go = (href) => {
     setOpen(false);
-    if (href === "#servicos" && onOpenServices) {
-      onOpenServices();
-      return;
-    }
+    navigateToSection({ page: currentPage, href, goOffshore: onNavigateOffshore });
+  };
 
-    const map = aliases[currentPage];
-    if (map) {
-      const target = map[href];
-      if (target) {
-        document.querySelector(target)?.scrollIntoView({ behavior: "smooth" });
-        return;
-      }
-      onNavigateOffshore();
-      setTimeout(() => {
-        document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-      }, 150);
-      return;
-    }
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  const openServices = () => {
+    setOpen(false);
+    onOpenServices?.();
   };
 
   const links = [
     { label: t.nav.home, href: "#inicio" },
     { label: t.nav.about, href: "#sobre" },
     { label: t.nav.services, href: "#servicos" },
+    { label: t.nav.ourServices, action: openServices },
     { label: t.nav.partners, href: "#parceiros" },
     { label: t.nav.contact, href: "#contato" },
   ];
+
 
   const LangSwitch = ({ compact }) => (
     <div
@@ -164,9 +131,9 @@ export function Navbar({
           <div className="hidden lg:flex items-center gap-5">
             <ul className="flex items-center gap-5">
               {links.map((l) => (
-                <li key={l.href}>
+                <li key={l.label}>
                   <button
-                    onClick={() => go(l.href)}
+                    onClick={() => (l.action ? l.action() : go(l.href))}
                     className="whitespace-nowrap transition-colors duration-200 text-sm font-medium tracking-wide hover:text-[#f0c040]"
                     style={{ color: "var(--nav-item-color)" }}
                   >
@@ -204,9 +171,9 @@ export function Navbar({
         >
           <ul className="px-4 py-3 flex flex-col">
             {links.map((l) => (
-              <li key={l.href}>
+              <li key={l.label}>
                 <button
-                  onClick={() => go(l.href)}
+                  onClick={() => (l.action ? l.action() : go(l.href))}
                   className="hover:text-[#f0c040] transition-colors text-base font-medium w-full text-left py-3 border-b"
                   style={{
                     color: "var(--nav-item-color)",
