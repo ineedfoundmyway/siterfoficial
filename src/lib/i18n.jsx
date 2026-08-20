@@ -745,14 +745,36 @@ pt.tech = {
   price2Value: "R$ 150,00",
   price2Desc: "Cobrada apenas quando houver manutenção ou reabastecimento. Você paga só pelo que usar.",
   priceNote: "Sem o sistema o mercado opera. Com ele, o mercado se paga com dado na mão.",
+  complementTag: "Serviço complementar",
+  complementTitle: "Serviços que completam o sistema",
+  complementSubtitle:
+    "O sistema de gestão RF Solutions é o nosso produto principal. Em volta dele oferecemos serviços complementares de instalação e automação para deixar o seu comércio pronto para vender sozinho.",
+  complements: [
+    {
+      title: "Implantação de mercado autônomo (Wallmarket)",
+      desc: "Montagem completa do autoatendimento: boxes refrigerados, prateleiras, terminal de pagamento e o sistema RF Solutions controlando tudo.",
+    },
+    {
+      title: "Automação de caixa e periféricos",
+      desc: "Leitor de código de barras, impressora de comprovante, gaveta e maquininha Stone integrados ao sistema — sem digitação manual.",
+    },
+    {
+      title: "Monitoramento e câmera IP",
+      desc: "Câmera no ponto de venda ligada ao painel, com acesso remoto pelo computador ou celular.",
+    },
+    {
+      title: "Instalação elétrica e suporte técnico",
+      desc: "Nossa equipe elétrica prepara a infraestrutura, energia e rede do ponto, e dá manutenção depois da entrega.",
+    },
+  ],
   marketBadge: "Mercado Autônomo 24h",
   marketTitle: "Implantação de mercado autônomo 24h (Wallmarket)",
   marketSubtitle:
-    "A cantina do condomínio vira um mercado que nunca fecha: autoatendimento total, sem funcionários, sem fila e sem horário de funcionamento.",
+    "Serviço complementar ao sistema RF Solutions: transformamos qualquer espaço comercial — loja de conveniência, cantina, padaria, academia, posto, hotel, empresa ou condomínio — em um ponto de venda que nunca fecha. Autoatendimento total, sem funcionário no caixa, sem fila e sem horário de funcionamento, com todas as vendas registradas dentro do nosso sistema de gestão.",
   marketSteps: [
-    { title: "Escolhe", desc: "O morador pega o que quiser na prateleira ou nos boxes refrigerados." },
+    { title: "Escolhe", desc: "O cliente pega o que quiser na prateleira ou nos boxes refrigerados." },
     { title: "Registra", desc: "Leitor de código de barras ou QR Code no celular ou no terminal." },
-    { title: "Paga", desc: "Pix, débito ou crédito. Recibo na hora e venda registrada automaticamente." },
+    { title: "Paga", desc: "Pix, débito ou crédito na maquininha Stone. Recibo na hora e venda registrada automaticamente no sistema." },
   ],
   marketStructureTitle: "A estrutura instalada",
   marketStructure: [
@@ -760,26 +782,28 @@ pt.tech = {
     "Box expositora — refrigerantes, águas, energéticos e sucos.",
     "Box de frios — queijos, embutidos, laticínios e café da manhã.",
     "Prateleiras secas — doces, snacks, higiene e limpeza.",
+    "Terminal de autoatendimento com o sistema RF Solutions instalado.",
   ],
-  marketBenefitsTitle: "O que o condomínio ganha",
+  marketBenefitsTitle: "O que o seu negócio ganha",
   marketBenefits: [
     "Disponibilidade real: aberto 24h, 365 dias por ano.",
-    "Custo fixo enxuto: sem salário, encargos ou rotatividade.",
+    "Custo fixo enxuto: sem salário, encargos ou rotatividade no caixa.",
     "Preço mais justo com margem saudável.",
-    "Valorização do imóvel e da locação de temporada.",
-    "Menos saída do condomínio: mais segurança e comodidade.",
-    "Receita nova: o espaço ocioso passa a gerar resultado.",
+    "Espaço ocioso vira receita nova.",
+    "Mais comodidade para clientes, moradores, hóspedes ou colaboradores.",
+    "Toda venda auditada no painel: estoque, faturamento e ticket médio em tempo real.",
   ],
   marketControlTitle: "Bebida alcoólica com controle real",
   marketControl: [
     "Liberação por QR Code com verificação de maioridade antes da venda.",
     "Nenhuma bebida alcoólica sai sem validação registrada.",
     "Cada liberação gravada com data, hora e responsável.",
-    "Condomínio e síndico protegidos juridicamente.",
+    "Estabelecimento e responsável protegidos juridicamente.",
   ],
-  marketFooter: "Aberto 24h · 365 dias por ano · zero folha de pagamento · Parceiro Stone",
-  cta: "Quero implantar no meu condomínio",
+  marketFooter: "Aberto 24h · 365 dias por ano · zero folha de pagamento no caixa · Parceiro Stone",
+  cta: "Quero implantar no meu comércio",
 };
+
 
 en.tech = {
   ...pt.tech,
