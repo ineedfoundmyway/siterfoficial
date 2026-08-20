@@ -478,6 +478,87 @@ export function TechPage({ onNavigateContact }) {
             ))}
           </div>
 
+          {/* ESCOPO: estrutura não inclusa */}
+          <div
+            className="mt-6 flex gap-3 rounded-2xl border p-5"
+            style={{
+              background: "rgba(212,170,48,0.07)",
+              borderColor: "rgba(212,170,48,0.4)",
+            }}
+          >
+            <Info size={20} className="mt-0.5 shrink-0" style={{ color: "#f0c040" }} />
+            <div className="min-w-0">
+              <h3
+                className="font-bold text-sm"
+                style={{
+                  fontFamily: "Montserrat, sans-serif",
+                  color: "var(--text-primary)",
+                }}
+              >
+                {tech.marketScopeTitle}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                {tech.marketScopeNote}
+              </p>
+            </div>
+          </div>
+
+          {/* BOX 24H */}
+          <div
+            className="mt-6 rounded-2xl border p-5 sm:p-6"
+            style={{
+              background: "var(--bg-card)",
+              borderColor: "var(--card-border)",
+            }}
+          >
+            <div className="flex items-center gap-3">
+              <span
+                className="inline-flex shrink-0 rounded-xl p-2.5"
+                style={{
+                  background: "rgba(212,170,48,0.12)",
+                  border: "1px solid rgba(212,170,48,0.35)",
+                }}
+              >
+                <Box size={20} style={{ color: "#f0c040" }} />
+              </span>
+              <div className="min-w-0">
+                <Tag>{tech.boxBadge}</Tag>
+                <h3
+                  className="mt-2 text-lg sm:text-xl font-bold"
+                  style={{
+                    fontFamily: "Montserrat, sans-serif",
+                    color: "var(--text-primary)",
+                  }}
+                >
+                  {tech.boxTitle}
+                </h3>
+              </div>
+            </div>
+            <p className="mt-3 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+              {tech.boxSubtitle}
+            </p>
+            <h4
+              className="mt-5 font-bold text-sm"
+              style={{ fontFamily: "Montserrat, sans-serif", color: "var(--text-primary)" }}
+            >
+              {tech.boxItemsTitle}
+            </h4>
+            <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+              {(tech.boxItems ?? []).map((it) => (
+                <li
+                  key={it}
+                  className="flex gap-2 text-sm leading-relaxed"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  <span style={{ color: "#f0c040" }}>•</span>
+                  <span className="min-w-0">{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+
+
           {/* PREÇOS */}
           <div className="mt-10">
             <Tag>{tech.priceTag}</Tag>
