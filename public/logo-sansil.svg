@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 100" width="340" height="100">
+  <rect width="340" height="100" fill="white" rx="8"/>
+  <defs>
+    <linearGradient id="ledGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1a6bc4"/>
+      <stop offset="100%" stop-color="#f09020"/>
+    </linearGradient>
+  </defs>
+  <!-- SANSIL text in dark blue -->
+  <text x="10" y="52" font-family="Arial Black, sans-serif" font-size="42" font-weight="900" fill="#1a3a7a">SANSIL</text>
+  <!-- Space -->
+  <!-- LED text in orange -->
+  <text x="208" y="52" font-family="Arial Black, sans-serif" font-size="42" font-weight="900" fill="#f09020">LED</text>
+  <!-- Orange underline -->
+  <line x1="10" y1="60" x2="200" y2="60" stroke="#f09020" stroke-width="3"/>
+  <!-- Subtitle -->
+  <text x="170" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1a3a7a" letter-spacing="2">ILUMINAÇÃO DE VERDADE</text>
+</svg>

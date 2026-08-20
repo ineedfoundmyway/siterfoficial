@@ -142,3 +142,67 @@
     color: var(--color-foreground);
   }
 }
+
+/* ===== RF Soluções Offshore – design system (reconstructed) ===== */
+:root{--navy-950: #050d1a;--navy-900: #0a1628;--navy-800: #0d1f3c;--navy-700: #1a2f5e;--navy-600: #1e3a6e;--gold-400: #f0c040;--gold-500: #d4aa30;--gold-600: #c9a227;--bg-base: #050d1a;--bg-surface: #0a1628;--bg-card: rgba(13, 31, 60, .85);--bg-card-solid: #0d1f3c;--bg-inner: rgba(26, 47, 94, .5);--bg-overlay: rgba(5, 13, 26, .88);--text-primary: #ffffff;--text-secondary: #d1d5db;--text-muted: #9ca3af;--text-faint: #6b7280;--nav-bg-scrolled: rgba(5, 13, 26, .95);--nav-bg-mobile: rgba(5, 13, 26, .98);--nav-border: #1a2f5e;--nav-item-color: #e2e8f0;--card-border: rgba(212, 170, 48, .2);--card-border-hover: rgba(212, 170, 48, .5);--divider: rgba(255, 255, 255, .07);--section-overlay: rgba(5, 13, 26, .88);--hero-overlay-from: rgba(5, 13, 26, .8);--hero-overlay-via: rgba(10, 22, 40, .75);--hero-overlay-to: rgba(5, 13, 26, .9);--scrollbar-bg: #0a1628;--scrollbar-thumb: #1a2f5e}
+html.light{--bg-base: #eef2f7;--bg-surface: #ffffff;--bg-card: rgba(255, 255, 255, .94);--bg-card-solid: #f8fafc;--bg-inner: rgba(212, 170, 48, .07);--bg-overlay: rgba(220, 232, 255, .8);--text-primary: #0f172a;--text-secondary: #334155;--text-muted: #64748b;--text-faint: #94a3b8;--nav-bg-scrolled: rgba(255, 255, 255, .97);--nav-bg-mobile: rgba(255, 255, 255, .99);--nav-border: rgba(212, 170, 48, .2);--nav-item-color: #1e293b;--card-border: rgba(180, 140, 20, .25);--card-border-hover: rgba(180, 140, 20, .55);--divider: rgba(15, 23, 42, .08);--section-overlay: rgba(220, 232, 255, .82);--hero-overlay-from: rgba(10, 22, 40, .68);--hero-overlay-via: rgba(10, 22, 40, .62);--hero-overlay-to: rgba(5, 13, 26, .76);--scrollbar-bg: #e2e8f0;--scrollbar-thumb: #94a3b8}
+*{scroll-behavior:smooth}
+body{font-family:Open Sans,sans-serif;background-color:var(--bg-base);color:var(--text-primary);overflow-x:hidden;transition:background-color .3s ease,color .3s ease}
+h1,h2,h3,h4,h5,h6{font-family:Montserrat,sans-serif}
+html.light .text-white{color:var(--text-primary)!important}
+html.light .text-gray-100,html.light .text-gray-200{color:var(--text-secondary)!important}
+html.light .text-gray-300{color:var(--text-muted)!important}
+html.light .text-gray-400,html.light .text-gray-500{color:var(--text-faint)!important}
+html.light .text-\[\#f0c040\],html.light .text-gold{color:var(--gold-500)!important}
+.section-bg-overlay{position:relative}
+.section-bg-overlay:before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;background:var(--section-overlay);z-index:1;transition:background .3s ease}
+.section-bg-overlay>*{position:relative;z-index:2}
+.gold-divider{width:60px;height:3px;background:linear-gradient(90deg,var(--gold-600),var(--gold-400));border-radius:2px}
+.contact-input{width:100%;border:1px solid var(--card-border);border-radius:.5rem;background:var(--bg-inner);color:var(--text-primary);padding:.75rem .875rem;outline:none;transition:border-color .2s ease,box-shadow .2s ease,background-color .2s ease}
+.contact-input:focus{border-color:var(--gold-400);box-shadow:0 0 0 3px #f0c04024}
+@keyframes fadeInUp{0%{opacity:0;transform:translateY(30px)}
+to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeIn{0%{opacity:0}
+to{opacity:1}
+}
+.animate-fade-in-up{animation:fadeInUp .8s ease forwards}
+.animate-fade-in{animation:fadeIn 1s ease forwards}
+.delay-100{animation-delay:.1s}
+.delay-200{animation-delay:.2s}
+.delay-300{animation-delay:.3s}
+.delay-400{animation-delay:.4s}
+.delay-500{animation-delay:.5s}
+.delay-600{animation-delay:.6s}
+.card-hover{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.card-hover:hover{transform:translateY(-6px);box-shadow:0 12px 40px #d4aa3033;border-color:var(--gold-500)}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--scrollbar-bg)}
+::-webkit-scrollbar-thumb{background:var(--scrollbar-thumb);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold-600)}
+html.light .card-hover:hover{box-shadow:0 12px 40px #b48c142e}
+.parallax-bg{background-attachment:scroll}
+@media (min-width: 768px){.parallax-bg{background-attachment:fixed}
+}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
+.reveal-left{opacity:0;transform:translate(-32px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
+.reveal-scale{opacity:0;transform:scale(.94);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
+.reveal.in-view,.reveal-left.in-view,.reveal-scale.in-view{opacity:1;transform:none}
+.stagger-children>*{opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
+.stagger-children.in-view>*:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
+.stagger-children.in-view>*:nth-child(2){opacity:1;transform:none;transition-delay:.13s}
+.stagger-children.in-view>*:nth-child(3){opacity:1;transform:none;transition-delay:.21s}
+.stagger-children.in-view>*:nth-child(4){opacity:1;transform:none;transition-delay:.29s}
+.stagger-children.in-view>*:nth-child(5){opacity:1;transform:none;transition-delay:.37s}
+.stagger-children.in-view>*:nth-child(6){opacity:1;transform:none;transition-delay:.45s}
+.stagger-children.in-view>*:nth-child(7){opacity:1;transform:none;transition-delay:.53s}
+html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.section-bg-overlay{transform:translateZ(0);backface-visibility:hidden}
+@keyframes section-overlay-in{0%{opacity:.3}
+to{opacity:1}
+}
+.section-bg-overlay.section-bg-entered:before{animation:section-overlay-in 1.6s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes divider-grow{0%{transform:scaleX(0);opacity:0}
+to{transform:scaleX(1);opacity:1}
+}
+.section-bg-overlay.section-bg-entered .section-divider-line{animation:divider-grow .9s cubic-bezier(.22,1,.36,1) .2s both}
