@@ -149,11 +149,12 @@ export function ZoomableImage({ src, alt }) {
         />
       </div>
       <div
-        className="relative z-10 mt-3 flex items-center justify-center gap-2"
+        className="relative z-10 mt-3 hidden items-center justify-center gap-2 md:flex"
         style={{ touchAction: "manipulation" }}
         onClick={(e) => e.stopPropagation()}
         onPointerDown={(e) => e.stopPropagation()}
       >
+
         {[
           { icon: Minus, fn: () => step(-1), label: "Diminuir zoom" },
           { icon: RotateCcw, fn: reset, label: "Redefinir zoom" },
