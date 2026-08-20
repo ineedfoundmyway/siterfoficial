@@ -78,7 +78,7 @@ export function TechPage({ onNavigateContact }) {
             className="mt-5 text-3xl sm:text-5xl font-bold leading-tight"
             style={{
               fontFamily: "Montserrat, sans-serif",
-              color: "var(--text-primary)",
+              color: "#f5f7fa",
             }}
           >
             {tech.title1}{" "}
@@ -86,10 +86,11 @@ export function TechPage({ onNavigateContact }) {
           </h1>
           <p
             className="mt-5 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed"
-            style={{ color: "var(--text-muted)" }}
+            style={{ color: "rgba(226,232,240,0.85)" }}
           >
             {tech.subtitle}
           </p>
+
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <button
               onClick={() => scrollTo("#tech-mercado")}
