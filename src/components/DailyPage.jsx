@@ -116,6 +116,54 @@ export function DailyPage() {
         </div>
       </section>
       <section
+        id="diario-sobre"
+        className="relative py-16 sm:py-20 section-bg-overlay parallax-bg"
+        style={{
+          backgroundImage: "url('/sobrenos.jpeg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div
+          className="absolute top-0 left-0 right-0 h-1 z-20"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, #d4aa30, transparent)",
+          }}
+        />
+        <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <p
+            className="text-sm font-semibold tracking-widest uppercase mb-2"
+            style={{ color: "#d4aa30" }}
+          >
+            {e.aboutTag}
+          </p>
+          <h2
+            className="text-3xl sm:text-4xl font-bold"
+            style={{
+              fontFamily: "Montserrat, sans-serif",
+              color: "var(--text-primary)",
+            }}
+          >
+            {e.aboutTitle1}{" "}
+            <span style={{ color: "#f0c040" }}>{e.aboutTitle2}</span>
+          </h2>
+          <div className="gold-divider mx-auto mt-4" />
+          <p
+            className="mt-6 text-base leading-relaxed"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            {e.aboutP1}
+          </p>
+          <p
+            className="mt-4 text-base leading-relaxed"
+            style={{ color: "var(--text-muted)" }}
+          >
+            {e.aboutP2}
+          </p>
+        </div>
+      </section>
+      <section
         id="diario-servicos"
         className="relative py-16 sm:py-24 section-bg-overlay parallax-bg"
         style={{

@@ -40,11 +40,13 @@ export function Navbar({
     },
     daily: {
       "#inicio": "#diario-inicio",
+      "#sobre": "#diario-sobre",
       "#servicos": "#diario-servicos",
       "#contato": "#diario-contato",
     },
     tech: {
       "#inicio": "#tech-inicio",
+      "#sobre": "#tech-sobre",
       "#servicos": "#tech-sistema",
       "#contato": "#tech-contato",
     },

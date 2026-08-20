@@ -846,3 +846,34 @@ export function useLang() {
   if (!t) throw new Error("useLang must be used inside LanguageProvider");
   return t;
 }
+
+// ===== Sobre Nós por área de serviço =====
+pt.daily.aboutTag = "Quem Somos";
+pt.daily.aboutTitle1 = "Sobre os";
+pt.daily.aboutTitle2 = "Serviços Diários";
+pt.daily.aboutP1 =
+  "A RF Soluções atende residências, comércios e indústrias com serviços elétricos do dia a dia: instalações, reparos, trocas e pequenas obras executadas por eletricistas qualificados.";
+pt.daily.aboutP2 =
+  "Trabalhamos com agilidade e transparência: na visita técnica avaliamos o local, tiramos todas as dúvidas e combinamos o valor do serviço antes de qualquer execução.";
+en.daily.aboutTag = "Who We Are";
+en.daily.aboutTitle1 = "About our";
+en.daily.aboutTitle2 = "Daily Services";
+en.daily.aboutP1 =
+  "RF Soluções serves homes, shops and industries with everyday electrical work: installations, repairs, replacements and small projects handled by qualified electricians.";
+en.daily.aboutP2 =
+  "We work with agility and transparency: during the technical visit we assess the site, answer every question and agree on the price before any work starts.";
+
+pt.tech.aboutTag = "Quem Somos";
+pt.tech.aboutTitle1 = "Sobre os";
+pt.tech.aboutTitle2 = "Serviços Tecnológicos";
+pt.tech.aboutP1 =
+  "A frente de tecnologia da RF Soluções desenvolve e implanta o Sistema de gestão de vendas RF Solutions: PDV, estoque, clientes, relatórios e monitoramento em tempo real, no computador e no celular.";
+pt.tech.aboutP2 =
+  "Além do sistema, executamos serviços complementares como a implantação de mercado autônomo 24h, câmeras IP, leitores de código de barras e integração de pagamentos com a Stone, nossa parceira.";
+en.tech.aboutTag = "Who We Are";
+en.tech.aboutTitle1 = "About our";
+en.tech.aboutTitle2 = "Technology Services";
+en.tech.aboutP1 =
+  "RF Soluções' technology arm builds and deploys the RF Solutions sales management system: POS, inventory, customers, reports and real-time monitoring, on desktop and mobile.";
+en.tech.aboutP2 =
+  "We also deliver complementary services such as 24h autonomous market deployment, IP cameras, barcode scanners and payment integration with Stone, our partner.";

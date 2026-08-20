@@ -16,6 +16,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { useLang } from "@/lib/i18n";
+import techLogo from "@/assets/logo-rf-tech.png.asset.json";
 
 const shots = [
   "/__l5e/assets-v1/ddefc332-f631-4fa6-9724-8b4afb9a12c2/dashboard1.jpg",
@@ -92,6 +93,24 @@ export function TechPage({ onNavigateContact }) {
           }}
         />
         <div className="relative z-10 max-w-5xl mx-auto text-center">
+          <div className="mb-8 flex justify-center">
+            <div
+              className="inline-block p-3 rounded-2xl"
+              style={{
+                background: "rgba(212,170,48,0.08)",
+                border: "2px solid rgba(212,170,48,0.3)",
+                backdropFilter: "blur(8px)",
+              }}
+            >
+              <img
+                src={techLogo.url}
+                alt="RF Solutions"
+                className="h-32 sm:h-40 md:h-48 w-auto mx-auto drop-shadow-2xl rounded-xl"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+          </div>
 
           <Tag>{tech.badge}</Tag>
           <h1
@@ -121,6 +140,27 @@ export function TechPage({ onNavigateContact }) {
           >
             <ChevronDown size={32} />
           </button>
+        </div>
+      </section>
+
+      {/* SOBRE */}
+      <section id="tech-sobre" className="py-16 px-4 sm:px-6" style={sectionBg(BG[3])}>
+        <div className="max-w-4xl mx-auto text-center">
+          <Tag>{tech.aboutTag}</Tag>
+          <h2
+            className="mt-4 text-2xl sm:text-4xl font-bold"
+            style={{ fontFamily: "Montserrat, sans-serif", color: "#f5f7fa" }}
+          >
+            {tech.aboutTitle1}{" "}
+            <span style={{ color: "#f0c040" }}>{tech.aboutTitle2}</span>
+          </h2>
+          <div className="gold-divider mx-auto mt-4" />
+          <p className="mt-6 text-sm sm:text-base leading-relaxed" style={{ color: "rgba(226,232,240,0.85)" }}>
+            {tech.aboutP1}
+          </p>
+          <p className="mt-4 text-sm sm:text-base leading-relaxed" style={{ color: "rgba(226,232,240,0.7)" }}>
+            {tech.aboutP2}
+          </p>
         </div>
       </section>
 
