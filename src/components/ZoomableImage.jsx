@@ -99,11 +99,32 @@ export function ZoomableImage({ src, alt }) {
     }
   };
 
+  const lastTap = React.useRef(0);
+
   const onPointerUp = (e) => {
+    const wasPinch = pointers.current.size >= 2;
     pointers.current.delete(e.pointerId);
     if (pointers.current.size < 2) pinch.current = null;
     if (pointers.current.size === 0) drag.current = null;
+
+    if (e.pointerType === "touch" && !wasPinch) {
+      const now = Date.now();
+      if (now - lastTap.current < 300) {
+        const el = containerRef.current;
+        const rect = el?.getBoundingClientRect();
+        if (stateRef.current.zoom > 1) {
+          setZoom(1);
+          setOffset({ x: 0, y: 0 });
+        } else if (rect) {
+          zoomAt(2.5, e.clientX - rect.left, e.clientY - rect.top);
+        }
+        lastTap.current = 0;
+      } else {
+        lastTap.current = now;
+      }
+    }
   };
+
 
   const reset = () => {
     setZoom(1);
