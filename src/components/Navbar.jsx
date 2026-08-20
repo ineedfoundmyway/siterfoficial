@@ -29,59 +29,25 @@ export function Navbar({
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-
-
-  const aliases = {
-    predial: {
-      "#inicio": "#predial-inicio",
-      "#sobre": "#predial-sobre",
-      "#servicos": "#predial-servicos",
-      "#contato": "#predial-contato",
-    },
-    daily: {
-      "#inicio": "#diario-inicio",
-      "#sobre": "#diario-sobre",
-      "#servicos": "#diario-servicos",
-      "#contato": "#diario-contato",
-    },
-    tech: {
-      "#inicio": "#tech-inicio",
-      "#sobre": "#tech-sobre",
-      "#servicos": "#tech-sistema",
-      "#contato": "#tech-contato",
-    },
-  };
-
   const go = (href) => {
     setOpen(false);
-    if (href === "#servicos" && onOpenServices) {
-      onOpenServices();
-      return;
-    }
+    navigateToSection({ page: currentPage, href, goOffshore: onNavigateOffshore });
+  };
 
-    const map = aliases[currentPage];
-    if (map) {
-      const target = map[href];
-      if (target) {
-        document.querySelector(target)?.scrollIntoView({ behavior: "smooth" });
-        return;
-      }
-      onNavigateOffshore();
-      setTimeout(() => {
-        document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-      }, 150);
-      return;
-    }
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  const openServices = () => {
+    setOpen(false);
+    onOpenServices?.();
   };
 
   const links = [
     { label: t.nav.home, href: "#inicio" },
     { label: t.nav.about, href: "#sobre" },
     { label: t.nav.services, href: "#servicos" },
+    { label: t.nav.ourServices, action: openServices },
     { label: t.nav.partners, href: "#parceiros" },
     { label: t.nav.contact, href: "#contato" },
   ];
+
 
   const LangSwitch = ({ compact }) => (
     <div
