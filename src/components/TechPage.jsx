@@ -33,6 +33,8 @@ const shots = [
   "/tech/camera.webp",
 ];
 
+const simShot = "/tech/wallmarket-sim.webp";
+
 const BG = [
   "/tech/tech-bg.webp",
   "/tech/tech-bg-2.webp",
@@ -71,6 +73,18 @@ export function TechPage({ onNavigateContact }) {
   const { t } = useLang();
   const tech = t.tech;
   const [lightbox, setLightbox] = React.useState(null);
+  const [simOpen, setSimOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!simOpen) return;
+    const onKey = (e) => e.key === "Escape" && setSimOpen(false);
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [simOpen]);
 
   React.useEffect(() => {
     if (lightbox === null) return;
@@ -475,8 +489,44 @@ export function TechPage({ onNavigateContact }) {
                     </li>
                   ))}
                 </ul>
+                {title === tech.marketStructureTitle && (
+                  <button
+                    type="button"
+                    onClick={() => setSimOpen(true)}
+                    className="mt-4 flex w-full items-center gap-3 rounded-xl border p-2 text-left transition-colors cursor-zoom-in"
+                    style={{
+                      background: "rgba(212,170,48,0.06)",
+                      borderColor: "rgba(212,170,48,0.35)",
+                    }}
+                  >
+                    <img
+                      src={simShot}
+                      alt={tech.simTitle}
+                      loading="lazy"
+                      decoding="async"
+                      width={1376}
+                      height={768}
+                      className="h-14 w-24 shrink-0 rounded-lg object-cover"
+                    />
+                    <span className="min-w-0">
+                      <span
+                        className="block text-xs font-bold"
+                        style={{ fontFamily: "Montserrat, sans-serif", color: "var(--text-primary)" }}
+                      >
+                        {tech.simTitle}
+                      </span>
+                      <span
+                        className="mt-0.5 flex items-center gap-1 text-[11px]"
+                        style={{ color: "#f0c040" }}
+                      >
+                        <ZoomIn size={12} /> {tech.simHint}
+                      </span>
+                    </span>
+                  </button>
+                )}
               </div>
             ))}
+
           </div>
 
           {/* ESCOPO: estrutura não inclusa */}
@@ -675,6 +725,35 @@ export function TechPage({ onNavigateContact }) {
               style={{ color: "rgba(226,232,240,0.85)" }}
             >
               {tech.gallery[lightbox]?.caption}
+            </figcaption>
+          </figure>
+        </div>
+      )}
+
+      {simOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
+          style={{ background: "rgba(5,13,26,0.94)", backdropFilter: "blur(6px)" }}
+          onClick={() => setSimOpen(false)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            type="button"
+            onClick={() => setSimOpen(false)}
+            aria-label="Fechar"
+            className="absolute right-4 top-4 rounded-full p-2 transition-colors"
+            style={{ background: "rgba(212,170,48,0.15)", color: "#f0c040" }}
+          >
+            <X size={22} />
+          </button>
+          <figure className="max-h-full w-full max-w-6xl" onClick={(e) => e.stopPropagation()}>
+            <ZoomableImage src={simShot} alt={tech.simTitle} />
+            <figcaption
+              className="mt-3 text-center text-xs sm:text-sm"
+              style={{ color: "rgba(226,232,240,0.85)" }}
+            >
+              {tech.simCaption}
             </figcaption>
           </figure>
         </div>
