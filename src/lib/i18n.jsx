@@ -804,6 +804,10 @@ pt.tech = {
   ],
   marketFooter: "Aberto 24h · 365 dias por ano · zero folha de pagamento no caixa · Parceiro Stone",
   cta: "Quero implantar no meu comércio",
+  simTitle: "Simulação Wallmarket 24h",
+  simHint: "Toque para ampliar",
+  simCaption:
+    "Simulação de projeto e implementação: módulo modular de conveniência RF Wallmarket — layouts 100% modulares, adequação elétrica e montagem, ART de engenheiro sênior inclusa, tecnologia Stone PDV e bloqueio de idade.",
 };
 
 
@@ -828,6 +832,10 @@ en.tech = {
   complementTag: "Complementary service",
   complementTitle: "Services that complete the system",
   cta: "I want it in my business",
+  simTitle: "24h Wallmarket simulation",
+  simHint: "Tap to enlarge",
+  simCaption:
+    "Project and implementation simulation: RF Wallmarket modular convenience module — 100% modular layouts, electrical upgrades and assembly, senior engineer ART included, Stone POS technology and age lock.",
 };
 export function LanguageProvider({ children: t }) {
   const [e, r] = React.useState("pt");
@@ -881,12 +889,12 @@ en.tech.aboutP2 =
   "We also deliver complementary services such as 24h autonomous market deployment, IP cameras, barcode scanners and payment integration with Stone, our partner.";
 
 // ===== Mercado autônomo: escopo da estrutura + Box 24h =====
-pt.tech.marketScopeTitle = "O que está incluso no serviço";
+pt.tech.marketScopeTitle = "Tudo incluso: projeto, estrutura e sistema";
 pt.tech.marketScopeNote =
-  "Importante: a estrutura física (boxes refrigerados, cervejeira, expositora, prateleiras, terminal e periféricos) NÃO está inclusa no serviço — os equipamentos são adquiridos pelo cliente ou cotados à parte. O que fazemos é a montagem completa: instalação elétrica, posicionamento e montagem dos boxes, configuração do terminal, integração da maquininha Stone, câmeras e leitores, e a instalação e parametrização do sistema de gestão RF Solutions. Nosso foco principal é o sistema PDV; o mercado autônomo e o box 24h são serviços complementares que executamos.";
-en.tech.marketScopeTitle = "What the service includes";
+  "Entregamos o projeto completo, chave na mão: toda a estrutura física (boxes refrigerados, cervejeira, expositora, prateleiras, terminal e periféricos) está inclusa, junto com planta do layout, projeto elétrico, diagrama unifilar, ART de engenheiro sênior, adequação elétrica, montagem e integração da maquininha Stone, câmeras e leitores. Fazemos tudo — você não precisa contratar mais ninguém. E com o Sistema de gestão RF Solutions instalado o resultado é muito melhor: estoque, faturamento, ticket médio e liberação de bebida alcoólica auditados em tempo real, no computador e no celular.";
+en.tech.marketScopeTitle = "Everything included: design, structure and system";
 en.tech.marketScopeNote =
-  "Important: the physical structure (refrigerated boxes, coolers, display units, shelving, terminal and peripherals) is NOT included — equipment is bought by the client or quoted separately. We handle the full assembly: electrical installation, positioning and mounting, terminal setup, Stone payment integration, cameras and scanners, plus installation and configuration of the RF Solutions management system. Our main focus is the POS system; the autonomous market and the 24h box are complementary services we deliver.";
+  "We deliver a full turnkey project: the entire physical structure (refrigerated boxes, coolers, display units, shelving, terminal and peripherals) is included, together with layout drawings, electrical design, single-line diagram, senior engineer ART, electrical upgrades, assembly and integration of the Stone terminal, cameras and scanners. We do it all — no other contractor needed. And with the RF Solutions management system installed the results are far better: stock, revenue, average ticket and alcohol release audited in real time, on desktop and mobile.";
 
 pt.tech.boxBadge = "Box 24h";
 pt.tech.boxTitle = "Box 24h — mini loja autônoma";
@@ -898,7 +906,8 @@ pt.tech.boxItems = [
   "Pagamento antes da retirada, via Pix, débito ou crédito com a Stone.",
   "Estoque e vendas do box aparecem no mesmo painel do sistema RF Solutions.",
   "Ideal para quem quer começar pequeno e crescer depois para o mercado completo.",
-  "Estrutura do box não inclusa: fazemos a instalação, integração e configuração.",
+  "Estrutura do box inclusa: fornecemos o equipamento, planta, projeto elétrico, diagrama unifilar, ART e toda a montagem.",
+  "Com o sistema RF Solutions o box rende muito mais: reposição na hora certa, preço ajustado e zero perda por falta de controle.",
 ];
 en.tech.boxBadge = "24h Box";
 en.tech.boxTitle = "24h Box — compact autonomous store";
@@ -910,5 +919,6 @@ en.tech.boxItems = [
   "Payment before pickup via Pix, debit or credit with Stone.",
   "Box stock and sales appear in the same RF Solutions dashboard.",
   "Ideal for starting small and scaling to a full market later.",
-  "Box structure not included: we handle installation, integration and setup.",
+  "Box structure included: we supply the unit, layout, electrical design, single-line diagram, ART and full assembly.",
+  "With the RF Solutions system the box performs far better: timely restocking, sharper pricing and zero losses from poor control.",
 ];
