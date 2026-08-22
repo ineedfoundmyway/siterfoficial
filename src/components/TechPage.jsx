@@ -475,8 +475,44 @@ export function TechPage({ onNavigateContact }) {
                     </li>
                   ))}
                 </ul>
+                {title === tech.marketStructureTitle && (
+                  <button
+                    type="button"
+                    onClick={() => setSimOpen(true)}
+                    className="mt-4 flex w-full items-center gap-3 rounded-xl border p-2 text-left transition-colors cursor-zoom-in"
+                    style={{
+                      background: "rgba(212,170,48,0.06)",
+                      borderColor: "rgba(212,170,48,0.35)",
+                    }}
+                  >
+                    <img
+                      src={simShot}
+                      alt={tech.simTitle}
+                      loading="lazy"
+                      decoding="async"
+                      width={1376}
+                      height={768}
+                      className="h-14 w-24 shrink-0 rounded-lg object-cover"
+                    />
+                    <span className="min-w-0">
+                      <span
+                        className="block text-xs font-bold"
+                        style={{ fontFamily: "Montserrat, sans-serif", color: "var(--text-primary)" }}
+                      >
+                        {tech.simTitle}
+                      </span>
+                      <span
+                        className="mt-0.5 flex items-center gap-1 text-[11px]"
+                        style={{ color: "#f0c040" }}
+                      >
+                        <ZoomIn size={12} /> {tech.simHint}
+                      </span>
+                    </span>
+                  </button>
+                )}
               </div>
             ))}
+
           </div>
 
           {/* ESCOPO: estrutura não inclusa */}
