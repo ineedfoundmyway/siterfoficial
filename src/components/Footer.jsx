@@ -1,4 +1,4 @@
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/lib/useReveal";
 import { navigateToSection } from "@/lib/sectionAliases";
@@ -6,7 +6,7 @@ const techLogo = { url: "/tech/logo-rf-tech.webp" };
 
 export const footerLinks =
   "https://maps.google.com/?q=Rua+Doutor+Pio+Borges+2055+Pita+Sao+Goncalo+RJ+CEP+24410-000";
-export function Footer({ currentPage: n }) {
+export function Footer({ currentPage: n, onNavigateOffshore: e }) {
 
   const { t: s } = useLang(),
     i = s.footer,
@@ -142,6 +142,21 @@ export function Footer({ currentPage: n }) {
                 }}
               />
               {" comercial@rf-offshore.com"}
+            </a>
+            <a
+              href="tel:+5521997931473"
+              className="mt-3 flex items-center gap-2 text-sm transition-colors hover:text-[#f0c040]"
+              style={{
+                color: "var(--text-muted)",
+              }}
+            >
+              <Phone
+                size={13}
+                style={{
+                  flexShrink: 0,
+                }}
+              />
+              {" (21) 99793-1473"}
             </a>
           </div>
           <div>

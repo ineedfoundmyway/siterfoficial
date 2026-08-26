@@ -99,7 +99,7 @@ export function SiteContent() {
           }}
         />
       )}
-      <Footer currentPage={page} />
+      <Footer currentPage={page} onNavigateOffshore={toOffshore} />
     </div>
   );
 }
