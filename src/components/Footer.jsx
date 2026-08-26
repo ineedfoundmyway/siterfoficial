@@ -6,13 +6,7 @@ const techLogo = { url: "/tech/logo-rf-tech.webp" };
 
 export const footerLinks =
   "https://maps.google.com/?q=Rua+Doutor+Pio+Borges+2055+Pita+Sao+Goncalo+RJ+CEP+24410-000";
-export function Footer({
-  onNavigatePredial: t,
-  onNavigateOffshore: e,
-  onNavigateDaily: r,
-  onNavigateTech: c,
-  currentPage: n,
-}) {
+export function Footer({ currentPage: n }) {
 
   const { t: s } = useLang(),
     i = s.footer,
