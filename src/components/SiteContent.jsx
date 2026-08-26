@@ -99,13 +99,7 @@ export function SiteContent() {
           }}
         />
       )}
-      <Footer
-        onNavigatePredial={toPredial}
-        onNavigateOffshore={toOffshore}
-        onNavigateDaily={toDaily}
-        onNavigateTech={toTech}
-        currentPage={page}
-      />
+      <Footer currentPage={page} />
     </div>
   );
 }

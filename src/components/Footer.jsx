@@ -6,13 +6,7 @@ const techLogo = { url: "/tech/logo-rf-tech.webp" };
 
 export const footerLinks =
   "https://maps.google.com/?q=Rua+Doutor+Pio+Borges+2055+Pita+Sao+Goncalo+RJ+CEP+24410-000";
-export function Footer({
-  onNavigatePredial: t,
-  onNavigateOffshore: e,
-  onNavigateDaily: r,
-  onNavigateTech: c,
-  currentPage: n,
-}) {
+export function Footer({ currentPage: n }) {
 
   const { t: s } = useLang(),
     i = s.footer,
@@ -118,27 +112,6 @@ export function Footer({
                     }}
                   >
                     {d}
-                  </button>
-                </li>
-              ))}
-              {[
-                { label: s.nav.offshore, go: e, page: "offshore" },
-                { label: s.nav.terrestrial, go: t, page: "predial" },
-                { label: s.nav.daily, go: r, page: "daily" },
-                { label: s.nav.tech, go: c, page: "tech" },
-              ].map((item) => (
-                <li key={item.page}>
-                  <button
-                    onClick={() => {
-                      item.go?.();
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                    className="text-sm transition-colors duration-200 text-left hover:text-white"
-                    style={{
-                      color: n === item.page ? "#a8d0ff" : "#f0c040",
-                    }}
-                  >
-                    {item.label}
                   </button>
                 </li>
               ))}
