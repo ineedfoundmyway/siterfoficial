@@ -143,9 +143,19 @@ export function Footer({ currentPage: n, onNavigateOffshore: e }) {
               />
               {" comercial@rf-offshore.com"}
             </a>
+            <span
+              className="block text-xs mb-1"
+              style={{
+                color: "var(--text-faint)",
+              }}
+            >
+              {i.customerService}
+            </span>
             <a
-              href="tel:+5521997931473"
-              className="mt-3 flex items-center gap-2 text-sm transition-colors hover:text-[#f0c040]"
+              href="https://wa.me/5521997931473"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm transition-colors hover:text-[#f0c040]"
               style={{
                 color: "var(--text-muted)",
               }}
