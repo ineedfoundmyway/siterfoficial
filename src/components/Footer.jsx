@@ -121,27 +121,6 @@ export function Footer({
                   </button>
                 </li>
               ))}
-              {[
-                { label: s.nav.offshore, go: e, page: "offshore" },
-                { label: s.nav.terrestrial, go: t, page: "predial" },
-                { label: s.nav.daily, go: r, page: "daily" },
-                { label: s.nav.tech, go: c, page: "tech" },
-              ].map((item) => (
-                <li key={item.page}>
-                  <button
-                    onClick={() => {
-                      item.go?.();
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                    className="text-sm transition-colors duration-200 text-left hover:text-white"
-                    style={{
-                      color: n === item.page ? "#a8d0ff" : "#f0c040",
-                    }}
-                  >
-                    {item.label}
-                  </button>
-                </li>
-              ))}
 
             </ul>
           </div>
