@@ -143,6 +143,21 @@ export function Footer({ currentPage: n, onNavigateOffshore: e }) {
               />
               {" comercial@rf-offshore.com"}
             </a>
+            <a
+              href="tel:+5521997931473"
+              className="mt-3 flex items-center gap-2 text-sm transition-colors hover:text-[#f0c040]"
+              style={{
+                color: "var(--text-muted)",
+              }}
+            >
+              <Phone
+                size={13}
+                style={{
+                  flexShrink: 0,
+                }}
+              />
+              {" (21) 99793-1473"}
+            </a>
           </div>
           <div>
             <h4
