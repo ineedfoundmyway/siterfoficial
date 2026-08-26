@@ -14,13 +14,53 @@ import { ServicesOffshore } from "@/components/ServicesOffshore";
 import { TechPage } from "@/components/TechPage";
 import { useLang } from "@/lib/i18n";
 
+const PAGE_SLUGS = {
+  offshore: "offshore",
+  predial: "predial",
+  daily: "diarios",
+  tech: "tecnologia",
+};
+const SLUG_TO_PAGE = Object.fromEntries(
+  Object.entries(PAGE_SLUGS).map(([p, s]) => [s, p]),
+);
+
+function readPageFromUrl() {
+  if (typeof window === "undefined") return "offshore";
+  const s = new URLSearchParams(window.location.search).get("servico");
+  return (s && SLUG_TO_PAGE[s]) || "offshore";
+}
+
 export function SiteContent() {
   const [page, setPage] = React.useState("offshore");
   const [servicesOpen, setServicesOpen] = React.useState(false);
   const { t } = useLang();
 
+  // Sincroniza o estado com a URL (inicial + botões voltar/avançar)
+  React.useEffect(() => {
+    setPage(readPageFromUrl());
+    const onPop = () => setPage(readPageFromUrl());
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+
+  // Atualiza título do navegador conforme o serviço
+  React.useEffect(() => {
+    const titles = {
+      offshore: `RF Soluções Offshore | ${t.nav.offshore ?? "Serviços Offshore"}`,
+      predial: `RF Soluções | ${t.nav.terrestrial}`,
+      daily: `RF Soluções | ${t.nav.daily ?? "Serviços Diários"}`,
+      tech: `RF Solutions | ${t.nav.tech ?? "Serviços Tecnológicos"}`,
+    };
+    document.title = titles[page] ?? titles.offshore;
+  }, [page, t]);
+
   const goto = (p) => () => {
     setPage(p);
+    const url =
+      p === "offshore"
+        ? window.location.pathname
+        : `${window.location.pathname}?servico=${PAGE_SLUGS[p]}`;
+    if (readPageFromUrl() !== p) window.history.pushState({ page: p }, "", url);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const toOffshore = goto("offshore");
