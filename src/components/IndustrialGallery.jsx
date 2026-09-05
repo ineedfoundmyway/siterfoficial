@@ -48,6 +48,24 @@ export function IndustrialGallery() {
   const head = useReveal();
   const grid = useReveal(0.05);
   const [lightbox, setLightbox] = React.useState(null);
+  const [playing, setPlaying] = React.useState({});
+  const videoRefs = React.useRef({});
+
+  const togglePlay = (idx) => {
+    const video = videoRefs.current[idx];
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+      setPlaying((p) => ({ ...p, [idx]: true }));
+    } else {
+      video.pause();
+      setPlaying((p) => ({ ...p, [idx]: false }));
+    }
+  };
+
+  const handleEnded = (idx) => {
+    setPlaying((p) => ({ ...p, [idx]: false }));
+  };
 
   React.useEffect(() => {
     if (!lightbox) return;
