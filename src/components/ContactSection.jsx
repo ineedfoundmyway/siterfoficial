@@ -294,17 +294,45 @@ export function ContactSection({ sectionId: t = "contato" }) {
             )}
             {a && (
               <div
-                className={`mt-5 flex items-start gap-2 text-sm ${emailSent ? "" : "p-3 rounded-lg"}`}
+                className="mt-6 flex flex-col sm:flex-row items-center gap-4 p-5 rounded-xl text-center sm:text-left"
                 style={{
-                  color: emailSent ? "#86efac" : "#fcd34d",
-                  background: emailSent ? "transparent" : "rgba(252,211,77,0.08)",
-                  border: emailSent ? "none" : "1px solid rgba(252,211,77,0.25)",
+                  background: "rgba(212,170,48,0.07)",
+                  border: "1px solid rgba(212,170,48,0.35)",
                 }}
               >
-                <CheckCircle size={18} className="mt-0.5 shrink-0" />
-                <span>{emailSent ? r.formSuccess : r.formEmailWarning}</span>
+                <img
+                  src="/logo-rf.svg"
+                  alt="RF Soluções"
+                  className="h-14 w-auto shrink-0"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="min-w-0">
+                  <p
+                    className="flex items-center justify-center sm:justify-start gap-2 text-sm font-bold"
+                    style={{
+                      color: "#f0c040",
+                      fontFamily: "Montserrat, sans-serif",
+                    }}
+                  >
+                    <CheckCircle size={18} className="shrink-0" />
+                    {"Dados enviados com sucesso!"}
+                  </p>
+                  <p
+                    className="mt-1 text-sm leading-relaxed"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    {"Recebemos suas informações. Nossa equipe entrará em contato em breve."}
+                  </p>
+                  {!emailSent && (
+                    <p className="mt-2 text-xs" style={{ color: "#fcd34d" }}>
+                      {r.formEmailWarning}
+                    </p>
+                  )}
+                </div>
               </div>
             )}
+
             <div className="mt-7 flex flex-col sm:flex-row items-center justify-end gap-4">
 
               <button
