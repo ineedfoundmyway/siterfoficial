@@ -1,5 +1,5 @@
 import React from "react";
-import { Cpu, Gauge, Snowflake, X, Zap, CircuitBoard, Play } from "lucide-react";
+import { Cpu, Gauge, Snowflake, X, Zap, CircuitBoard, Play, Pause } from "lucide-react";
 import { ZoomableImage } from "@/components/ZoomableImage";
 import { useReveal } from "@/lib/useReveal";
 
