@@ -137,7 +137,7 @@ export function IndustrialGallery() {
                   borderColor: "var(--card-border)",
                 }}
               >
-                <div className="relative bg-black h-60 sm:h-64">
+                <div className="relative bg-black h-56 sm:h-64">
                   {item.type === "video" ? (
                     <>
                       <video
@@ -153,44 +153,51 @@ export function IndustrialGallery() {
                         onEnded={() => handleEnded(idx)}
                         onPlay={() => setPlaying((p) => ({ ...p, [idx]: true }))}
                         onPause={() => setPlaying((p) => ({ ...p, [idx]: false }))}
-                        className="w-full h-full object-contain"
+                        onClick={() => togglePlay(idx)}
+                        className="w-full h-full object-contain cursor-pointer"
                       />
-                      {!playing[idx] && (
+                      <button
+                        type="button"
+                        onClick={() => togglePlay(idx)}
+                        className="absolute inset-0 flex items-center justify-center group"
+                        aria-label={
+                          playing[idx]
+                            ? `Pausar ${item.title}`
+                            : `Assistir ${item.title}`
+                        }
+                        style={{ background: playing[idx] ? "transparent" : "rgba(3,10,22,0.35)" }}
+                      >
+                        <span
+                          className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full transition-all duration-300 group-hover:scale-110"
+                          style={{
+                            background: "rgba(212,170,48,0.92)",
+                            boxShadow: "0 8px 30px rgba(0,0,0,0.4)",
+                            opacity: playing[idx] ? 0 : 1,
+                          }}
+                        >
+                          {playing[idx] ? (
+                            <Pause size={26} fill="#030a16" style={{ color: "#030a16" }} />
+                          ) : (
+                            <Play size={26} fill="#030a16" style={{ color: "#030a16", marginLeft: 3 }} />
+                          )}
+                        </span>
+                      </button>
+                      {playing[idx] && (
                         <button
                           type="button"
                           onClick={() => togglePlay(idx)}
-                          className="absolute inset-0 flex flex-col items-center justify-center group"
-                          aria-label={`Assistir ${item.title}`}
+                          aria-label={`Pausar ${item.title}`}
+                          className="absolute bottom-3 right-3 p-2 rounded-full transition-transform duration-200 hover:scale-110"
+                          style={{
+                            background: "rgba(212,170,48,0.92)",
+                            boxShadow: "0 4px 16px rgba(0,0,0,0.45)",
+                          }}
                         >
-                          <span
-                            className="flex items-center justify-center w-16 h-16 rounded-full transition-transform duration-300 group-hover:scale-110 mb-4"
-                            style={{
-                              background: "rgba(212,170,48,0.9)",
-                              boxShadow: "0 8px 30px rgba(0,0,0,0.4)",
-                            }}
-                          >
-                            <Play size={28} fill="#030a16" style={{ color: "#030a16", marginLeft: 3 }} />
-                          </span>
-                          <span
-                            className="px-4 py-2 rounded-lg text-center max-w-[90%]"
-                            style={{
-                              background: "rgba(3,10,22,0.75)",
-                              backdropFilter: "blur(4px)",
-                            }}
-                          >
-                            <span
-                              className="block text-xs font-bold mb-1"
-                              style={{ color: "#f0c040", fontFamily: "Montserrat, sans-serif" }}
-                            >
-                              {item.title}
-                            </span>
-                            <span className="block text-[11px] leading-snug" style={{ color: "#e2e8f0" }}>
-                              {item.desc}
-                            </span>
-                          </span>
+                          <Pause size={16} fill="#030a16" style={{ color: "#030a16" }} />
                         </button>
                       )}
                     </>
+
                   ) : (
                     <button
                       type="button"
