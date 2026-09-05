@@ -19,6 +19,7 @@ export function ContactSection({ sectionId: t = "contato" }) {
     [n, s] = React.useState(EMPTY_FORM),
     [i, o] = React.useState(!1),
     [a, Cmp_l] = React.useState(!1),
+    [emailSent, setEmailSent] = React.useState(!0),
     [u, d] = React.useState(""),
     Cmp_h = useReveal(),
     f = useReveal(0.05),
@@ -47,8 +48,9 @@ export function ContactSection({ sectionId: t = "contato" }) {
         (console.error("contact request failed", j), d(r.formError), o(!1));
         return;
       }
+      let sentOk = !1;
       try {
-        await sendContactEmail({
+        const emailResult = await sendContactEmail({
           data: {
             name: n.name.trim(),
             email: n.email.trim(),
@@ -58,9 +60,11 @@ export function ContactSection({ sectionId: t = "contato" }) {
             origin: t,
           },
         });
+        sentOk = emailResult?.sent === !0;
       } catch (err) {
         console.error("contact email failed", err);
       }
+      setEmailSent(sentOk);
       (s(EMPTY_FORM), Cmp_l(!0), o(!1));
     };
   return (
@@ -290,13 +294,15 @@ export function ContactSection({ sectionId: t = "contato" }) {
             )}
             {a && (
               <div
-                className="mt-5 flex items-start gap-2 text-sm"
+                className={`mt-5 flex items-start gap-2 text-sm ${emailSent ? "" : "p-3 rounded-lg"}`}
                 style={{
-                  color: "#86efac",
+                  color: emailSent ? "#86efac" : "#fcd34d",
+                  background: emailSent ? "transparent" : "rgba(252,211,77,0.08)",
+                  border: emailSent ? "none" : "1px solid rgba(252,211,77,0.25)",
                 }}
               >
                 <CheckCircle size={18} className="mt-0.5 shrink-0" />
-                <span>{r.formSuccess}</span>
+                <span>{emailSent ? r.formSuccess : r.formEmailWarning}</span>
               </div>
             )}
             <div className="mt-7 flex flex-col sm:flex-row items-center justify-end gap-4">
