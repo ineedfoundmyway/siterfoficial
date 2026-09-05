@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
 const CONTACT_TO = "suportetec@rf-offshore.com";
-const CONTACT_FROM = "RF Soluções <onboarding@resend.dev>";
+const CONTACT_FROM = "RF Soluções <contato@rf-offshore.com>";
 
 const schema = z.object({
   name: z.string().trim().min(2).max(120),
