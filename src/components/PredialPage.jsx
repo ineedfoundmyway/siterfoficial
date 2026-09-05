@@ -392,6 +392,7 @@ export function PredialPage({ onNavigateOffshore: t }) {
           </div>
         </div>
       </section>
+      <IndustrialGallery />
       <ContactSection sectionId="predial-contato" />
     </div>
   );
