@@ -1,5 +1,5 @@
 import React from "react";
-import { Cpu, Gauge, Snowflake, X, Zap, CircuitBoard } from "lucide-react";
+import { Cpu, Gauge, Snowflake, X, Zap, CircuitBoard, Play } from "lucide-react";
 import { ZoomableImage } from "@/components/ZoomableImage";
 import { useReveal } from "@/lib/useReveal";
 
@@ -48,6 +48,24 @@ export function IndustrialGallery() {
   const head = useReveal();
   const grid = useReveal(0.05);
   const [lightbox, setLightbox] = React.useState(null);
+  const [playing, setPlaying] = React.useState({});
+  const videoRefs = React.useRef({});
+
+  const togglePlay = (idx) => {
+    const video = videoRefs.current[idx];
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+      setPlaying((p) => ({ ...p, [idx]: true }));
+    } else {
+      video.pause();
+      setPlaying((p) => ({ ...p, [idx]: false }));
+    }
+  };
+
+  const handleEnded = (idx) => {
+    setPlaying((p) => ({ ...p, [idx]: false }));
+  };
 
   React.useEffect(() => {
     if (!lightbox) return;
@@ -108,7 +126,7 @@ export function IndustrialGallery() {
           ref={grid.ref}
           className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children ${grid.isVisible ? "in-view" : ""}`}
         >
-          {ITEMS.map((item) => {
+          {ITEMS.map((item, idx) => {
             const Icon = item.icon;
             return (
               <article
@@ -121,19 +139,58 @@ export function IndustrialGallery() {
               >
                 <div className="relative bg-black h-60 sm:h-64">
                   {item.type === "video" ? (
-                    <video
-                      src={item.src}
-                      poster={item.poster}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="metadata"
-                      disablePictureInPicture
-                      controlsList="nodownload noplaybackrate"
-                      onContextMenu={(e) => e.preventDefault()}
-                      className="w-full h-full object-contain pointer-events-none"
-                    />
+                    <>
+                      <video
+                        ref={(el) => (videoRefs.current[idx] = el)}
+                        src={item.src}
+                        poster={item.poster}
+                        muted
+                        playsInline
+                        preload="metadata"
+                        disablePictureInPicture
+                        controlsList="nodownload noplaybackrate"
+                        onContextMenu={(e) => e.preventDefault()}
+                        onEnded={() => handleEnded(idx)}
+                        onPlay={() => setPlaying((p) => ({ ...p, [idx]: true }))}
+                        onPause={() => setPlaying((p) => ({ ...p, [idx]: false }))}
+                        className="w-full h-full object-contain"
+                      />
+                      {!playing[idx] && (
+                        <button
+                          type="button"
+                          onClick={() => togglePlay(idx)}
+                          className="absolute inset-0 flex flex-col items-center justify-center group"
+                          aria-label={`Assistir ${item.title}`}
+                        >
+                          <span
+                            className="flex items-center justify-center w-16 h-16 rounded-full transition-transform duration-300 group-hover:scale-110 mb-4"
+                            style={{
+                              background: "rgba(212,170,48,0.9)",
+                              boxShadow: "0 8px 30px rgba(0,0,0,0.4)",
+                            }}
+                          >
+                            <Play size={28} fill="#030a16" style={{ color: "#030a16", marginLeft: 3 }} />
+                          </span>
+                          <span
+                            className="px-4 py-2 rounded-lg text-center max-w-[90%]"
+                            style={{
+                              background: "rgba(3,10,22,0.75)",
+                              backdropFilter: "blur(4px)",
+                            }}
+                          >
+                            <span
+                              className="block text-xs font-bold mb-1"
+                              style={{ color: "#f0c040", fontFamily: "Montserrat, sans-serif" }}
+                            >
+                              {item.title}
+                            </span>
+                            <span className="block text-[11px] leading-snug" style={{ color: "#e2e8f0" }}>
+                              {item.desc}
+                            </span>
+                          </span>
+                        </button>
+                      )}
+                    </>
                   ) : (
                     <button
                       type="button"
