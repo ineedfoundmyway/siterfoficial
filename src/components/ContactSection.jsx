@@ -19,6 +19,7 @@ export function ContactSection({ sectionId: t = "contato" }) {
     [n, s] = React.useState(EMPTY_FORM),
     [i, o] = React.useState(!1),
     [a, Cmp_l] = React.useState(!1),
+    [emailSent, setEmailSent] = React.useState(!0),
     [u, d] = React.useState(""),
     Cmp_h = useReveal(),
     f = useReveal(0.05),
