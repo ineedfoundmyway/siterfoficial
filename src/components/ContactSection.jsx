@@ -48,8 +48,9 @@ export function ContactSection({ sectionId: t = "contato" }) {
         (console.error("contact request failed", j), d(r.formError), o(!1));
         return;
       }
+      let sentOk = !1;
       try {
-        await sendContactEmail({
+        const emailResult = await sendContactEmail({
           data: {
             name: n.name.trim(),
             email: n.email.trim(),
@@ -59,9 +60,11 @@ export function ContactSection({ sectionId: t = "contato" }) {
             origin: t,
           },
         });
+        sentOk = emailResult?.sent === !0;
       } catch (err) {
         console.error("contact email failed", err);
       }
+      setEmailSent(sentOk);
       (s(EMPTY_FORM), Cmp_l(!0), o(!1));
     };
   return (
