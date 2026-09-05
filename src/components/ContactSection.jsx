@@ -294,13 +294,15 @@ export function ContactSection({ sectionId: t = "contato" }) {
             )}
             {a && (
               <div
-                className="mt-5 flex items-start gap-2 text-sm"
+                className={`mt-5 flex items-start gap-2 text-sm ${emailSent ? "" : "p-3 rounded-lg"}`}
                 style={{
-                  color: "#86efac",
+                  color: emailSent ? "#86efac" : "#fcd34d",
+                  background: emailSent ? "transparent" : "rgba(252,211,77,0.08)",
+                  border: emailSent ? "none" : "1px solid rgba(252,211,77,0.25)",
                 }}
               >
                 <CheckCircle size={18} className="mt-0.5 shrink-0" />
-                <span>{r.formSuccess}</span>
+                <span>{emailSent ? r.formSuccess : r.formEmailWarning}</span>
               </div>
             )}
             <div className="mt-7 flex flex-col sm:flex-row items-center justify-end gap-4">
