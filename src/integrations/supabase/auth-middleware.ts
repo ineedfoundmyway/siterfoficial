@@ -6,6 +6,7 @@ import type { Database } from './types'
 
 
 
+
 function isNewSupabaseApiKey(value: string): boolean {
   return value.startsWith('sb_publishable_') || value.startsWith('sb_secret_');
 }
@@ -51,6 +52,7 @@ export const requireSupabaseAuth = createMiddleware({ type: 'function' }).server
     if (!request?.headers) {
       throw new Error('Unauthorized: No request headers available');
     }
+
 
     const authHeader = request.headers.get('authorization');
 
