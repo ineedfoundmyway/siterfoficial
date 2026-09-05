@@ -22,7 +22,7 @@ export function DailyPage() {
     <div>
       <section
         id="diario-inicio"
-        className="relative min-h-[100svh] flex flex-col text-center overflow-hidden parallax-bg"
+        className="relative min-h-[88svh] sm:min-h-[100svh] flex flex-col text-center overflow-hidden parallax-bg"
         style={{
           backgroundImage: "url('/bg-daily-hero.webp')",
           backgroundSize: "cover",
@@ -45,8 +45,8 @@ export function DailyPage() {
           }}
         />
         <div className="relative z-20 flex-1 flex items-center justify-center">
-          <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 pt-24 pb-4">
-            <div className="mb-6 sm:mb-8">
+          <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-4">
+            <div className="mb-4 sm:mb-8">
               <div
                 className="inline-block p-3 rounded-2xl"
                 style={{
@@ -58,7 +58,7 @@ export function DailyPage() {
                 <img
                   src="/logo-rf.svg"
                   alt="RF Soluções"
-                  className="h-32 sm:h-52 md:h-60 w-auto mx-auto drop-shadow-2xl"
+                  className="h-24 sm:h-52 md:h-60 w-auto mx-auto drop-shadow-2xl"
                   loading="eager"
                   decoding="async"
                 />
@@ -117,7 +117,7 @@ export function DailyPage() {
       </section>
       <section
         id="diario-sobre"
-        className="relative py-16 sm:py-20 section-bg-overlay parallax-bg"
+        className="relative py-10 sm:py-20 section-bg-overlay parallax-bg"
         style={{
           backgroundImage: "url('/sobrenos.webp')",
           backgroundSize: "cover",
@@ -165,7 +165,7 @@ export function DailyPage() {
       </section>
       <section
         id="diario-servicos"
-        className="relative py-16 sm:py-24 section-bg-overlay parallax-bg"
+        className="relative py-12 sm:py-24 section-bg-overlay parallax-bg"
         style={{
           backgroundImage: "url('/bg-daily-svc.webp')",
           backgroundSize: "cover",
@@ -220,20 +220,20 @@ export function DailyPage() {
           </div>
           <div
             ref={n.ref}
-            className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 stagger-children ${n.isVisible ? "in-view" : ""}`}
+            className={`grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 stagger-children ${n.isVisible ? "in-view" : ""}`}
           >
             {e.list.map(({ title: Cmp_l, desc: u }, d) => (
               <div
-                className="p-6 rounded-xl border card-hover"
+                className="p-4 sm:p-6 rounded-xl border card-hover"
                 style={{
                   background: "var(--bg-card)",
                   borderColor: "var(--card-border)",
                 }}
                 key={d}
               >
-                <div className="flex justify-center mb-4">
+                <div className="flex justify-center mb-3 sm:mb-4">
                   <div
-                    className="p-3 rounded-full"
+                    className="p-2.5 sm:p-3 rounded-full"
                     style={{
                       background: "rgba(212,170,48,0.1)",
                     }}
@@ -271,7 +271,7 @@ export function DailyPage() {
             className={`mt-12 text-center reveal-scale ${s.isVisible ? "in-view" : ""}`}
           >
             <div
-              className="inline-block p-6 rounded-2xl border"
+              className="inline-block p-5 sm:p-6 rounded-2xl border"
               style={{
                 background: "var(--bg-card)",
                 borderColor: "rgba(212,170,48,0.4)",
@@ -300,7 +300,7 @@ export function DailyPage() {
       </section>
       <section
         id="diario-materiais"
-        className="relative py-16 sm:py-24 section-bg-overlay parallax-bg"
+        className="relative py-12 sm:py-24 section-bg-overlay parallax-bg"
         style={{
           backgroundImage: "url('/bg-contact.webp')",
           backgroundSize: "cover",
@@ -354,20 +354,20 @@ export function DailyPage() {
           </div>
           <div
             ref={o.ref}
-            className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 stagger-children ${o.isVisible ? "in-view" : ""}`}
+            className={`grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 stagger-children ${o.isVisible ? "in-view" : ""}`}
           >
             {e.materials.map(({ title: Cmp_l, desc: u }, d) => (
               <div
-                className="p-6 rounded-xl border card-hover"
+                className="p-4 sm:p-6 rounded-xl border card-hover"
                 style={{
                   background: "var(--bg-card)",
                   borderColor: "var(--card-border)",
                 }}
                 key={d}
               >
-                <div className="flex justify-center mb-4">
+                <div className="flex justify-center mb-3 sm:mb-4">
                   <div
-                    className="p-3 rounded-full"
+                    className="p-2.5 sm:p-3 rounded-full"
                     style={{
                       background: "rgba(212,170,48,0.1)",
                     }}
