@@ -23,9 +23,9 @@ const esc = (v: string) =>
 export const sendContactEmail = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => schema.parse(data))
   .handler(async ({ data }) => {
-    const apiKey = process.env["RESEND_API_KEY"];
+    const apiKey = process.env["RESEND_API_KEY1"] || process.env["RESEND_API_KEY"];
     if (!apiKey) {
-      console.error("RESEND_API_KEY não configurada");
+      console.error("RESEND_API_KEY1 não configurada");
       return { sent: false as const };
     }
 
