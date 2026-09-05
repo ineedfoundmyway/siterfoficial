@@ -126,7 +126,7 @@ export function IndustrialGallery() {
           ref={grid.ref}
           className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children ${grid.isVisible ? "in-view" : ""}`}
         >
-          {ITEMS.map((item) => {
+          {ITEMS.map((item, idx) => {
             const Icon = item.icon;
             return (
               <article
