@@ -119,10 +119,7 @@ export function IndustrialGallery() {
                   borderColor: "var(--card-border)",
                 }}
               >
-                <div
-                  className="relative bg-black"
-                  style={{ aspectRatio: "4 / 3" }}
-                >
+                <div className="relative bg-black h-60 sm:h-64">
                   {item.type === "video" ? (
                     <video
                       src={item.src}
