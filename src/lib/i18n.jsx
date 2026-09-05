@@ -146,7 +146,9 @@ export const pt = {
       formButton: "Enviar solicitação",
       formSending: "Enviando...",
       formSuccess:
-        "Solicitação registrada. Seu aplicativo de e-mail foi aberto para concluir o envio.",
+        "Solicitação registrada com sucesso. Nossa equipe entrará em contato em breve.",
+      formEmailWarning:
+        "Solicitação registrada, mas o aviso por e-mail não foi enviado no momento. Nossa equipe ainda receberá sua solicitação pelo sistema.",
       formError: "Não foi possível registrar sua solicitação. Tente novamente.",
     },
     footer: {
