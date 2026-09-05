@@ -124,11 +124,15 @@ export function IndustrialGallery() {
                     <video
                       src={item.src}
                       poster={item.poster}
-                      controls
+                      autoPlay
+                      loop
                       muted
                       playsInline
-                      preload="none"
-                      className="w-full h-full object-contain"
+                      preload="metadata"
+                      disablePictureInPicture
+                      controlsList="nodownload noplaybackrate"
+                      onContextMenu={(e) => e.preventDefault()}
+                      className="w-full h-full object-contain pointer-events-none"
                     />
                   ) : (
                     <button
