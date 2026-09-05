@@ -139,19 +139,41 @@ export function IndustrialGallery() {
               >
                 <div className="relative bg-black h-60 sm:h-64">
                   {item.type === "video" ? (
-                    <video
-                      src={item.src}
-                      poster={item.poster}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="metadata"
-                      disablePictureInPicture
-                      controlsList="nodownload noplaybackrate"
-                      onContextMenu={(e) => e.preventDefault()}
-                      className="w-full h-full object-contain pointer-events-none"
-                    />
+                    <>
+                      <video
+                        ref={(el) => (videoRefs.current[idx] = el)}
+                        src={item.src}
+                        poster={item.poster}
+                        muted
+                        playsInline
+                        preload="metadata"
+                        disablePictureInPicture
+                        controlsList="nodownload noplaybackrate"
+                        onContextMenu={(e) => e.preventDefault()}
+                        onEnded={() => handleEnded(idx)}
+                        onPlay={() => setPlaying((p) => ({ ...p, [idx]: true }))}
+                        onPause={() => setPlaying((p) => ({ ...p, [idx]: false }))}
+                        className="w-full h-full object-contain"
+                      />
+                      {!playing[idx] && (
+                        <button
+                          type="button"
+                          onClick={() => togglePlay(idx)}
+                          className="absolute inset-0 flex items-center justify-center group"
+                          aria-label={`Assistir ${item.title}`}
+                        >
+                          <span
+                            className="flex items-center justify-center w-16 h-16 rounded-full transition-transform duration-300 group-hover:scale-110"
+                            style={{
+                              background: "rgba(212,170,48,0.9)",
+                              boxShadow: "0 8px 30px rgba(0,0,0,0.4)",
+                            }}
+                          >
+                            <Play size={28} fill="#030a16" style={{ color: "#030a16", marginLeft: 3 }} />
+                          </span>
+                        </button>
+                      )}
+                    </>
                   ) : (
                     <button
                       type="button"
