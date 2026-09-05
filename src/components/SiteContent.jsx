@@ -11,14 +11,12 @@ import { PredialPage } from "@/components/PredialPage";
 import { SectionNav } from "@/components/SectionNav";
 import { ServicesDialog } from "@/components/ServicesDialog";
 import { ServicesOffshore } from "@/components/ServicesOffshore";
-import { TechPage } from "@/components/TechPage";
 import { useLang } from "@/lib/i18n";
 
 const PAGE_SLUGS = {
   offshore: "offshore",
   predial: "predial",
   daily: "diarios",
-  tech: "tecnologia",
 };
 const SLUG_TO_PAGE = Object.fromEntries(
   Object.entries(PAGE_SLUGS).map(([p, s]) => [s, p]),
@@ -49,7 +47,6 @@ export function SiteContent() {
       offshore: `RF Soluções Offshore | ${t.nav.offshore ?? "Serviços Offshore"}`,
       predial: `RF Soluções | ${t.nav.terrestrial}`,
       daily: `RF Soluções | ${t.nav.daily ?? "Serviços Diários"}`,
-      tech: `RF Solutions | ${t.nav.tech ?? "Serviços Tecnológicos"}`,
     };
     document.title = titles[page] ?? titles.offshore;
   }, [page, t]);
@@ -66,7 +63,9 @@ export function SiteContent() {
   const toOffshore = goto("offshore");
   const toPredial = goto("predial");
   const toDaily = goto("daily");
-  const toTech = goto("tech");
+  const toTech = () => {
+    window.location.href = "https://rfwallmarket.com/";
+  };
 
   const sections = {
     offshore: [
@@ -88,13 +87,6 @@ export function SiteContent() {
       { id: "diario-servicos", label: t.nav.services },
       { id: "diario-materiais", label: t.nav.daily },
       { id: "diario-contato", label: t.nav.contact },
-    ],
-    tech: [
-      { id: "tech-inicio", label: t.nav.home },
-      { id: "tech-sobre", label: t.nav.about },
-      { id: "tech-sistema", label: t.nav.services },
-      { id: "tech-mercado", label: t.tech.marketBadge },
-      { id: "tech-contato", label: t.nav.contact },
     ],
   };
 
