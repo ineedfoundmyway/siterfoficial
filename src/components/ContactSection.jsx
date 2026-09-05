@@ -1,10 +1,10 @@
 import React from "react";
 import { CheckCircle, Mail, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { sendContactEmail } from "@/lib/contact.functions";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/lib/useReveal";
 
-const CONTACT_EMAIL = "suportetec@rf-offshore.com";
 const EMPTY_FORM = {
     name: "",
     email: "",
