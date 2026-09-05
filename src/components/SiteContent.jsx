@@ -125,19 +125,8 @@ export function SiteContent() {
         </Fragment>
       ) : page === "predial" ? (
         <PredialPage onNavigateOffshore={toOffshore} />
-      ) : page === "daily" ? (
-        <DailyPage />
       ) : (
-        <TechPage
-          onNavigateContact={() => {
-            toOffshore();
-            setTimeout(() => {
-              document
-                .querySelector("#contato")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }, 200);
-          }}
-        />
+        <DailyPage />
       )}
       <Footer currentPage={page} onNavigateOffshore={toOffshore} />
     </div>
