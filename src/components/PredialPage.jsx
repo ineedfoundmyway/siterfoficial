@@ -1,5 +1,6 @@
 import { Award, ChevronDown, Cpu, Factory, FileCheck, Home, Network, Phone, Shield, Wind } from "lucide-react";
 import { ContactSection } from "@/components/ContactSection";
+import { IndustrialGallery } from "@/components/IndustrialGallery";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/lib/useReveal";
 
@@ -392,6 +393,7 @@ export function PredialPage({ onNavigateOffshore: t }) {
           </div>
         </div>
       </section>
+      <IndustrialGallery />
       <ContactSection sectionId="predial-contato" />
     </div>
   );

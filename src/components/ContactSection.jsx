@@ -1,10 +1,10 @@
 import React from "react";
 import { CheckCircle, Mail, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { sendContactEmail } from "@/lib/contact.functions";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/lib/useReveal";
 
-const CONTACT_EMAIL = "suportetec@rf-offshore.com";
 const EMPTY_FORM = {
     name: "",
     email: "",
@@ -47,18 +47,21 @@ export function ContactSection({ sectionId: t = "contato" }) {
         (console.error("contact request failed", j), d(r.formError), o(!1));
         return;
       }
-      const g = encodeURIComponent(`Novo contato pelo site — ${n.name.trim()}`),
-        p = encodeURIComponent(`Nome: ${n.name.trim()}
-E-mail: ${n.email.trim()}
-WhatsApp: ${n.phone.trim()}
-Empresa: ${n.company.trim() || "Não informado"}
-
-Mensagem:
-${n.message.trim()}`);
-      ((window.location.href = `mailto:${CONTACT_EMAIL}?subject=${g}&body=${p}`),
-        s(EMPTY_FORM),
-        Cmp_l(!0),
-        o(!1));
+      try {
+        await sendContactEmail({
+          data: {
+            name: n.name.trim(),
+            email: n.email.trim(),
+            phone: n.phone.trim(),
+            company: n.company.trim(),
+            message: n.message.trim(),
+            origin: t,
+          },
+        });
+      } catch (err) {
+        console.error("contact email failed", err);
+      }
+      (s(EMPTY_FORM), Cmp_l(!0), o(!1));
     };
   return (
     <section
