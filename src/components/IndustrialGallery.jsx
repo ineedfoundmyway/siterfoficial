@@ -1,5 +1,5 @@
 import React from "react";
-import { Cpu, Gauge, Snowflake, X, Zap, CircuitBoard, Play, Pause } from "lucide-react";
+import { Cpu, Gauge, Snowflake, X, Zap, CircuitBoard } from "lucide-react";
 import { ZoomableImage } from "@/components/ZoomableImage";
 import { useReveal } from "@/lib/useReveal";
 
@@ -9,6 +9,7 @@ const ITEMS = [
     src: "/industrial/industrial-1.mp4",
     poster: "/industrial/poster-1.webp",
     icon: Zap,
+    tag: "ENERGIA DE EMERGÊNCIA",
     title: "Painel de Grupo Gerador (QTA/USCA)",
     desc: "Instalação, comissionamento e manutenção de painéis de geradores 380V com controlador automático de transferência. Garantimos energia de emergência confiável, testes de partida, ajuste de parâmetros e sinalização de segurança conforme NR-10.",
   },
@@ -17,6 +18,7 @@ const ITEMS = [
     src: "/industrial/industrial-2.mp4",
     poster: "/industrial/poster-2.webp",
     icon: Gauge,
+    tag: "ACIONAMENTOS",
     title: "Inversores de Frequência e Acionamentos",
     desc: "Montagem, parametrização e manutenção de inversores de frequência (ABB e equivalentes) para bombas, ventiladores e motores industriais. Resultado: partida suave, economia de energia e maior vida útil dos equipamentos.",
   },
@@ -25,6 +27,7 @@ const ITEMS = [
     src: "/industrial/industrial-3.mp4",
     poster: "/industrial/poster-3.webp",
     icon: Cpu,
+    tag: "AUTOMAÇÃO",
     title: "Painéis de Automação com CLP",
     desc: "Projeto e montagem de painéis de comando e CCM com CLP, relés, disjuntores e borneiras identificadas. Executamos cabeamento, diagrama unifilar, testes funcionais e integração completa da automação da planta.",
   },
@@ -32,6 +35,7 @@ const ITEMS = [
     type: "image",
     src: "/industrial/foto-eletronica.webp",
     icon: CircuitBoard,
+    tag: "BANCADA TÉCNICA",
     title: "Manutenção de Eletrônica de Potência",
     desc: "Reparo em bancada de placas eletrônicas industriais: módulos IGBT, capacitores de barramento, placas de disparo e circuitos de controle. Diagnóstico, substituição de componentes e testes antes do retorno à operação.",
   },
@@ -39,6 +43,7 @@ const ITEMS = [
     type: "image",
     src: "/industrial/foto-refrigeracao.webp",
     icon: Snowflake,
+    tag: "CLIMATIZAÇÃO",
     title: "Climatização e Refrigeração",
     desc: "Instalação e manutenção de sistemas split inverter, incluindo suporte, tubulação, vácuo, carga de gás R32 e alimentação elétrica dedicada. Atendemos ambientes industriais, comerciais e salas técnicas.",
   },
@@ -48,24 +53,6 @@ export function IndustrialGallery() {
   const head = useReveal();
   const grid = useReveal(0.05);
   const [lightbox, setLightbox] = React.useState(null);
-  const [playing, setPlaying] = React.useState({});
-  const videoRefs = React.useRef({});
-
-  const togglePlay = (idx) => {
-    const video = videoRefs.current[idx];
-    if (!video) return;
-    if (video.paused) {
-      video.play();
-      setPlaying((p) => ({ ...p, [idx]: true }));
-    } else {
-      video.pause();
-      setPlaying((p) => ({ ...p, [idx]: false }));
-    }
-  };
-
-  const handleEnded = (idx) => {
-    setPlaying((p) => ({ ...p, [idx]: false }));
-  };
 
   React.useEffect(() => {
     if (!lightbox) return;
@@ -126,7 +113,7 @@ export function IndustrialGallery() {
           ref={grid.ref}
           className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children ${grid.isVisible ? "in-view" : ""}`}
         >
-          {ITEMS.map((item, idx) => {
+          {ITEMS.map((item) => {
             const Icon = item.icon;
             return (
               <article
@@ -137,72 +124,26 @@ export function IndustrialGallery() {
                   borderColor: "var(--card-border)",
                 }}
               >
-                <div className="relative bg-black h-64 sm:h-72">
+                {/* Media */}
+                <div className="relative bg-black">
                   {item.type === "video" ? (
-                    <>
-                      <video
-                        ref={(el) => (videoRefs.current[idx] = el)}
-                        src={item.src}
-                        poster={item.poster}
-                        muted
-                        playsInline
-                        preload="metadata"
-                        disablePictureInPicture
-                        controlsList="nodownload noplaybackrate"
-                        onContextMenu={(e) => e.preventDefault()}
-                        onEnded={() => handleEnded(idx)}
-                        onPlay={() => setPlaying((p) => ({ ...p, [idx]: true }))}
-                        onPause={() => setPlaying((p) => ({ ...p, [idx]: false }))}
-                        onClick={() => togglePlay(idx)}
-                        className="w-full h-full object-cover cursor-pointer"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => togglePlay(idx)}
-                        className="absolute inset-0 flex items-center justify-center group z-10"
-                        aria-label={
-                          playing[idx]
-                            ? `Pausar ${item.title}`
-                            : `Assistir ${item.title}`
-                        }
-                        style={{ background: playing[idx] ? "transparent" : "rgba(3,10,22,0.35)" }}
-                      >
-                        <span
-                          className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full transition-all duration-300 group-hover:scale-110"
-                          style={{
-                            background: "rgba(212,170,48,0.92)",
-                            boxShadow: "0 8px 30px rgba(0,0,0,0.4)",
-                            opacity: playing[idx] ? 0 : 1,
-                          }}
-                        >
-                          {playing[idx] ? (
-                            <Pause size={26} fill="#030a16" style={{ color: "#030a16" }} />
-                          ) : (
-                            <Play size={26} fill="#030a16" style={{ color: "#030a16", marginLeft: 3 }} />
-                          )}
-                        </span>
-                      </button>
-                      {playing[idx] && (
-                        <button
-                          type="button"
-                          onClick={() => togglePlay(idx)}
-                          aria-label={`Pausar ${item.title}`}
-                          className="absolute top-3 right-3 z-20 p-2 rounded-full transition-transform duration-200 hover:scale-110"
-                          style={{
-                            background: "rgba(212,170,48,0.92)",
-                            boxShadow: "0 4px 16px rgba(0,0,0,0.45)",
-                          }}
-                        >
-                          <Pause size={16} fill="#030a16" style={{ color: "#030a16" }} />
-                        </button>
-                      )}
-                    </>
-
+                    <video
+                      src={item.src}
+                      poster={item.poster}
+                      controls
+                      muted
+                      playsInline
+                      preload="metadata"
+                      disablePictureInPicture
+                      controlsList="nodownload noplaybackrate"
+                      onContextMenu={(e) => e.preventDefault()}
+                      className="w-full h-56 sm:h-64 object-cover"
+                    />
                   ) : (
                     <button
                       type="button"
                       onClick={() => setLightbox(item)}
-                      className="block w-full h-full"
+                      className="block w-full"
                       aria-label={`Ampliar ${item.title}`}
                     >
                       <img
@@ -210,12 +151,12 @@ export function IndustrialGallery() {
                         alt={item.title}
                         loading="lazy"
                         decoding="async"
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        className="w-full h-56 sm:h-64 object-cover transition-transform duration-500 hover:scale-105"
                       />
                     </button>
                   )}
                   <span
-                    className="absolute top-3 left-3 p-2 rounded-lg z-10"
+                    className="absolute top-3 left-3 p-2 rounded-lg z-10 pointer-events-none"
                     style={{
                       background: "rgba(212,170,48,0.15)",
                       border: "1px solid rgba(212,170,48,0.4)",
@@ -224,30 +165,37 @@ export function IndustrialGallery() {
                   >
                     <Icon size={18} style={{ color: "#f0c040" }} />
                   </span>
+                </div>
 
-                  <div
-                    className="absolute bottom-0 left-0 right-0 z-10 p-4 sm:p-5"
+                {/* Box explicativo */}
+                <div
+                  className="p-4 sm:p-5 flex-1"
+                  style={{
+                    background: "rgba(10,20,38,0.92)",
+                    borderTop: "1px solid rgba(212,170,48,0.25)",
+                  }}
+                >
+                  <p
+                    className="text-[11px] font-semibold tracking-widest uppercase mb-1.5"
+                    style={{ color: "#d4aa30" }}
+                  >
+                    {item.tag}
+                  </p>
+                  <h3
+                    className="font-bold text-sm sm:text-base leading-tight mb-2"
                     style={{
-                      background: "linear-gradient(to top, rgba(3,10,22,0.95) 0%, rgba(3,10,22,0.85) 60%, rgba(3,10,22,0) 100%)",
-                      borderTop: "1px solid rgba(212,170,48,0.25)",
+                      fontFamily: "Montserrat, sans-serif",
+                      color: "#f0c040",
                     }}
                   >
-                    <h3
-                      className="font-bold text-sm sm:text-base leading-tight mb-2"
-                      style={{
-                        fontFamily: "Montserrat, sans-serif",
-                        color: "#f0c040",
-                      }}
-                    >
-                      {item.title}
-                    </h3>
-                    <p
-                      className="text-xs sm:text-sm leading-relaxed"
-                      style={{ color: "rgba(226,232,240,0.85)" }}
-                    >
-                      {item.desc}
-                    </p>
-                  </div>
+                    {item.title}
+                  </h3>
+                  <p
+                    className="text-xs sm:text-sm leading-relaxed"
+                    style={{ color: "rgba(226,232,240,0.85)" }}
+                  >
+                    {item.desc}
+                  </p>
                 </div>
               </article>
             );
