@@ -7,8 +7,7 @@ const title = "RF Soluções Offshore | Manutenção Elétrica Offshore";
 const description =
   "Especialistas em serviços técnicos de alta confiabilidade para o setor marítimo e offshore, oferecendo soluções com qualidade, agilidade e segurança.";
 
-const ogImage =
-  "https://project--dca7c741-0d85-42f9-9868-0cee5f904685.lovable.app/og-rf.png";
+const ogImage = "https://rf-offshore.com/og-rf.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
