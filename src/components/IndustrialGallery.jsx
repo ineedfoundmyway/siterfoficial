@@ -137,7 +137,7 @@ export function IndustrialGallery() {
                   borderColor: "var(--card-border)",
                 }}
               >
-                <div className="relative bg-black h-56 sm:h-64">
+                <div className="relative bg-black h-64 sm:h-72">
                   {item.type === "video" ? (
                     <>
                       <video
@@ -154,12 +154,12 @@ export function IndustrialGallery() {
                         onPlay={() => setPlaying((p) => ({ ...p, [idx]: true }))}
                         onPause={() => setPlaying((p) => ({ ...p, [idx]: false }))}
                         onClick={() => togglePlay(idx)}
-                        className="w-full h-full object-contain cursor-pointer"
+                        className="w-full h-full object-cover cursor-pointer"
                       />
                       <button
                         type="button"
                         onClick={() => togglePlay(idx)}
-                        className="absolute inset-0 flex items-center justify-center group"
+                        className="absolute inset-0 flex items-center justify-center group z-10"
                         aria-label={
                           playing[idx]
                             ? `Pausar ${item.title}`
@@ -187,7 +187,7 @@ export function IndustrialGallery() {
                           type="button"
                           onClick={() => togglePlay(idx)}
                           aria-label={`Pausar ${item.title}`}
-                          className="absolute bottom-3 right-3 p-2 rounded-full transition-transform duration-200 hover:scale-110"
+                          className="absolute top-3 right-3 z-20 p-2 rounded-full transition-transform duration-200 hover:scale-110"
                           style={{
                             background: "rgba(212,170,48,0.92)",
                             boxShadow: "0 4px 16px rgba(0,0,0,0.45)",
@@ -215,7 +215,7 @@ export function IndustrialGallery() {
                     </button>
                   )}
                   <span
-                    className="absolute top-3 left-3 p-2 rounded-lg"
+                    className="absolute top-3 left-3 p-2 rounded-lg z-10"
                     style={{
                       background: "rgba(212,170,48,0.15)",
                       border: "1px solid rgba(212,170,48,0.4)",
@@ -224,23 +224,30 @@ export function IndustrialGallery() {
                   >
                     <Icon size={18} style={{ color: "#f0c040" }} />
                   </span>
-                </div>
-                <div className="p-5 flex-1">
-                  <h3
-                    className="font-bold text-sm leading-tight mb-3"
+
+                  <div
+                    className="absolute bottom-0 left-0 right-0 z-10 p-4 sm:p-5"
                     style={{
-                      fontFamily: "Montserrat, sans-serif",
-                      color: "var(--text-primary)",
+                      background: "linear-gradient(to top, rgba(3,10,22,0.95) 0%, rgba(3,10,22,0.85) 60%, rgba(3,10,22,0) 100%)",
+                      borderTop: "1px solid rgba(212,170,48,0.25)",
                     }}
                   >
-                    {item.title}
-                  </h3>
-                  <p
-                    className="text-xs leading-relaxed"
-                    style={{ color: "var(--text-muted)" }}
-                  >
-                    {item.desc}
-                  </p>
+                    <h3
+                      className="font-bold text-sm sm:text-base leading-tight mb-2"
+                      style={{
+                        fontFamily: "Montserrat, sans-serif",
+                        color: "#f0c040",
+                      }}
+                    >
+                      {item.title}
+                    </h3>
+                    <p
+                      className="text-xs sm:text-sm leading-relaxed"
+                      style={{ color: "rgba(226,232,240,0.85)" }}
+                    >
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
               </article>
             );
