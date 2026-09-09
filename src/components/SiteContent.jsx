@@ -134,10 +134,10 @@ export function SiteContent() {
       ) : (
         <WallmarketPage />
       )}
-      {page !== "offshore" && (
+      {(
         <button
           onClick={() => setServicesOpen(true)}
-          className="service-picker-trigger fixed bottom-4 left-1/2 z-40 flex -translate-x-1/2 items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold shadow-lg sm:left-4 sm:translate-x-0"
+          className="service-picker-trigger fixed bottom-4 left-1/2 z-40 flex -translate-x-1/2 items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold shadow-lg"
           style={{
             background: "linear-gradient(135deg, #d4aa30, #f0c040)",
             color: "#050d1a",

@@ -1,7 +1,9 @@
 import React from "react";
 import { Fragment } from "react";
+import { Compass, X } from "lucide-react";
 
 export function SectionNav({ sections: t }) {
+  const [quickOpen, setQuickOpen] = React.useState(false);
   var u;
   const [e, r] = React.useState(((u = t[0]) == null ? void 0 : u.id) ?? ""),
     [n, s] = React.useState(0),
@@ -91,8 +93,47 @@ export function SectionNav({ sections: t }) {
           transitionTimingFunction: "linear",
         }}
       />
+      <div className="fixed right-3 bottom-4 z-[160] flex flex-col items-end gap-2">
+        {quickOpen && (
+          <ul
+            className="mb-1 w-52 overflow-hidden rounded-xl shadow-2xl"
+            style={{
+              background: "rgba(10,22,40,0.96)",
+              border: "1px solid rgba(212,170,48,0.35)",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            {t.map(({ id: d, label: Cmp_h }) => (
+              <li key={d}>
+                <button
+                  onClick={() => {
+                    Cmp_l(d);
+                    setQuickOpen(false);
+                  }}
+                  className="w-full px-4 py-3 text-left text-sm font-semibold transition-colors hover:bg-[rgba(240,192,64,0.12)]"
+                  style={{ color: e === d ? "#f0c040" : "rgba(255,255,255,0.82)" }}
+                >
+                  {Cmp_h}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+        <button
+          onClick={() => setQuickOpen((v) => !v)}
+          aria-label="Navegação rápida"
+          aria-expanded={quickOpen}
+          className="flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-transform active:scale-95"
+          style={{
+            background: "linear-gradient(135deg, #d4aa30, #f0c040)",
+            color: "#050d1a",
+          }}
+        >
+          {quickOpen ? <X size={20} /> : <Compass size={22} />}
+        </button>
+      </div>
       <nav
-        className="fixed right-2 sm:right-5 top-1/2 -translate-y-1/2 z-[150] flex flex-col gap-3 sm:gap-4 items-end"
+        className="fixed right-2 sm:right-5 top-1/2 -translate-y-1/2 z-[150] hidden flex-col gap-3 sm:gap-4 items-end lg:flex"
         aria-label="Navegação por seções"
       >
         {t.map(({ id: d, label: Cmp_h }) => {

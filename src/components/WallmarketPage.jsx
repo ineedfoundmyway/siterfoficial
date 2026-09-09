@@ -22,10 +22,7 @@ export function WallmarketPage() {
         <div className="wallmarket-grid absolute inset-0" aria-hidden="true" />
         <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-7xl items-center gap-8 px-4 pb-24 pt-24 sm:px-6 sm:pt-28 lg:grid-cols-[minmax(0,1fr)_minmax(380px,.9fr)] lg:gap-14 lg:px-8">
           <div className="min-w-0 text-left">
-            <a href="https://rfwallmarket.com/" target="_blank" rel="noopener noreferrer" className="inline-flex" aria-label="Acessar o site oficial da RF Wallmarket">
-              <img src="/logo-rf-wallmarket-transparent.webp" alt="RF Wallmarket" className="h-auto w-52 object-contain sm:w-64" loading="eager" decoding="async" />
-            </a>
-            <h1 className="mt-7 max-w-3xl text-3xl font-bold uppercase leading-[1.04] sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-3xl text-3xl font-bold uppercase leading-[1.04] sm:text-5xl lg:text-6xl">
               <span className="text-gold">{content.heroTitleGold}</span>{" "}
               <span style={{ color: "var(--text-primary)" }}>{content.heroTitle}</span>
             </h1>
@@ -41,12 +38,12 @@ export function WallmarketPage() {
             </div>
             <div className="mt-5 flex flex-col gap-2 text-xs sm:flex-row sm:flex-wrap sm:gap-5" style={{ color: "var(--text-muted)" }}>
               <a href="mailto:comercial@rfwallmarket.com" className="inline-flex items-center gap-2 hover:text-gold"><Mail size={14} />comercial@rfwallmarket.com</a>
-              <a href="https://wa.me/5521997931473" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-gold"><MessageCircle size={14} />{content.heroWhatsapp}</a>
+              <a href="https://wa.me/5521997931473?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20RF%20Wallmarket." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-gold"><MessageCircle size={14} />{content.heroWhatsapp}</a>
             </div>
           </div>
           <div className="relative min-w-0">
             <div className="overflow-hidden rounded-lg border border-gold/30 bg-card shadow-2xl">
-              <img src="/tech/wallmarket-sim.webp" alt="Simulação de uma unidade RF Wallmarket 24h com checkout e expositores" className="aspect-video w-full object-cover" loading="eager" decoding="async" fetchPriority="high" />
+              <img src="/tech/wallmarket-implementado.webp" alt="Unidade RF Wallmarket 24h implantada com geladeiras, gôndolas e checkout" className="aspect-video w-full object-cover" loading="eager" decoding="async" fetchPriority="high" />
             </div>
           </div>
         </div>
