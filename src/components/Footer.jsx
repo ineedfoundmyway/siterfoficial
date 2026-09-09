@@ -151,10 +151,9 @@ export function Footer({ currentPage: n, onNavigateOffshore: e }) {
             >
               {i.customerService}
             </span>
-            <a
-              href="https://wa.me/5521997931473"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={() => openWhatsapp()}
               className="flex items-center gap-2 text-sm transition-colors hover:text-[#f0c040]"
               style={{
                 color: "var(--text-muted)",
@@ -167,7 +166,7 @@ export function Footer({ currentPage: n, onNavigateOffshore: e }) {
                 }}
               />
               {" (21) 99793-1473"}
-            </a>
+            </button>
           </div>
           <div>
             <h4
