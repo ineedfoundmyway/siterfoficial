@@ -1,7 +1,9 @@
 import React from "react";
 import { Fragment } from "react";
+import { Compass, X } from "lucide-react";
 
 export function SectionNav({ sections: t }) {
+  const [quickOpen, setQuickOpen] = React.useState(false);
   var u;
   const [e, r] = React.useState(((u = t[0]) == null ? void 0 : u.id) ?? ""),
     [n, s] = React.useState(0),
