@@ -43,7 +43,7 @@ export function WallmarketPage() {
           </div>
           <div className="relative min-w-0">
             <div className="overflow-hidden rounded-lg border border-gold/30 bg-card shadow-2xl">
-              <img src="/tech/wallmarket-sim.webp" alt="Simulação de uma unidade RF Wallmarket 24h com checkout e expositores" className="aspect-video w-full object-cover" loading="eager" decoding="async" fetchPriority="high" />
+              <img src="/tech/wallmarket-implementado.webp" alt="Unidade RF Wallmarket 24h implantada com geladeiras, gôndolas e checkout" className="aspect-video w-full object-cover" loading="eager" decoding="async" fetchPriority="high" />
             </div>
           </div>
         </div>
