@@ -21,8 +21,17 @@ const esc = (v: string) =>
     .replace(/\n/g, "<br />");
 
 export const sendContactEmail = createServerFn({ method: "POST" })
-  .inputValidator((data: unknown) => schema.parse(data))
-  .handler(async ({ data }) => {
+  .inputValidator((input: unknown) => {
+    const parsed = schema.safeParse(input);
+    return parsed.success
+      ? { ok: true as const, value: parsed.data }
+      : { ok: false as const, value: null };
+  })
+  .handler(async ({ data: parsed }) => {
+    if (!parsed.ok || !parsed.value) {
+      return { sent: false as const, reason: "invalid" as const };
+    }
+    const data = parsed.value;
     const apiKey = process.env["RESEND_API_KEY1"] || process.env["RESEND_API_KEY"];
     if (!apiKey) {
       console.error("RESEND_API_KEY1 não configurada");

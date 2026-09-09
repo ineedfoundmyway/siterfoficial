@@ -6,7 +6,7 @@ import { navigateToSection } from "@/lib/sectionAliases";
 
 export function Navbar({
   onNavigateOffshore,
-  onNavigateTech,
+  onNavigateWallmarket,
   onOpenServices,
   currentPage,
 }) {
@@ -40,14 +40,25 @@ export function Navbar({
     onOpenServices?.();
   };
 
-  const links = [
+  const openWallmarket = () => {
+    setOpen(false);
+    onNavigateWallmarket?.();
+  };
+
+  const allLinks = [
     { label: t.nav.home, href: "#inicio" },
     { label: t.nav.about, href: "#sobre" },
     { label: t.nav.services, href: "#servicos" },
     { label: t.nav.ourServices, action: openServices },
+    { label: t.nav.wallmarket, action: openWallmarket },
     { label: t.nav.partners, href: "#parceiros" },
     { label: t.nav.contact, href: "#contato" },
   ];
+  const links = currentPage === "offshore"
+    ? allLinks
+    : allLinks.filter((link) =>
+        ![t.nav.ourServices, t.nav.partners, t.nav.contact].includes(link.label),
+      );
 
 
   const LangSwitch = ({ compact }) => (
@@ -106,18 +117,18 @@ export function Navbar({
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 h-16 sm:h-20">
           <button
             onClick={() => {
-              onNavigateOffshore();
+              if (currentPage === "offshore") onNavigateOffshore();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             className="flex min-w-0 items-center gap-2 sm:gap-3 text-left"
           >
             <img
-              src="/logo-rf.svg"
-              alt="RF Soluções"
-              className="h-10 w-10 sm:h-14 sm:w-14 shrink-0 object-contain drop-shadow-lg"
+              src={currentPage === "wallmarket" ? "/logo-rf-wallmarket-transparent.webp" : "/logo-rf.png"}
+              alt={currentPage === "wallmarket" ? "RF Wallmarket" : "RF Soluções"}
+              className={`${currentPage === "wallmarket" ? "h-10 w-36 sm:h-14 sm:w-52" : "h-11 w-11 sm:h-16 sm:w-16"} shrink-0 object-contain drop-shadow-lg`}
               decoding="async"
             />
-            <span
+            {currentPage !== "wallmarket" && <span
               className="truncate font-bold text-base sm:text-xl"
               style={{
                 fontFamily: "Montserrat, sans-serif",
@@ -126,7 +137,7 @@ export function Navbar({
             >
               {"RF "}
               <span style={{ color: "var(--gold-400)" }}>{"Soluções"}</span>
-            </span>
+            </span>}
           </button>
 
           <div className="hidden lg:flex items-center gap-5">

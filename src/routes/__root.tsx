@@ -88,7 +88,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "apple-touch-icon", href: "/favicon.png" },
       { rel: "preload", as: "image", href: "/hero-bg.webp", fetchPriority: "high" },
-      { rel: "preload", as: "image", href: "/logo-rf.svg" },
+      { rel: "preload", as: "image", href: "/logo-rf.png" },
       {
         rel: "preload",
         as: "font",

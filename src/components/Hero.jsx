@@ -39,7 +39,7 @@ export function Hero() {
         <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 pt-24 pb-4">
           <div className="mb-8">
             <div
-              className="inline-block p-3 rounded-2xl"
+              className="inline-block p-2 rounded-xl"
               style={{
                 background: "rgba(212,170,48,0.08)",
                 border: "2px solid rgba(212,170,48,0.3)",
@@ -47,9 +47,9 @@ export function Hero() {
               }}
             >
               <img
-                src="/logo-rf.svg"
+                src="/logo-rf.png"
                 alt="RF Soluções Offshore"
-                className="h-40 sm:h-52 md:h-60 w-auto mx-auto drop-shadow-2xl"
+                className="h-36 w-36 sm:h-44 sm:w-44 md:h-48 md:w-48 mx-auto object-contain drop-shadow-2xl"
                 loading="eager"
                 decoding="async"
               />

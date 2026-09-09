@@ -19,11 +19,10 @@ export const sectionAliases = {
     "#servicos": "#diario-servicos",
     "#contato": "#diario-contato",
   },
-  tech: {
-    "#inicio": "#tech-inicio",
-    "#sobre": "#tech-sobre",
-    "#servicos": "#tech-sistema",
-    "#contato": "#tech-contato",
+  wallmarket: {
+    "#inicio": "#wallmarket-inicio",
+    "#sobre": "#wallmarket-sobre",
+    "#servicos": "#wallmarket-operacao",
   },
 };
 

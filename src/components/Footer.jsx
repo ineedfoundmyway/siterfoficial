@@ -2,7 +2,6 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/lib/useReveal";
 import { navigateToSection } from "@/lib/sectionAliases";
-const techLogo = { url: "/tech/logo-rf-tech.webp" };
 
 export const footerLinks =
   "https://maps.google.com/?q=Rua+Doutor+Pio+Borges+2055+Pita+Sao+Goncalo+RJ+CEP+24410-000";
@@ -55,23 +54,24 @@ export function Footer({ currentPage: n, onNavigateOffshore: e }) {
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-1">
-            <div className="flex items-center mb-4">
-              {n === "tech" ? (
-                <img
-                  src={techLogo.url}
-                  alt="RF Solutions"
-                  className="h-24 w-24 sm:h-28 sm:w-28 shrink-0 rounded-2xl object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              ) : (
-                <img
-                  src="/logo-rf.svg"
-                  alt="RF Soluções"
-                  className="h-16 w-auto shrink-0"
-                  loading="lazy"
-                  decoding="async"
-                />
+            <div className="flex items-center gap-3 mb-4">
+              <img
+                src="/logo-rf.png"
+                alt="RF Soluções"
+                className="h-20 w-20 shrink-0 object-contain"
+                loading="lazy"
+                decoding="async"
+              />
+              {n === "wallmarket" && (
+                <a href="https://rfwallmarket.com/" target="_blank" rel="noopener noreferrer" aria-label="Acessar o site da RF Wallmarket">
+                  <img
+                    src="/logo-rf-wallmarket-transparent.webp"
+                    alt="RF Wallmarket"
+                    className="h-20 w-32 shrink-0 object-contain sm:w-36"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
               )}
             </div>
             <p
@@ -129,7 +129,7 @@ export function Footer({ currentPage: n, onNavigateOffshore: e }) {
               {i.contactTitle}
             </h4>
             <a
-              href="mailto:comercial@rf-offshore.com"
+              href={`mailto:${n === "wallmarket" ? "comercial@rfwallmarket.com" : "comercial@rf-offshore.com"}`}
               className="flex items-center gap-2 text-sm transition-colors hover:text-[#f0c040]"
               style={{
                 color: "var(--text-muted)",
@@ -141,7 +141,7 @@ export function Footer({ currentPage: n, onNavigateOffshore: e }) {
                   flexShrink: 0,
                 }}
               />
-              {" comercial@rf-offshore.com"}
+              {n === "wallmarket" ? " comercial@rfwallmarket.com" : " comercial@rf-offshore.com"}
             </a>
             <span
               className="block text-xs mb-1"

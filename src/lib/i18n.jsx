@@ -9,12 +9,16 @@ export const pt = {
       about: "Sobre Nós",
       services: "Serviços",
       ourServices: "Nossos Serviços",
+      backHome: "Ver outros serviços",
       partners: "Parceiros",
       contact: "Contato",
       quote: "Solicite um Orçamento",
       terrestrial: "Serviços Prediais",
       offshore: "Serviços Offshore",
       daily: "Serviços Diários",
+      wallmarket: "RF WALLMARKET",
+      operation: "Operação",
+      models: "Modelos",
     },
     hero: {
       badge: "RF Soluções Offshore",
@@ -108,6 +112,7 @@ export const pt = {
         "Colaboração em soluções técnicas especializadas",
         "Soluções em iluminação LED de alta eficiência para ambientes industriais e offshore",
         "Parceria em meios de pagamento e maquininhas integradas ao nosso sistema de gestão",
+        "Parceria em lojas autônomas 24h e sistema de gestão de vendas",
       ],
       ctaTitle: "Seja Nosso Parceiro",
       ctaDesc:
@@ -354,6 +359,7 @@ export const pt = {
       about: "About Us",
       services: "Services",
       ourServices: "Our Services",
+      backHome: "See other services",
       partners: "Partners",
       contact: "Contact",
       quote: "Request a Quote",
@@ -453,6 +459,7 @@ export const pt = {
         "Collaboration on specialised technical solutions",
         "High-efficiency LED lighting solutions for industrial and offshore environments",
         "Payment solutions and card machines integrated with our management system",
+        "Partnership in 24/7 autonomous stores and sales management systems",
       ],
       ctaTitle: "Become Our Partner",
       ctaDesc:
@@ -696,8 +703,11 @@ export const pt = {
   },
   LangContext = React.createContext(null);
 
-pt.nav.tech = "Serviços Tecnológicos";
-en.nav.tech = "Technology Services";
+pt.nav.tech = "RF WALLMARKET";
+en.nav.tech = "RF WALLMARKET";
+en.nav.wallmarket = "RF WALLMARKET";
+en.nav.operation = "Operation";
+en.nav.models = "Models";
 
 pt.servicesBox = {
   tag: "Nossas Frentes",
@@ -714,6 +724,90 @@ en.servicesBox = {
   predial: "Electrical installation, maintenance and automation for residential, commercial and industrial buildings.",
   daily: "Fast day-to-day services and electrical materials with agile support.",
   tech: "RF Solutions sales management system and 24h autonomous market deployment.",
+};
+
+pt.wallmarket = {
+  badge: "RF Soluções + RF Wallmarket",
+  title1: "Duas empresas,",
+  title2: "uma operação completa",
+  subtitle:
+    "A RF Wallmarket conduz o modelo comercial e a gestão da operação 24h. A RF Soluções entrega toda a execução técnica, elétrica e de infraestrutura para colocar cada unidade em funcionamento.",
+  scrollLabel: "Conhecer a parceria",
+  heroTitleGold: "Wallmarket 24 horas",
+  heroTitle: "com sistema de gestão e PDV já embutido.",
+  heroText: "A Wallmarket 24h transforma o espaço do seu condomínio, empresa, hotel, posto ou comércio em um ponto de conveniência que vende sozinho, dia e noite. Estrutura, pagamentos, controle de estoque, monitoramento e auditoria chegam prontos — o sistema já vem incluído.",
+  heroTextStrong: "Também disponível na versão compacta Box 24h, para espaços menores, com o mesmo sistema embutido. Projeto sob medida, dimensionado para caber no seu espaço e executado com excelência.",
+  heroCta: "Conhecer a RF Wallmarket",
+  heroSecondary: "Ver como funciona",
+  heroWhatsapp: "Falar no WhatsApp",
+  aboutTag: "Como trabalhamos",
+  aboutTitle: "Responsabilidades claras, entrega integrada",
+  aboutText:
+    "As empresas atuam de forma coordenada, cada uma com sua especialidade. O cliente conta com uma operação planejada do início ao acompanhamento contínuo, sem perder clareza sobre quem responde por cada etapa.",
+  companies: [
+    {
+      title: "RF Wallmarket",
+      summary: "Marca e unidade de negócio responsável pelo modelo comercial e pela gestão.",
+      items: [
+        "Prospecção e relacionamento comercial.",
+        "Contratos do modelo Wallmarket.",
+        "Gestão e administração das unidades.",
+        "Acompanhamento de indicadores e gestão do sistema.",
+        "Padronização do modelo e supervisão da experiência do cliente.",
+      ],
+    },
+    {
+      title: "RF Soluções — CNPJ 45.393.750/0001-09",
+      summary: "Empresa operacional responsável pela execução técnica.",
+      items: [
+        "Avaliação técnica do local e projeto com planta e layout.",
+        "Montagem da estrutura física e adequações elétricas.",
+        "Instalação de equipamentos, refrigeração e automação.",
+        "Integração de câmeras, leitores e sistema de pagamento.",
+        "Reabastecimento, manutenção elétrica, física e suporte de infraestrutura.",
+        "Diagrama unifilar e ART, quando aplicável, por profissional habilitado.",
+      ],
+    },
+  ],
+  operationTag: "Jornada integrada",
+  operationTitle: "Como as duas empresas trabalham juntas",
+  steps: [
+    { title: "Planejamento comercial", desc: "A RF Wallmarket entende o perfil do ponto, define o modelo de operação e acompanha o relacionamento comercial." },
+    { title: "Projeto e implantação", desc: "A RF Soluções avalia o espaço, desenvolve a solução técnica e executa infraestrutura, instalações e integração." },
+    { title: "Gestão contínua", desc: "Com a unidade ativa, a RF Wallmarket administra a operação e a RF Soluções mantém o suporte técnico e estrutural." },
+  ],
+  modelsTag: "Soluções 24h",
+  modelsTitle: "Wallmarket 24h e Box 24h",
+  modelsText:
+    "A parceria atende operações completas ou compactas, com autoatendimento, controle de estoque, pagamentos e acompanhamento da unidade.",
+  models: [
+    { title: "Wallmarket 24h", desc: "Mercado autônomo completo para condomínios, empresas, hotéis, postos, indústrias e espaços privados." },
+    { title: "Box 24h", desc: "Estrutura compacta para áreas menores, com implantação rápida e a mesma base de gestão da operação." },
+  ],
+};
+
+en.wallmarket = {
+  ...pt.wallmarket,
+  badge: "RF Soluções + RF Wallmarket",
+  title1: "Two companies,",
+  title2: "one complete operation",
+  subtitle: "RF Wallmarket leads the commercial model and 24/7 operation management. RF Soluções delivers the technical, electrical and infrastructure execution required to launch each unit.",
+  scrollLabel: "Learn about the partnership",
+  heroTitleGold: "Wallmarket 24 hours",
+  heroTitle: "with built-in management and POS system.",
+  heroText: "Wallmarket 24h turns spaces in condominiums, companies, hotels, service stations or retail stores into convenience points that sell around the clock. Structure, payments, inventory control, monitoring and auditing arrive ready to operate — the system is included.",
+  heroTextStrong: "Also available as the compact 24h Box for smaller spaces, with the same built-in system. A tailor-made project designed for your space and delivered with excellence.",
+  heroCta: "Visit RF Wallmarket",
+  heroSecondary: "See how it works",
+  heroWhatsapp: "Chat on WhatsApp",
+  aboutTag: "How we work",
+  aboutTitle: "Clear responsibilities, integrated delivery",
+  aboutText: "The companies work in coordination, each within its specialty. Clients receive a planned operation from initial design through ongoing support, with clarity about who owns every stage.",
+  operationTag: "Integrated journey",
+  operationTitle: "How the two companies work together",
+  modelsTag: "24/7 solutions",
+  modelsTitle: "24h Wallmarket and 24h Box",
+  modelsText: "The partnership supports full-size and compact operations with self-service, inventory control, payments and unit monitoring.",
 };
 
 pt.tech = {
