@@ -1,15 +1,8 @@
-import { ChevronDown, Shield, Target, Wrench } from "lucide-react";
+import { Shield, Target, Wrench } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 
 export function Hero() {
-  const { t } = useLang(),
-    e = (Cmp_r) => {
-      const n = document.querySelector(Cmp_r);
-      n &&
-        n.scrollIntoView({
-          behavior: "smooth",
-        });
-    };
+  const { t } = useLang();
   return (
     <section
       id="inicio"
@@ -126,18 +119,6 @@ export function Hero() {
             ))}
           </div>
         </div>
-      </div>
-      <div className="relative z-20 flex justify-center pb-6 pt-2">
-        <button
-          onClick={() => e("#sobre")}
-          className="hover:text-[#f0c040] transition-colors animate-bounce"
-          style={{
-            color: "rgba(255,255,255,0.6)",
-          }}
-          aria-label="Scroll down"
-        >
-          <ChevronDown size={32} />
-        </button>
       </div>
     </section>
   );

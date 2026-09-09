@@ -8,8 +8,8 @@ import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
 import { Partners } from "@/components/Partners";
 import { PredialPage } from "@/components/PredialPage";
-import { ScrollDownArrow } from "@/components/ScrollDownArrow";
 import { SectionNav } from "@/components/SectionNav";
+import { SectionServiceButtons } from "@/components/SectionServiceButtons";
 import { ServicesDialog } from "@/components/ServicesDialog";
 import { ServicesOffshore } from "@/components/ServicesOffshore";
 import { WallmarketPage } from "@/components/WallmarketPage";
@@ -111,8 +111,6 @@ export function SiteContent() {
       />
       <Navbar
         onNavigateOffshore={toOffshore}
-        onNavigateWallmarket={toWallmarket}
-        onOpenServices={() => setServicesOpen(true)}
         currentPage={page}
       />
       <ServicesDialog
@@ -138,19 +136,11 @@ export function SiteContent() {
       ) : (
         <WallmarketPage />
       )}
-      <ScrollDownArrow sections={sections[page]} />
-      <button
-        onClick={() => setServicesOpen(true)}
-        className="service-picker-trigger fixed bottom-4 left-1/2 z-40 flex max-w-[85vw] -translate-x-1/2 items-center justify-center gap-2 truncate rounded-full px-5 py-3 text-sm font-semibold shadow-lg"
-        style={{
-          background: "linear-gradient(135deg, #d4aa30, #f0c040)",
-          color: "#050d1a",
-          fontFamily: "Montserrat, sans-serif",
-        }}
-        aria-label={t.nav.backHome ?? "Ver outros serviços"}
-      >
-        {t.nav.backHome ?? "Ver outros serviços"}
-      </button>
+      <SectionServiceButtons
+        sections={sections[page]}
+        label={t.nav.backHome ?? "Ver outros serviços"}
+        onOpenServices={() => setServicesOpen(true)}
+      />
       <Footer currentPage={page} onNavigateOffshore={toOffshore} />
     </div>
   );
