@@ -22,10 +22,7 @@ export function WallmarketPage() {
         <div className="wallmarket-grid absolute inset-0" aria-hidden="true" />
         <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-7xl items-center gap-8 px-4 pb-24 pt-24 sm:px-6 sm:pt-28 lg:grid-cols-[minmax(0,1fr)_minmax(380px,.9fr)] lg:gap-14 lg:px-8">
           <div className="min-w-0 text-left">
-            <a href="https://rfwallmarket.com/" target="_blank" rel="noopener noreferrer" className="inline-flex" aria-label="Acessar o site oficial da RF Wallmarket">
-              <img src="/logo-rf-wallmarket-transparent.webp" alt="RF Wallmarket" className="h-auto w-52 object-contain sm:w-64" loading="eager" decoding="async" />
-            </a>
-            <h1 className="mt-7 max-w-3xl text-3xl font-bold uppercase leading-[1.04] sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-3xl text-3xl font-bold uppercase leading-[1.04] sm:text-5xl lg:text-6xl">
               <span className="text-gold">{content.heroTitleGold}</span>{" "}
               <span style={{ color: "var(--text-primary)" }}>{content.heroTitle}</span>
             </h1>
