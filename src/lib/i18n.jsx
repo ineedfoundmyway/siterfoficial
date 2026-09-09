@@ -111,8 +111,8 @@ export const pt = {
         "Parceria estratégica em projetos de engenharia offshore",
         "Colaboração em soluções técnicas especializadas",
         "Soluções em iluminação LED de alta eficiência para ambientes industriais e offshore",
-        "Parceria em meios de pagamento e maquininhas integradas ao nosso sistema de gestão",
-        "Parceria em lojas autônomas 24h e sistema de gestão de vendas",
+        "Serviço operacional",
+        "Collab parceira com empresa de automação 24 horas de lojas autônomas e sistema PDV e gestão e administração",
       ],
       ctaTitle: "Seja Nosso Parceiro",
       ctaDesc:
@@ -458,8 +458,8 @@ export const pt = {
         "Strategic partnership in offshore engineering projects",
         "Collaboration on specialised technical solutions",
         "High-efficiency LED lighting solutions for industrial and offshore environments",
-        "Payment solutions and card machines integrated with our management system",
-        "Partnership in 24/7 autonomous stores and sales management systems",
+        "Operational service",
+        "Collab partner with a 24-hour autonomous store automation company and POS, management and administration system,"
       ],
       ctaTitle: "Become Our Partner",
       ctaDesc:
