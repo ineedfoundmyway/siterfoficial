@@ -52,21 +52,34 @@ export function ContactSection({ sectionId: t = "contato" }) {
         (console.error("contact request failed", j), d(r.formError), o(!1));
         return;
       }
+      const payload = {
+        name: n.name.trim(),
+        email: n.email.trim(),
+        phone: n.phone.trim(),
+        company: n.company.trim(),
+        message: n.message.trim(),
+        origin: t,
+      };
       let sentOk = !1;
       try {
-        const emailResult = await sendContactEmail({
-          data: {
-            name: n.name.trim(),
-            email: n.email.trim(),
-            phone: n.phone.trim(),
-            company: n.company.trim(),
-            message: n.message.trim(),
-            origin: t,
-          },
-        });
+        const emailResult = await sendContactEmail({ data: payload });
         sentOk = emailResult?.sent === !0;
       } catch (err) {
         console.error("contact email failed", err);
+      }
+      if (!sentOk) {
+        // Fallback para o deploy estático na Netlify (server function não existe lá).
+        try {
+          const r = await fetch("/.netlify/functions/send-contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          const j = await r.json().catch(() => null);
+          sentOk = r.ok && j?.sent === !0;
+        } catch (err) {
+          console.error("netlify contact email failed", err);
+        }
       }
       setEmailSent(sentOk);
       (s(EMPTY_FORM), Cmp_l(!0), o(!1));
