@@ -38,7 +38,7 @@ export function WallmarketPage() {
             </div>
             <div className="mt-5 flex flex-col gap-2 text-xs sm:flex-row sm:flex-wrap sm:gap-5" style={{ color: "var(--text-muted)" }}>
               <a href="mailto:comercial@rfwallmarket.com" className="inline-flex items-center gap-2 hover:text-gold"><Mail size={14} />comercial@rfwallmarket.com</a>
-              <a href="https://wa.me/5521997931473" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-gold"><MessageCircle size={14} />{content.heroWhatsapp}</a>
+              <a href="https://wa.me/5521997931473?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20RF%20Wallmarket." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-gold"><MessageCircle size={14} />{content.heroWhatsapp}</a>
             </div>
           </div>
           <div className="relative min-w-0">
