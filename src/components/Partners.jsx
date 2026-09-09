@@ -36,7 +36,7 @@ export const partners = [
       name: "Sansil Led | Iluminação Led",
     },
     {
-      name: "Stone | Pagamentos e Gestão",
+      name: "Stone",
     },
     {
       name: "RF Wallmarket | Lojas Autônomas 24h",
