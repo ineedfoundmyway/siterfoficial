@@ -84,7 +84,7 @@ export function Navbar({
             type="button"
             variant="ghost"
             onClick={() => {
-              if (currentPage === "offshore") onNavigateOffshore();
+              onNavigateOffshore();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             className="h-auto min-w-0 justify-start px-0 hover:bg-transparent"

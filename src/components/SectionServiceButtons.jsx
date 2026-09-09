@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export function SectionServiceButtons({ sections, label, onOpenServices }) {
   const [targets, setTargets] = React.useState([]);
+  const sectionKey = sections.map(({ id }) => id).join("|");
 
   React.useEffect(() => {
     setTargets(
@@ -11,7 +12,7 @@ export function SectionServiceButtons({ sections, label, onOpenServices }) {
         .map(({ id }) => document.getElementById(id))
         .filter(Boolean),
     );
-  }, [sections]);
+  }, [sectionKey]);
 
   return targets.map((target) =>
     createPortal(
@@ -19,7 +20,8 @@ export function SectionServiceButtons({ sections, label, onOpenServices }) {
         <Button
           type="button"
           onClick={onOpenServices}
-          className="h-10 rounded-full bg-gold px-5 text-xs font-bold text-primary-foreground shadow-lg hover:bg-gold/90 sm:h-11 sm:px-6 sm:text-sm"
+          className="h-10 rounded-full bg-gold px-5 text-xs font-bold shadow-lg hover:bg-gold/90 sm:h-11 sm:px-6 sm:text-sm"
+          style={{ color: "var(--navy-950)" }}
           aria-label={label}
         >
           {label}
