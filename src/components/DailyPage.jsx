@@ -1,4 +1,4 @@
-import { ChevronDown, Package, Wrench } from "lucide-react";
+import { Package, Wrench } from "lucide-react";
 import { ContactSection } from "@/components/ContactSection";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/lib/useReveal";
@@ -10,14 +10,7 @@ export function DailyPage() {
     n = useReveal(0.05),
     s = useReveal(0.1),
     i = useReveal(),
-    o = useReveal(0.05),
-    a = (Cmp_l) => {
-      const u = document.querySelector(Cmp_l);
-      u &&
-        u.scrollIntoView({
-          behavior: "smooth",
-        });
-    };
+    o = useReveal(0.05);
   return (
     <div>
       <section
@@ -101,18 +94,6 @@ export function DailyPage() {
               {e.heroSubtitle}
             </p>
           </div>
-        </div>
-        <div className="relative z-20 flex justify-center pb-6 pt-2">
-          <button
-            onClick={() => a("#diario-servicos")}
-            className="hover:text-[#f0c040] transition-colors animate-bounce"
-            style={{
-              color: "rgba(255,255,255,0.6)",
-            }}
-            aria-label="Scroll down"
-          >
-            <ChevronDown size={32} />
-          </button>
         </div>
       </section>
       <section

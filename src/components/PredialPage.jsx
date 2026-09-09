@@ -1,4 +1,4 @@
-import { Award, ChevronDown, Cpu, Factory, FileCheck, Home, Network, Phone, Shield, Wind } from "lucide-react";
+import { Award, Cpu, Factory, FileCheck, Home, Network, Phone, Shield, Wind } from "lucide-react";
 import { ContactSection } from "@/components/ContactSection";
 import { IndustrialGallery } from "@/components/IndustrialGallery";
 import { useLang } from "@/lib/i18n";
@@ -20,14 +20,7 @@ export function PredialPage({ onNavigateOffshore: t }) {
     n = useReveal(),
     s = useReveal(0.08),
     i = useReveal(),
-    o = useReveal(0.05),
-    a = (Cmp_l) => {
-      const u = document.querySelector(Cmp_l);
-      u &&
-        u.scrollIntoView({
-          behavior: "smooth",
-        });
-    };
+    o = useReveal(0.05);
   return (
     <div>
       <section
@@ -135,17 +128,6 @@ export function PredialPage({ onNavigateOffshore: t }) {
             </div>
             <div className="mt-8" />
           </div>
-        </div>
-        <div className="relative z-20 flex justify-center pb-6 pt-2">
-          <button
-            onClick={() => a("#predial-servicos")}
-            className="hover:text-[#f0c040] transition-colors animate-bounce"
-            style={{
-              color: "rgba(255,255,255,0.6)",
-            }}
-          >
-            <ChevronDown size={32} />
-          </button>
         </div>
       </section>
       <section

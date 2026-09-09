@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowRight, Building2, CheckCircle, ClipboardCheck, Mail, MessageCircle, Settings, Store } from "lucide-react";
+import { ArrowRight, Building2, CheckCircle, ClipboardCheck, Mail, MessageCircle, Settings, Store } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/lib/useReveal";
 import { openWhatsapp } from "@/lib/whatsapp";
@@ -48,14 +48,6 @@ export function WallmarketPage() {
             </div>
           </div>
         </div>
-        <button
-          type="button"
-          onClick={scrollToAbout}
-          className="absolute bottom-5 left-1/2 z-20 flex h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full border border-gold text-gold animate-bounce"
-          aria-label={content.scrollLabel}
-        >
-          <ArrowDown size={22} />
-        </button>
       </section>
 
        <section id="wallmarket-sobre" className="relative py-16 sm:py-24" style={{ background: "var(--bg-base)" }}>
