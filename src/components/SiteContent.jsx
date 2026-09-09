@@ -104,7 +104,11 @@ export function SiteContent() {
 
   return (
     <div className="min-h-screen" style={{ background: "var(--bg-base)" }}>
-      <SectionNav sections={sections[page]} />
+      <SectionNav
+        sections={sections[page]}
+        onOpenServices={() => setServicesOpen(true)}
+        onNavigateOffshore={toOffshore}
+      />
       <Navbar
         onNavigateOffshore={toOffshore}
         onNavigateWallmarket={toWallmarket}
