@@ -97,7 +97,9 @@ export function Navbar({
               }}
             >
               {"RF "}
-              <span style={{ color: "var(--gold-400)" }}>{"Soluções"}</span>
+              <span style={{ color: "var(--gold-400)" }}>
+                {currentPage === "wallmarket" ? "WALLMARKET" : "Soluções"}
+              </span>
             </span>
           </Button>
 
