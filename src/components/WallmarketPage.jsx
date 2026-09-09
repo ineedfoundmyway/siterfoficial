@@ -1,6 +1,7 @@
 import { ArrowDown, ArrowRight, Building2, CheckCircle, ClipboardCheck, Mail, MessageCircle, Settings, Store } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/lib/useReveal";
+import { openWhatsapp } from "@/lib/whatsapp";
 
 export function WallmarketPage() {
   const { t } = useLang();
@@ -38,7 +39,7 @@ export function WallmarketPage() {
             </div>
             <div className="mt-5 flex flex-col gap-2 text-xs sm:flex-row sm:flex-wrap sm:gap-5" style={{ color: "var(--text-muted)" }}>
               <a href="mailto:comercial@rfwallmarket.com" className="inline-flex items-center gap-2 hover:text-gold"><Mail size={14} />comercial@rfwallmarket.com</a>
-              <a href="https://wa.me/5521997931473?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20RF%20Wallmarket." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-gold"><MessageCircle size={14} />{content.heroWhatsapp}</a>
+              <button type="button" onClick={() => openWhatsapp("Olá! Quero saber mais sobre a RF Wallmarket.")} className="inline-flex items-center gap-2 hover:text-gold"><MessageCircle size={14} />{content.heroWhatsapp}</button>
             </div>
           </div>
           <div className="relative min-w-0">

@@ -1,8 +1,8 @@
 import React from "react";
 import { Fragment } from "react";
-import { Compass, X } from "lucide-react";
+import { Compass, Home, LayoutGrid, X } from "lucide-react";
 
-export function SectionNav({ sections: t }) {
+export function SectionNav({ sections: t, onOpenServices, onNavigateOffshore }) {
   const [quickOpen, setQuickOpen] = React.useState(false);
   var u;
   const [e, r] = React.useState(((u = t[0]) == null ? void 0 : u.id) ?? ""),
@@ -117,6 +117,32 @@ export function SectionNav({ sections: t }) {
                 </button>
               </li>
             ))}
+            <li style={{ borderTop: "1px solid rgba(212,170,48,0.25)" }}>
+              <button
+                onClick={() => {
+                  setQuickOpen(false);
+                  onOpenServices?.();
+                }}
+                className="flex w-full items-center gap-2 px-4 py-3 text-left text-sm font-bold transition-colors hover:bg-[rgba(240,192,64,0.12)]"
+                style={{ color: "#f0c040" }}
+              >
+                <LayoutGrid size={15} />
+                {"Todos os Serviços"}
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => {
+                  setQuickOpen(false);
+                  onNavigateOffshore?.();
+                }}
+                className="flex w-full items-center gap-2 px-4 py-3 text-left text-sm font-semibold transition-colors hover:bg-[rgba(240,192,64,0.12)]"
+                style={{ color: "rgba(255,255,255,0.82)" }}
+              >
+                <Home size={15} />
+                {"Página Inicial"}
+              </button>
+            </li>
           </ul>
         )}
         <button
