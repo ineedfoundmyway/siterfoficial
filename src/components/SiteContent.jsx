@@ -9,7 +9,6 @@ import { Navbar } from "@/components/Navbar";
 import { Partners } from "@/components/Partners";
 import { PredialPage } from "@/components/PredialPage";
 import { SectionNav } from "@/components/SectionNav";
-import { SectionServiceButtons } from "@/components/SectionServiceButtons";
 import { ServicesDialog } from "@/components/ServicesDialog";
 import { ServicesOffshore } from "@/components/ServicesOffshore";
 import { WallmarketPage } from "@/components/WallmarketPage";
@@ -136,11 +135,6 @@ export function SiteContent() {
       ) : (
         <WallmarketPage />
       )}
-      <SectionServiceButtons
-        sections={sections[page]}
-        label={t.nav.backHome ?? "Ver outros serviços"}
-        onOpenServices={() => setServicesOpen(true)}
-      />
       <Footer currentPage={page} onNavigateOffshore={toOffshore} />
     </div>
   );
