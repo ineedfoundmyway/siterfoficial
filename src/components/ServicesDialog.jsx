@@ -1,5 +1,5 @@
 import React from "react";
-import { Building2, Cpu, Ship, Wrench, X } from "lucide-react";
+import { Building2, Ship, Store, Wrench, X } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 
 export function ServicesDialog({
@@ -8,7 +8,7 @@ export function ServicesDialog({
   onNavigateOffshore,
   onNavigatePredial,
   onNavigateDaily,
-  onNavigateTech,
+  onNavigateWallmarket,
 }) {
   const { t } = useLang();
 
@@ -45,10 +45,10 @@ export function ServicesDialog({
       action: onNavigateDaily,
     },
     {
-      icon: Cpu,
-      title: t.nav.tech,
+      icon: Store,
+      title: t.nav.wallmarket,
       desc: t.servicesBox.tech,
-      action: onNavigateTech,
+      action: onNavigateWallmarket,
     },
   ];
 
@@ -61,7 +61,7 @@ export function ServicesDialog({
       aria-modal="true"
     >
       <div
-        className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-2xl border p-5 sm:p-8"
+        className="relative w-full max-w-3xl max-h-[85svh] overflow-y-auto rounded-2xl border p-5 sm:p-8"
         style={{
           background: "var(--bg-card)",
           borderColor: "rgba(212,170,48,0.45)",
@@ -98,7 +98,7 @@ export function ServicesDialog({
               key={title}
               onClick={() => {
                 onClose();
-                action();
+                action?.();
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
               className="group flex min-w-0 items-start gap-3 rounded-xl border p-4 text-left transition-all hover:-translate-y-0.5"

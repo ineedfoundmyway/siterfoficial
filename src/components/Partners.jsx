@@ -20,7 +20,10 @@ export const partners = [
       bg: "#00A868",
       cover: true,
     },
-
+    {
+      src: "/logo-rf-wallmarket-transparent.webp",
+      bg: "#050d1a",
+    },
   ],
   Mm = [
     {
@@ -34,6 +37,9 @@ export const partners = [
     },
     {
       name: "Stone | Pagamentos e Gestão",
+    },
+    {
+      name: "RF Wallmarket | Lojas Autônomas 24h",
     },
   ];
 export function Partners() {

@@ -35,6 +35,10 @@ export function ContactSection({ sectionId: t = "contato" }) {
         d(r.formTermsError);
         return;
       }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(n.email.trim())) {
+        d(r.formEmailError || "Informe um e-mail válido.");
+        return;
+      }
       (o(!0), d(""));
       const { error: j } = await supabase.from("contact_requests").insert({
         name: n.name.trim(),
@@ -301,7 +305,7 @@ export function ContactSection({ sectionId: t = "contato" }) {
                 }}
               >
                 <img
-                  src="/logo-rf.svg"
+                  src="/logo-rf.png"
                   alt="RF Soluções"
                   className="h-14 w-auto shrink-0"
                   loading="lazy"

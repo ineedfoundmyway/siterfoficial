@@ -56,7 +56,7 @@ export function DailyPage() {
                 }}
               >
                 <img
-                  src="/logo-rf.svg"
+                  src="/logo-rf.png"
                   alt="RF Soluções"
                   className="h-24 sm:h-52 md:h-60 w-auto mx-auto drop-shadow-2xl"
                   loading="eager"

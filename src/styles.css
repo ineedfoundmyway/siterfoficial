@@ -65,6 +65,8 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-gold: var(--gold-400);
+  --color-gold-soft: var(--gold-soft);
 }
 
 :root {
@@ -150,7 +152,7 @@
 }
 
 /* ===== RF Soluções Offshore – design system (reconstructed) ===== */
-:root{--navy-950: #050d1a;--navy-900: #0a1628;--navy-800: #0d1f3c;--navy-700: #1a2f5e;--navy-600: #1e3a6e;--gold-400: #f0c040;--gold-500: #d4aa30;--gold-600: #c9a227;--bg-base: #050d1a;--bg-surface: #0a1628;--bg-card: rgba(13, 31, 60, .85);--bg-card-solid: #0d1f3c;--bg-inner: rgba(26, 47, 94, .5);--bg-overlay: rgba(5, 13, 26, .88);--text-primary: #ffffff;--text-secondary: #d1d5db;--text-muted: #9ca3af;--text-faint: #6b7280;--nav-bg-scrolled: rgba(5, 13, 26, .95);--nav-bg-mobile: rgba(5, 13, 26, .98);--nav-border: #1a2f5e;--nav-item-color: #e2e8f0;--card-border: rgba(212, 170, 48, .2);--card-border-hover: rgba(212, 170, 48, .5);--divider: rgba(255, 255, 255, .07);--section-overlay: rgba(5, 13, 26, .88);--hero-overlay-from: rgba(5, 13, 26, .8);--hero-overlay-via: rgba(10, 22, 40, .75);--hero-overlay-to: rgba(5, 13, 26, .9);--scrollbar-bg: #0a1628;--scrollbar-thumb: #1a2f5e}
+:root{--navy-950: #050d1a;--navy-900: #0a1628;--navy-800: #0d1f3c;--navy-700: #1a2f5e;--navy-600: #1e3a6e;--gold-400: #f0c040;--gold-500: #d4aa30;--gold-600: #c9a227;--gold-soft: rgba(212,170,48,.14);--bg-base: #050d1a;--bg-surface: #0a1628;--bg-card: rgba(13, 31, 60, .85);--bg-card-solid: #0d1f3c;--bg-inner: rgba(26, 47, 94, .5);--bg-overlay: rgba(5, 13, 26, .88);--text-primary: #ffffff;--text-secondary: #d1d5db;--text-muted: #9ca3af;--text-faint: #6b7280;--hero-text:#ffffff;--hero-text-muted:rgba(255,255,255,.85);--nav-bg-scrolled: rgba(5, 13, 26, .95);--nav-bg-mobile: rgba(5, 13, 26, .98);--nav-border: #1a2f5e;--nav-item-color: #e2e8f0;--card-border: rgba(212, 170, 48, .2);--card-border-hover: rgba(212, 170, 48, .5);--divider: rgba(255, 255, 255, .07);--section-overlay: rgba(5, 13, 26, .88);--hero-overlay-from: rgba(5, 13, 26, .8);--hero-overlay-via: rgba(10, 22, 40, .75);--hero-overlay-to: rgba(5, 13, 26, .9);--hero-overlay-wallmarket: linear-gradient(to bottom,rgba(5,13,26,.8),rgba(5,13,26,.7),rgba(5,13,26,.94));--scrollbar-bg: #0a1628;--scrollbar-thumb: #1a2f5e}
 html.light{--bg-base: #eef2f7;--bg-surface: #ffffff;--bg-card: rgba(255, 255, 255, .94);--bg-card-solid: #f8fafc;--bg-inner: rgba(212, 170, 48, .07);--bg-overlay: rgba(220, 232, 255, .8);--text-primary: #0f172a;--text-secondary: #334155;--text-muted: #64748b;--text-faint: #94a3b8;--nav-bg-scrolled: rgba(255, 255, 255, .97);--nav-bg-mobile: rgba(255, 255, 255, .99);--nav-border: rgba(212, 170, 48, .2);--nav-item-color: #1e293b;--card-border: rgba(180, 140, 20, .25);--card-border-hover: rgba(180, 140, 20, .55);--divider: rgba(15, 23, 42, .08);--section-overlay: rgba(220, 232, 255, .82);--hero-overlay-from: rgba(10, 22, 40, .68);--hero-overlay-via: rgba(10, 22, 40, .62);--hero-overlay-to: rgba(5, 13, 26, .76);--scrollbar-bg: #e2e8f0;--scrollbar-thumb: #94a3b8}
 *{scroll-behavior:smooth}
 body{font-family:Open Sans,sans-serif;background-color:var(--bg-base);color:var(--text-primary);overflow-x:hidden;transition:background-color .3s ease,color .3s ease}
@@ -216,9 +218,30 @@ to{transform:scaleX(1);opacity:1}
 /* --- performance & responsiveness --- */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{overflow-x:hidden;overscroll-behavior-y:none}
-img,svg,video{max-width:100%;height:auto}
+img,svg,video{max-width:100%}
 @media (max-width: 767px){
   .parallax-bg{background-attachment:scroll;background-position:center}
+}
+.wallmarket-hero{
+  background-color:var(--bg-base);
+  isolation:isolate;
+}
+.wallmarket-grid{
+  background-image:linear-gradient(color-mix(in oklab,var(--gold-400) 8%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in oklab,var(--gold-400) 8%,transparent) 1px,transparent 1px),radial-gradient(circle at 20% 15%,color-mix(in oklab,var(--navy-700) 55%,transparent),transparent 42%);
+  background-size:64px 64px,64px 64px,100% 100%;
+  mask-image:linear-gradient(to bottom,black,transparent 78%);
+}
+.service-picker-trigger{animation:service-picker-float 1.8s ease-in-out infinite;will-change:transform}
+.service-picker-arrow{transform:rotate(-90deg)}
+@keyframes service-picker-float{
+  0%,100%{transform:translate(-50%,0)}
+  50%{transform:translate(-50%,-8px)}
+}
+@media (min-width:640px){
+  @keyframes service-picker-float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-8px)}
+  }
 }
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
