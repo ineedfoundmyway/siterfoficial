@@ -166,8 +166,12 @@ html.light .text-\[\#f0c040\],html.light .text-gold{color:var(--gold-500)!import
 .section-bg-overlay:before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;background:var(--section-overlay);z-index:1;transition:background .3s ease}
 .section-bg-overlay>*{position:relative;z-index:2}
 .gold-divider{width:60px;height:3px;background:linear-gradient(90deg,var(--gold-600),var(--gold-400));border-radius:2px}
-.contact-input{width:100%;border:1px solid var(--card-border);border-radius:.5rem;background:var(--bg-inner);color:var(--text-primary);padding:.75rem .875rem;outline:none;transition:border-color .2s ease,box-shadow .2s ease,background-color .2s ease}
+.contact-input{width:100%;border:1px solid var(--card-border);border-radius:.75rem;background:var(--bg-inner);color:var(--text-primary);padding:.8rem 1rem;font-size:.9375rem;outline:none;transition:border-color .2s ease,box-shadow .2s ease,background-color .2s ease}
+.contact-input::placeholder{color:var(--text-faint)}
 .contact-input:focus{border-color:var(--gold-400);box-shadow:0 0 0 3px #f0c04024}
+.contact-label{display:block;margin-bottom:.5rem;font-size:.6875rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-secondary)}
+.contact-info-link{display:flex;align-items:center;gap:.75rem;font-size:.875rem;font-weight:600;text-align:left;color:var(--text-secondary);transition:color .2s ease}
+.contact-info-link:hover{color:#f0c040}
 @keyframes fadeInUp{0%{opacity:0;transform:translateY(30px)}
 to{opacity:1;transform:translateY(0)}
 }

@@ -72,7 +72,13 @@ export function SectionNav({ sections: t, onOpenServices, onNavigateOffshore }) 
             }));
         }
       );
-    }, [t]));
+    }, [t]),
+    React.useEffect(() => {
+      if (!e || typeof window === "undefined") return;
+      if (window.location.hash === `#${e}`) return;
+      const { pathname: p, search: q } = window.location;
+      window.history.replaceState(window.history.state, "", `${p}${q}#${e}`);
+    }, [e]));
   const Cmp_l = (d) => {
     const Cmp_h = document.getElementById(d);
     Cmp_h &&

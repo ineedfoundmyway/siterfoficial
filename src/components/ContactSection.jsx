@@ -1,9 +1,19 @@
 import React from "react";
-import { CheckCircle, Mail, Send } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+} from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { sendContactEmail } from "@/lib/contact.functions";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/lib/useReveal";
+import { openWhatsapp } from "@/lib/whatsapp";
 
 const EMPTY_FORM = {
     name: "",
@@ -101,7 +111,7 @@ export function ContactSection({ sectionId: t = "contato" }) {
             "linear-gradient(90deg, transparent, #d4aa30, transparent)",
         }}
       />
-      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           ref={Cmp_h.ref}
           className={`text-center mb-12 reveal ${Cmp_h.isVisible ? "in-view" : ""}`}
@@ -142,7 +152,7 @@ export function ContactSection({ sectionId: t = "contato" }) {
         </div>
         <div
           ref={f.ref}
-          className={`reveal-scale ${f.isVisible ? "in-view" : ""}`}
+          className={`reveal-scale ${f.isVisible ? "in-view" : ""} grid gap-8 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)] lg:items-start`}
         >
           <form
             onSubmit={y}
@@ -152,48 +162,9 @@ export function ContactSection({ sectionId: t = "contato" }) {
               borderColor: "var(--card-border)",
             }}
           >
-            <div className="flex items-start gap-4 mb-8">
-              <div
-                className="p-3 rounded-xl"
-                style={{
-                  background: "rgba(212,170,48,0.12)",
-                }}
-              >
-                <Mail
-                  size={24}
-                  style={{
-                    color: "#f0c040",
-                  }}
-                />
-              </div>
-              <div>
-                <h3
-                  className="text-xl font-bold"
-                  style={{
-                    fontFamily: "Montserrat, sans-serif",
-                    color: "var(--text-primary)",
-                  }}
-                >
-                  {r.formTitle}
-                </h3>
-                <p
-                  className="text-sm mt-1"
-                  style={{
-                    color: "var(--text-muted)",
-                  }}
-                >
-                  {r.formSubtitle}
-                </p>
-              </div>
-            </div>
             <div className="grid sm:grid-cols-2 gap-5">
               <label className="block">
-                <span
-                  className="block text-sm font-semibold mb-2"
-                  style={{
-                    color: "var(--text-secondary)",
-                  }}
-                >
+                <span className="contact-label">
                   {r.formName}
                   {" *"}
                 </span>
@@ -201,18 +172,14 @@ export function ContactSection({ sectionId: t = "contato" }) {
                   required={!0}
                   minLength={2}
                   maxLength={120}
+                  placeholder="Seu nome"
                   value={n.name}
                   onChange={(x) => v("name", x.target.value)}
                   className="contact-input"
                 />
               </label>
               <label className="block">
-                <span
-                  className="block text-sm font-semibold mb-2"
-                  style={{
-                    color: "var(--text-secondary)",
-                  }}
-                >
+                <span className="contact-label">
                   {r.formEmail}
                   {" *"}
                 </span>
@@ -220,18 +187,14 @@ export function ContactSection({ sectionId: t = "contato" }) {
                   required={!0}
                   type="email"
                   maxLength={320}
+                  placeholder="voce@empresa.com"
                   value={n.email}
                   onChange={(x) => v("email", x.target.value)}
                   className="contact-input"
                 />
               </label>
               <label className="block">
-                <span
-                  className="block text-sm font-semibold mb-2"
-                  style={{
-                    color: "var(--text-secondary)",
-                  }}
-                >
+                <span className="contact-label">
                   {r.formPhone}
                   {" *"}
                 </span>
@@ -240,34 +203,24 @@ export function ContactSection({ sectionId: t = "contato" }) {
                   type="tel"
                   minLength={7}
                   maxLength={30}
+                  placeholder="(21) 99999-0000"
                   value={n.phone}
                   onChange={(x) => v("phone", x.target.value)}
                   className="contact-input"
                 />
               </label>
               <label className="block">
-                <span
-                  className="block text-sm font-semibold mb-2"
-                  style={{
-                    color: "var(--text-secondary)",
-                  }}
-                >
-                  {r.formCompany}
-                </span>
+                <span className="contact-label">{r.formCompany}</span>
                 <input
                   maxLength={160}
+                  placeholder="Nome da empresa ou condomínio"
                   value={n.company}
                   onChange={(x) => v("company", x.target.value)}
                   className="contact-input"
                 />
               </label>
               <label className="block sm:col-span-2">
-                <span
-                  className="block text-sm font-semibold mb-2"
-                  style={{
-                    color: "var(--text-secondary)",
-                  }}
-                >
+                <span className="contact-label">
                   {r.formMessage}
                   {" *"}
                 </span>
@@ -276,6 +229,7 @@ export function ContactSection({ sectionId: t = "contato" }) {
                   minLength={10}
                   maxLength={4e3}
                   rows={5}
+                  placeholder="Conte o tipo de local, a necessidade e o objetivo da operação."
                   value={n.message}
                   onChange={(x) => v("message", x.target.value)}
                   className="contact-input resize-y"
@@ -350,22 +304,97 @@ export function ContactSection({ sectionId: t = "contato" }) {
               </div>
             )}
 
-            <div className="mt-7 flex flex-col sm:flex-row items-center justify-end gap-4">
-
+            <div className="mt-7 flex flex-col sm:flex-row items-center justify-start gap-4">
               <button
                 type="submit"
                 disabled={i}
-                className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-bold text-[#050d1a] transition-all duration-200 hover:brightness-110 active:scale-95 disabled:opacity-60 disabled:cursor-wait"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-3 rounded-full font-bold text-[#050d1a] transition-all duration-200 hover:brightness-110 active:scale-95 disabled:opacity-60 disabled:cursor-wait"
                 style={{
                   background: "linear-gradient(135deg, #d4aa30, #f0c040)",
                   fontFamily: "Montserrat, sans-serif",
                 }}
               >
-                <Send size={17} />
                 {i ? r.formSending : r.formButton}
+                <ArrowRight size={17} />
               </button>
             </div>
           </form>
+
+          <aside
+            className="p-6 sm:p-7 rounded-2xl border"
+            style={{
+              background: "var(--bg-card)",
+              borderColor: "var(--card-border)",
+            }}
+          >
+            <div className="flex items-start gap-3 mb-6">
+              <div className="p-2.5 rounded-xl" style={{ background: "rgba(212,170,48,0.12)" }}>
+                <Mail size={20} style={{ color: "#f0c040" }} />
+              </div>
+              <div>
+                <h3
+                  className="text-lg font-bold"
+                  style={{ fontFamily: "Montserrat, sans-serif", color: "var(--text-primary)" }}
+                >
+                  {r.formTitle}
+                </h3>
+                <p className="text-sm mt-1" style={{ color: "var(--text-muted)" }}>
+                  {r.formSubtitle}
+                </p>
+              </div>
+            </div>
+            <ul className="space-y-4">
+              <li>
+                <a href="tel:+5521997931473" className="contact-info-link">
+                  <Phone size={17} className="shrink-0" style={{ color: "#f0c040" }} />
+                  {"(21) 99793-1473"}
+                </a>
+              </li>
+              <li>
+                <a href="mailto:suportetec@offshore.com" className="contact-info-link break-all">
+                  <Mail size={17} className="shrink-0" style={{ color: "#f0c040" }} />
+                  {"suportetec@offshore.com"}
+                </a>
+              </li>
+              <li>
+                <button type="button" onClick={() => openWhatsapp()} className="contact-info-link">
+                  <MessageCircle size={17} className="shrink-0" style={{ color: "#f0c040" }} />
+                  {"Falar no WhatsApp"}
+                </button>
+              </li>
+              <li>
+                <span
+                  className="flex items-center gap-3 text-sm"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  <MapPin size={17} className="shrink-0" style={{ color: "#f0c040" }} />
+                  {"Sede no Rio de Janeiro."}
+                </span>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/rfsolu%C3%A7oes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-info-link"
+                >
+                  <Linkedin size={17} className="shrink-0" style={{ color: "#f0c040" }} />
+                  {"LinkedIn"}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/electralrf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-info-link"
+                >
+                  <Instagram size={17} className="shrink-0" style={{ color: "#f0c040" }} />
+                  {"Instagram"}
+                </a>
+              </li>
+            </ul>
+          </aside>
         </div>
       </div>
     </section>
