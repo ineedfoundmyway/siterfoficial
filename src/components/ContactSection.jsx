@@ -1,9 +1,19 @@
 import React from "react";
-import { CheckCircle, Mail, Send } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+} from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { sendContactEmail } from "@/lib/contact.functions";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/lib/useReveal";
+import { openWhatsapp } from "@/lib/whatsapp";
 
 const EMPTY_FORM = {
     name: "",
